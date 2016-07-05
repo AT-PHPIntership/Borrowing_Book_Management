@@ -12,6 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $table = 'users';
+
     protected $fillable = [
         'username', 'password', 'fullname', 'gender', 'birthday', 'phone', 'address', 'created_at', 'updated_at', 'image'
     ];
@@ -24,4 +25,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function borrow () {
+        return $this->hasMany('App/Borrow');
+    }
 }

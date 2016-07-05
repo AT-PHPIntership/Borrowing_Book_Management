@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class BookItem extends Model
 {
     protected $table = 'book_items';
+
     protected $fillable = ['book_id', 'created_at', 'updated_at'];
+
+    public function book () {
+        return $this->belongsTo('App/Book', 'book_id');
+    }
+
+    public function borrowDetail () {
+        return $this->hasMany('App/BorrowDetail');
+    }
 }
