@@ -14,15 +14,18 @@ class AdminUser extends Model
         'password'
     ];
 
-    public function cate () {
+    public function cate()
+    {
         return $this->hasMany('App/Category');
     }
 
-    public function borrow () {
+    public function borrow()
+    {
         return $this->hasMany('App/Borrow');
     }
 
-    public function book () {
+    public function book()
+    {
         return $this->hasMany('App/Book');
     }
 }

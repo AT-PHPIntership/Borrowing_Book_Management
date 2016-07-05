@@ -10,11 +10,13 @@ class Category extends Model
 
     protected $fillable = ['admin_user_id', 'name', 'created_at', 'updated_at'];
 
-    public function adminUser () {
+    public function adminUser()
+    {
         return $this->belongsTo('App/AdminUser', 'admin_user_id');
     }
 
-    public function book () {
+    public function book()
+    {
         return $this->hasMany('App/Book');
     }
 }

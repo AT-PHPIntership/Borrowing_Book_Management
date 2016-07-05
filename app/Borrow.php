@@ -10,15 +10,18 @@ class Borrow extends Model
 
     protected $fillable = ['user_id', 'admin_user_id', 'quantity', 'expiretime', 'created_at', 'updated_at'];
 
-    public function user () {
+    public function user()
+    {
         return $this->belongsTo('App/User', 'user_id');
     }
 
-    public function adminUser () {
+    public function adminUser()
+    {
         return $this->belongsTo('App/AdminUser', 'admin_user_id');
     }
 
-    public function borrowDetail () {
+    public function borrowDetail()
+    {
         return $this->hasMany('App/BorrowDetail');
     }
 }

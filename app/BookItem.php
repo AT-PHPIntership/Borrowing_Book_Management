@@ -10,11 +10,15 @@ class BookItem extends Model
 
     protected $fillable = ['book_id', 'created_at', 'updated_at'];
 
-    public function book () {
+    // The book that belong to the bookItem
+    public function book()
+    {
         return $this->belongsTo('App/Book', 'book_id');
     }
 
-    public function borrowDetail () {
+    // The borrowDetail hasMany the bookItem
+    public function borrowDetail() 
+    {
         return $this->hasMany('App/BorrowDetail');
     }
 }

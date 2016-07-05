@@ -10,11 +10,11 @@ class BorrowDetail extends Model
 
     protected $fillable = ['borrow_id', 'book_item_id', 'status', 'start_at', 'expiretime'];
 
-    public function borrow () {
+    public function borrow() {
         return $this->belongsTo('App/Borrow', 'borrow_id');
     }
 
-    public function bookItem () {
+    public function bookItem() {
         return $this->belongsTo('App/BookItem', 'book_item_id');
     }
 }
