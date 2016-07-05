@@ -13,10 +13,10 @@ class CreateBorrowDetailsTable extends Migration
     public function up()
     {
         Schema::create('borrow_details', function (Blueprint $table) {
-            $table->increments('id',10);
-            $table->integer('borrow_id',10)->unsigned();
+            $table->increments('id');
+            $table->integer('borrow_id')->unsigned();
             $table->foreign('borrow_id')->references('id')->on('borrows')->onDelete('cascade');
-            $table->integer('book_item_id',10)->unsigned();
+            $table->integer('book_item_id')->unsigned();
             $table->foreign('book_item_id')->references('id')->on('borrows')->onDelete('cascade');
             $table->string('status',45);
             $table->date('start_at');

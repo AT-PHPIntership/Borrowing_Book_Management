@@ -13,10 +13,10 @@ class CreateBorrowsTable extends Migration
     public function up()
     {
         Schema::create('borrows', function (Blueprint $table) {
-            $table->increments('id',10);
-            $table->integer('user_id',10)->unsigned();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('admin_user_id',10)->unsigned();
+            $table->integer('admin_user_id')->unsigned();
             $table->foreign('admin_user_id')->references('id')->on('admin_users')->onDelete('cascade');
             $table->integer('quantity')->default(0);
             $table->timestamps();
