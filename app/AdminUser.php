@@ -24,7 +24,7 @@ class AdminUser extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function category()
+    public function categories()
     {
         return $this->hasMany('App/Category');
     }
@@ -34,7 +34,7 @@ class AdminUser extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function borrow()
+    public function borrows()
     {
         return $this->hasMany('App/Borrow');
     }
@@ -44,7 +44,7 @@ class AdminUser extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function book()
+    public function books()
     {
         return $this->hasMany('App/Book');
     }
