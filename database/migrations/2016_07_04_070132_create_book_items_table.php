@@ -13,11 +13,9 @@ class CreateBookItemsTable extends Migration
     public function up()
     {
         Schema::create('book_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('book_id')->unsigned();
+            $table->increments('id',10);
+            $table->integer('book_id',10)->unsigned();
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->integer('admin_user_id')->unsigned();
-            $table->foreign('admin_user_id')->references('id')->on('admin_users')->onDelete('cascade');
             $table->timestamps();
         });
     }
