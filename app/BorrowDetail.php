@@ -13,12 +13,12 @@ class BorrowDetail extends Model
      */
     protected $table = 'borrow_details';
 
-    protected $fillable = ['borrow_id', 'book_item_id', 'status', 'start_at', 'expiretime'];
+    protected $fillable = ['borrow_id', 'book_item_id', 'status', 'expiretime'];
 
     /**
      * Get the borrow that owns the BorrowDetail.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function borrow()
     {
@@ -28,7 +28,7 @@ class BorrowDetail extends Model
     /**
      * Get the bookItem that owns the BorrowDetail.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function bookItem()
     {

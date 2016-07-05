@@ -13,7 +13,7 @@ class Category extends Model
      */
     protected $table = 'categories';
 
-    protected $fillable = ['admin_user_id', 'name', 'created_at', 'updated_at'];
+    protected $fillable = ['admin_user_id', 'name'];
 
     /**
      * Get the adminUser that owns the Category.

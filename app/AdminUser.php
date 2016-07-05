@@ -13,7 +13,7 @@ class AdminUser extends Model
      */
     protected $table = 'admin_users';
 
-    protected $fillable = ['username', 'password', 'fullname', 'created_at', 'updated_at'];
+    protected $fillable = ['username', 'password', 'fullname'];
 
     protected $hidden = [
         'password'

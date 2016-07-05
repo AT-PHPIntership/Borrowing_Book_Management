@@ -13,7 +13,7 @@ class Book extends Model
      */
     protected $table = 'books';
 
-    protected $fillable = ['name', 'category_id', 'admin_user_id', 'author', 'quantity', 'image', 'publish_year', 'number_of_page', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'category_id', 'admin_user_id', 'author', 'quantity', 'image', 'publish_year', 'number_of_page'];
     
     /**
      * Get the cate that owns the book .
