@@ -31,7 +31,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function borrow()
+    public function borrows()
     {
         return $this->hasMany('App/Borrow');
     }

@@ -20,7 +20,7 @@ class Book extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function cate()
+    public function category()
     {
         return $this->belongsTo('App/Category', 'category_id');
     }
@@ -40,7 +40,7 @@ class Book extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bookItem()
+    public function bookItems()
     {
         return $this->hasMany('App/BookItem');
     }

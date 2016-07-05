@@ -24,7 +24,7 @@ class AdminUser extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function cate()
+    public function category()
     {
         return $this->hasMany('App/Category');
     }

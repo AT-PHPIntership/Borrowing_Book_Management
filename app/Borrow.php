@@ -40,7 +40,7 @@ class Borrow extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function borrowDetail()
+    public function borrowDetails()
     {
         return $this->hasMany('App/BorrowDetail');
     }
