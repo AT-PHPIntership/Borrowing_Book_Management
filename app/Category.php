@@ -18,7 +18,7 @@ class Category extends Model
     /**
      * Get the adminUser that owns the Category.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function adminUser()
     {
@@ -27,7 +27,7 @@ class Category extends Model
     /**
      * Get book from Category.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function book()
     {

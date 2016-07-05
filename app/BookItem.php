@@ -18,7 +18,7 @@ class BookItem extends Model
     /**
      * Get the book that owns the BookItem.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function book()
     {
@@ -28,7 +28,7 @@ class BookItem extends Model
     /**
      * Get the borrowDetail from BookItem.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function borrowDetail()
     {

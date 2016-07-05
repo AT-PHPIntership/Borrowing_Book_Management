@@ -18,7 +18,7 @@ class Borrow extends Model
     /**
      * Get the user that owns the Borrow.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
@@ -28,7 +28,7 @@ class Borrow extends Model
     /**
      * Get the adminUser that owns the Borrow.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function adminUser()
     {
@@ -38,7 +38,7 @@ class Borrow extends Model
     /**
      * Get borrowDetail from Borrow.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function borrowDetail()
     {

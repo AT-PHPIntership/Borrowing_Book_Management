@@ -18,7 +18,7 @@ class Book extends Model
     /**
      * Get the cate that owns the book .
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function cate()
     {
@@ -28,7 +28,7 @@ class Book extends Model
     /**
      * Get the adminUser that owns the book.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function adminUser()
     {
@@ -38,7 +38,7 @@ class Book extends Model
     /**
      * Get all bookItem for book.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function bookItem()
     {

@@ -29,7 +29,7 @@ class User extends Authenticatable
     /**
      * Get borrow from User.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function borrow()
     {

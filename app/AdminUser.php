@@ -22,7 +22,7 @@ class AdminUser extends Model
     /**
      * Get all category for AdminUser .
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function cate()
     {
@@ -32,7 +32,7 @@ class AdminUser extends Model
     /**
      * Get all borrow for AdminUser.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function borrow()
     {
@@ -42,7 +42,7 @@ class AdminUser extends Model
     /**
      * Get all book for AdminUser.
      *
-     * @return array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function book()
     {
