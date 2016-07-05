@@ -26,6 +26,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Get borrow from User.
+     *
+     * @return array
+     */
     public function borrow()
     {
         return $this->hasMany('App/Borrow');
