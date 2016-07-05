@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdminUser extends Model
 {
-  protected $table = 'admin_users';
-  protected $fillable = ['username', 'password', 'fullname', 'created_at', 'updated_at'];
-  protected $hidden = [
-    'password'
-  ];
+    protected $table = 'admin_users';
+    protected $fillable = ['username', 'password', 'fullname', 'created_at', 'updated_at'];
+    protected $hidden = [
+        'password'
+    ];
 }
