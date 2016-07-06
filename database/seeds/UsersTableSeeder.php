@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 3; $i++){
+        for($i = 0; $i < 10; $i++){
         	DB::table('users')->insert([
         		'username'        => $faker-> username,
         		'password'        => bcrypt('456789'),
