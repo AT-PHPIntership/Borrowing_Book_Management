@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class BookDetailsTableSeeder extends Seeder
+class BorrowDetailsTableSeader extends Seeder
 {
     /**
      * Run the database seeds.
