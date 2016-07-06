@@ -19,12 +19,6 @@ class AdminUsersTableSeeder extends Seeder
         		'password'        => bcrypt('123456'),
         		'fullname'        => $faker-> name,
         		'created_at'      => Carbon\Carbon::now()
-
-
-
-
-
-
         	]);
         }
     }
