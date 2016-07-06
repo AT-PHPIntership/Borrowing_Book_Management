@@ -11,8 +11,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'password', 'fullname', 'gender', 'birthday', 'phone', 'address', 'image'
     ];
 
     /**
@@ -23,4 +25,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get borrow from User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function borrows()
+    {
+        return $this->hasMany('App/Borrow');
+    }
 }
