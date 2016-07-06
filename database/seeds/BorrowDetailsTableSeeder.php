@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Borrow;
+use App\BorrowDetail;
+
 
 class BorrowDetailsTableSeeder extends Seeder
 {
@@ -13,14 +16,18 @@ class BorrowDetailsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 50; $i++){
-            DB::table('borrow_details')->insert([
-                'borrow_id'       => rand(1,10),
-                'book_item_id'    => rand(1,100),
-                'status'          => rand(0,1),
-                'expiretime'      => $faker->date,
-                'created_at'      => Carbon\Carbon::now(),              
-            ]);
+        $borrows = Borrow::all();
+
+        foreach ($borrows as $borrow) {
+            for($i = 0; $i < 5; $i++){
+                BorrowDetail::insert([
+                    'borrow_id'       => $borrow->id,
+                    'book_item_id'    => rand(1,10),
+                    'status'          => rand(0,1),
+                    'expiretime'      => $faker->date,
+                    'created_at'      => Carbon\Carbon::now()           
+                ]);
+            }
         }
     }
 }
