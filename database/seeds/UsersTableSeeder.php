@@ -11,9 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        
-=======
         $faker = Faker\Factory::create();
 
         for($i = 0; $i < 3; $i++){
@@ -29,6 +26,5 @@ class UsersTableSeeder extends Seeder
         		'created_at'      => Carbon\Carbon::now()
         	]);
         }
->>>>>>> bc9780ccebb96e18d07ee8cfe3fa2b422f05610b
     }
 }
