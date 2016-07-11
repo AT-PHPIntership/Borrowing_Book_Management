@@ -15,9 +15,10 @@ class UsersTableSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++){
         	DB::table('users')->insert([
-        		'username'        => $faker-> username,
+        		'username'        => $faker-> username,  
         		'password'        => bcrypt('456789'),
-        		'fullname'        => $faker-> name,
+                        'admin_user_id'   => rand(1,10),
+         		'fullname'        => $faker-> name,
         		'birthday'        => $faker-> date,
         		'phone'           => $faker-> phonenumber,
         		'address'         => $faker-> address,
