@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.main');
+});
+Route::get('/Contact', function () {
+    return view('pages.contact');
+});
+Route::get('/User', function () {
+    return view('pages.user');
+});
+Route::get('/Profile', function () {
+    return view('pages.profile');
+});
+Route::get('/BorrowList', function () {
+    return view('pages.borrowlist');
+});
+Route::get('/Changepass', function () {
+    return view('pages.changepass');
 });
