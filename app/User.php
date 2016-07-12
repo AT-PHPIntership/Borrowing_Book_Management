@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'username', 'password', 'fullname', 'gender', 'birthday', 'phone', 'address', 'image'
+        'username', 'password', 'admin_user_id', 'fullname', 'gender', 'birthday', 'phone', 'address', 'image'
     ];
 
     /**
@@ -34,5 +34,15 @@ class User extends Authenticatable
     public function borrows()
     {
         return $this->hasMany('App/Borrow');
+    }
+
+    /**
+     * Get the adminUser that owns the User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function adminUser()
+    {
+        return $this->belongsTo('App/AdminUser', 'admin_user_id');
     }
 }
