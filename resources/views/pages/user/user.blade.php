@@ -3,7 +3,7 @@
 @section('title', 'Borrow Book')
 
 @section('navbar')
-  @include('partials._navbar')
+  @include('partials.user._navbar')
 @endsection
 
 @section('content')
