@@ -48,4 +48,14 @@ class AdminUser extends Model
     {
         return $this->hasMany('App/Book');
     }
+
+    /**
+     * Get all user for AdminUser.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany('App/User');
+    }
 }

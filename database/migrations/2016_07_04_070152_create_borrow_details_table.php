@@ -19,7 +19,6 @@ class CreateBorrowDetailsTable extends Migration
             $table->integer('book_item_id')->unsigned();
             $table->foreign('book_item_id')->references('id')->on('borrows')->onDelete('cascade');
             $table->string('status',45);
-            $table->date('start_at');
             $table->date('expiretime');
             $table->timestamps();
         });
