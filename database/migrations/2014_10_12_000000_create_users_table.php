@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('username',100)->unique();
             $table->string('fullname',100);
             $table->string('password',100);
+            $table->integer('admin_user_id')->unsigned();
+            $table->foreign('admin_user_id')->references('id')->on('admin_users')->onDelete('cascade');
             $table->enum('gender', ['male', 'female', 'unisex'])->default('unisex');
             $table->date('birthday')->nullable();
             $table->string('phone',11)->nullable();
