@@ -18,7 +18,7 @@ class BookItemsTableSeeder extends Seeder
         foreach ($books as $book) {
             for($i = 1; $i <= 5; $i++){
                 DB::table('book_items')->insert([
-                    'book_id' => $book->id,
+                    'book_id'    => $book->id,
                     'created_at' => Carbon\Carbon::now(),
                     'updated_at' => Carbon\Carbon::now()
                 ]);
