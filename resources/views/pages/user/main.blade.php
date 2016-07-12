@@ -4,12 +4,12 @@
 
 @section('navbar')
  <!-- Navigation -->
-    @include('partials._nav')
+    @include('partials.user._nav')
 @endsection
 
 @section('model_hidden')
 <!-- log in -->
-        @include('partials._login')
+        @include('partials.user._login')
 @endsection
 
 @section('content')

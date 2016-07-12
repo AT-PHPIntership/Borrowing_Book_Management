@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 
 @section('navbar')
-  @include('partials._navuser')
+  @include('partials.user._navuser')
 @endsection
 
 @section('model_hidden')

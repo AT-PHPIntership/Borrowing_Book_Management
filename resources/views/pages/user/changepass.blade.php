@@ -3,7 +3,7 @@
 @section('title', 'Change Password')
 
 @section('navbar')
-  @include('partials._navuser')
+  @include('partials.user._navuser')
 @endsection
 
 @section('content')
