@@ -15,8 +15,7 @@
         @yield('content')
     </div>
     <!-- /.container -->
-    <div class="container">
-        <hr>
+    <div class="col-lg-12" style="padding:0px;">
         <!-- Footer -->
         @include('partials._footer')
     </div>

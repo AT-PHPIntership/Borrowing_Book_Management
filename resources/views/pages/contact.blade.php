@@ -3,7 +3,7 @@
 @section('title', 'Contact us')
 
 @section('navbar')
-   @include('partials._nav')
+   @include('partials._navbar')
 @endsection
 
 @section('model_hidden')

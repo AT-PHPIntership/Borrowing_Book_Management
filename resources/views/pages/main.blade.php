@@ -4,7 +4,7 @@
 
 @section('navbar')
  <!-- Navigation -->
-    @include('partials._nav')
+    @include('partials._navbar')
 @endsection
 
 @section('model_hidden')
