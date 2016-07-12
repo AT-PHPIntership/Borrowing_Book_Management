@@ -12,20 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('pages.main');
+    return view('pages.user.main');
 });
 Route::get('/Contact', function () {
-    return view('pages.contact');
+    return view('pages.user.contact');
 });
 Route::get('/User', function () {
-    return view('pages.user');
+    return view('pages.user.user');
 });
 Route::get('/Profile', function () {
-    return view('pages.profile');
+    return view('pages.user.profile');
 });
 Route::get('/BorrowList', function () {
-    return view('pages.borrowlist');
+    return view('pages.user.borrowlist');
 });
 Route::get('/Changepass', function () {
-    return view('pages.changepass');
+    return view('pages.user.changepass');
 });

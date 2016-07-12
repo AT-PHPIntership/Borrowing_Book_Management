@@ -3,17 +3,11 @@
 @section('title', 'Borrow Book')
 
 @section('navbar')
- <!-- Navigation -->
-    @include('partials._navbar')
-@endsection
-
-@section('model_hidden')
-<!-- log in -->
-        @include('partials._login')
+  @include('partials.user._navbar')
 @endsection
 
 @section('content')
-        <div class="row">
+<div class="row">
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
