@@ -26,7 +26,7 @@ class AdminUser extends Model
      */
     public function categories()
     {
-        return $this->hasMany('App/Category');
+        return $this->hasMany('App\Category');
     }
 
     /**
@@ -36,7 +36,7 @@ class AdminUser extends Model
      */
     public function borrows()
     {
-        return $this->hasMany('App/Borrow');
+        return $this->hasMany('App\Borrow');
     }
 
     /**
@@ -46,7 +46,7 @@ class AdminUser extends Model
      */
     public function books()
     {
-        return $this->hasMany('App/Book');
+        return $this->hasMany('App\Book');
     }
 
     /**
@@ -56,6 +56,6 @@ class AdminUser extends Model
      */
     public function users()
     {
-        return $this->hasMany('App/User');
+        return $this->hasMany('App\User');
     }
 }
