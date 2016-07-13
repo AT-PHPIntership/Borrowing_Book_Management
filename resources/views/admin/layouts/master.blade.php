@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('partial.admin._header')
+    @include('admin.layouts.partials._header')
 </head>
 <body>
     <div id="wrapper">
 
         <!-- Navigation -->
-        @include('partial.admin._nav')
+        @include('admin.layouts.partials._navbar')
 
         <div id="page-wrapper">
             <div class="container-fluid">
-            @yield('content')
+                @yield('content')
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -21,6 +21,6 @@
     <!-- /#wrapper -->
 
     <!-- COMBINE BOOTSTRAP AND JQUERY JS -->
-    @include('partial.admin._javascript')
+    @include('admin.layouts.partials._javascript')
 </body>
 </html>

@@ -1,5 +1,4 @@
-<!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -112,43 +111,6 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="/Admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/Createaccount"><i class="fa fa-fw fa-edit"></i> Create Account</a>
-                    </li>
-                    <li>
-                        <a href="/Manageuser"><i class="fa fa-fw fa-table"></i> Manage User</a>
-                    </li>                   
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> Manage Book <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="book" class="collapse">
-                            <li>
-                                <a href="/Category">Category</a>
-                            </li>
-                            <li>
-                                <a href="/Book">Book</a>
-                            </li>
-                        </ul>
-                    </li> 
-                    <li>
-                        <a href="/Historyborrow"><i class="fa fa-fw fa-wrench"></i> History Borrow</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#borrow"><i class="fa fa-fw fa-arrows-v"></i> Borrowing <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="borrow" class="collapse">
-                            <li>
-                                <a href="/Createborrow">Create</a>
-                            </li>
-                            <li>
-                                <a href="/Turnbackborrow">Turn back</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            @include('admin.layouts.partials._sidebar')
             <!-- /.navbar-collapse -->
         </nav>

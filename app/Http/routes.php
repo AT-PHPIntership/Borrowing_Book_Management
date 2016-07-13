@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('mainadmin');
+    return view('admin.layouts.master');
 });
