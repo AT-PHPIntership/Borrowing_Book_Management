@@ -13,7 +13,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.ManageBook') !!} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="book" class="collapse">
                             <li>
-                                <a href="#">{!! trans('labels.Category') !!}</a>
+                                <a href="{{url('category')}}">{!! trans('labels.Category') !!}</a>
                             </li>
                             <li>
                                 <a href="#">{!! trans('labels.Book') !!}</a>
