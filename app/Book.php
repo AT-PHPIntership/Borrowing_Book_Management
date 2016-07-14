@@ -13,7 +13,8 @@ class Book extends Model
      */
     protected $table = 'books';
 
-    protected $fillable = ['name', 'category_id', 'admin_user_id', 'author', 'quantity', 'image', 'publish_year', 'number_of_page'];
+    protected $fillable = ['name', 'category_id', 'admin_user_id', 'author',
+     'quantity', 'image', 'publish_year', 'number_of_page'];
     
     /**
      * Get the cate that owns the book .
@@ -22,7 +23,7 @@ class Book extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App/Category', 'category_id');
+        return $this->belongsTo('App\Category', 'category_id');
     }
 
     /**
@@ -32,7 +33,7 @@ class Book extends Model
      */
     public function adminUser()
     {
-        return $this->belongsTo('App/AdminUser', 'admin_user_id');
+        return $this->belongsTo('App\AdminUser', 'admin_user_id');
     }
 
     /**
@@ -42,6 +43,6 @@ class Book extends Model
      */
     public function bookItems()
     {
-        return $this->hasMany('App/BookItem');
+        return $this->hasMany('App\BookItem');
     }
 }

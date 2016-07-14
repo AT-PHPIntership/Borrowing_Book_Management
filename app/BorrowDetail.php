@@ -22,7 +22,7 @@ class BorrowDetail extends Model
      */
     public function borrow()
     {
-        return $this->belongsTo('App/Borrow', 'borrow_id');
+        return $this->belongsTo('App\Borrow', 'borrow_id');
     }
 
     /**
@@ -32,6 +32,6 @@ class BorrowDetail extends Model
      */
     public function bookItem()
     {
-        return $this->belongsTo('App/BookItem', 'book_item_id');
+        return $this->belongsTo('App\BookItem', 'book_item_id');
     }
 }
