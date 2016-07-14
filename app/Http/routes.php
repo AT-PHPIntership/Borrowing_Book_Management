@@ -14,4 +14,4 @@
 Route::get('/', function () {
     return view('admin.layouts.master');
 });
-Route::get('/book','BooksController@index');
+Route::resource('book', 'BooksController');

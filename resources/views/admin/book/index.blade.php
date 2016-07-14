@@ -48,6 +48,7 @@
                             <table class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
+                                        <th class="text-center">STT</th>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Category</th>
                                         <th class="text-center">Author</th>
@@ -58,19 +59,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	@foreach($list as $item)
+                                    <?php $i = 5 * ($list->currentPage()-1)+1; ?>
+                                    @foreach($list as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $i++ }}</td>
+                                        <td><a href="{{url('book/'.$item->id.'/edit')}}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <td>{{ $item->publish_year }}</td>
+                                        <!-- <td>{{ $item->publish_year }}</td> -->
+                                        <th>{{ date('d/m/Y', strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
-                                        <td><a href="/Showbook" class="btn btn-success">View</a> <a href="/Editbook" class="btn btn-primary">Edit</a> <a href="" class="btn btn-danger">Delete</a></td>
+                                        <td> <a href="/Editbook"><i class="fa fa-pencil fa-fw"></i></a> 
+                                             <a href=""><i class="fa fa-times-circle fa-fw"></i></a>
+                                             <a href=""><i class="fa fa-wrench fa-fw"></i></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="pagination pull-right">
+                                {!! $list->render();!!}
+                            </div>
                         </div>
                     </div>    
                 </div>

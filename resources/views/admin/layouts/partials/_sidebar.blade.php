@@ -16,7 +16,7 @@
                                 <a href="#">Category</a>
                             </li>
                             <li>
-                                <a href="/book">Book</a>
+                                <a href="{{url('/book')}}">Book</a>
                             </li>
                         </ul>
                     </li> 
