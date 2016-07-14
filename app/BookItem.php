@@ -22,7 +22,7 @@ class BookItem extends Model
      */
     public function book()
     {
-        return $this->belongsTo('App/Book', 'book_id');
+        return $this->belongsTo('App\Book', 'book_id');
     }
 
     /**
@@ -32,6 +32,6 @@ class BookItem extends Model
      */
     public function borrowDetails()
     {
-        return $this->hasMany('App/BorrowDetail');
+        return $this->hasMany('App\BorrowDetail');
     }
 }

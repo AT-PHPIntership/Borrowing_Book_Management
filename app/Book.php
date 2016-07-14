@@ -22,7 +22,7 @@ class Book extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App/Category', 'category_id');
+        return $this->belongsTo('App\Category', 'category_id');
     }
 
     /**
@@ -32,7 +32,7 @@ class Book extends Model
      */
     public function adminUser()
     {
-        return $this->belongsTo('App/AdminUser', 'admin_user_id');
+        return $this->belongsTo('App\AdminUser', 'admin_user_id');
     }
 
     /**
@@ -42,6 +42,6 @@ class Book extends Model
      */
     public function bookItems()
     {
-        return $this->hasMany('App/BookItem');
+        return $this->hasMany('App\BookItem');
     }
 }
