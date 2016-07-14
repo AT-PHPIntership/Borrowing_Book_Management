@@ -16,7 +16,7 @@
                                 <a href="#">Category</a>
                             </li>
                             <li>
-                                <a href="#">Book</a>
+                                <a href="/book">Book</a>
                             </li>
                         </ul>
                     </li> 
