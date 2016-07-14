@@ -59,9 +59,4 @@ class AdminUser extends Authenticatable
     {
         return $this->hasMany('App\User');
     }
-
-    public function getname()
-    {
-        return $this->username ?: $this->fullname;
-    }
 }
