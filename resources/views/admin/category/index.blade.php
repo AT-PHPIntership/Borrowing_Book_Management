@@ -45,7 +45,7 @@
                         </div>
                         <br>                       
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover text-center">
+                            <table class="table table-bordered table-hover text-center" id="myTable">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Name</th>
@@ -64,9 +64,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination pull-right">
-                                    {{ $categories->render() }}
-                            </div>
                         </div>
                     </div>
                         

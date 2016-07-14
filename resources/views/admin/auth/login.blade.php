@@ -42,6 +42,6 @@
     </div><!-- container -->
     <script src="backend/js/login.js"></script>
 </body>
-</html>html
+</html>
 
 
