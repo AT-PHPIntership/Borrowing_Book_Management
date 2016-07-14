@@ -13,7 +13,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> Manage Book <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="book" class="collapse">
                             <li>
-                                <a href="#">Category</a>
+                                <a href="{{url('category')}}">Category</a>
                             </li>
                             <li>
                                 <a href="#">Book</a>
