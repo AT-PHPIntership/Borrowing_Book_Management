@@ -28,4 +28,9 @@ return [
     'Borrowing' => 'Borrowing',
     'Create' => 'Create',
     'Turnback' => 'Turn back',
+    'CategoryTable' => 'Category Table',
+    'CreateCategory' => 'Create Category',
+    'Name' => 'Name',
+    'CreatedBy' => 'Created By',
+    'More' => 'More',
 ];
