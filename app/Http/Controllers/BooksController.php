@@ -33,8 +33,6 @@ class BooksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *
-     *
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -44,8 +42,6 @@ class BooksController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,8 +53,6 @@ class BooksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     *
-     *
      * @return \Illuminate\Http\Response
      */
     public function edit()
@@ -69,8 +63,6 @@ class BooksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     *
-     *
      * @return \Illuminate\Http\Response
      */
     public function update()
@@ -80,8 +72,6 @@ class BooksController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     *
      *
      * @return \Illuminate\Http\Response
      */
