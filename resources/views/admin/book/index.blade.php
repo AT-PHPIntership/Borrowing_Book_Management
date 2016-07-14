@@ -45,10 +45,9 @@
                         </div>
                         <br>
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover text-center">
+                            <table id="myTable" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">STT</th>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Category</th>
                                         <th class="text-center">Author</th>
@@ -59,10 +58,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 5 * ($list->currentPage()-1)+1; ?>
                                     @foreach($list as $item)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
                                         <td><a href="{{url('book/'.$item->id.'/edit')}}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
@@ -77,9 +74,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination pull-right">
-                                {!! $list->render();!!}
-                            </div>
+                            
                         </div>
                     </div>    
                 </div>
