@@ -29,5 +29,3 @@ return [
     'Create' => 'Create',
     'Turnback' => 'Turn back',
 ];
-
-?>
