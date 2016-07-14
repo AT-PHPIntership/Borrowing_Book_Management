@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand " href="index.html" id="colorlogo">Borrowing Book Admin</a>
+                <a class="navbar-brand " href="index.html" id="colorlogo">{!! trans('labels.titleadmin') !!}</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -95,17 +95,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="coloruseradmin"><i class="fa fa-user"></i> {{ Auth::guard('admin')->user()->username }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> {!! trans('labels.profileadmin') !!}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> {!! trans('labels.inboxadmin') !!}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> {!! trans('labels.settingadmin') !!}</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="{{ route('admin.logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="{{ route('admin.logout') }}"><i class="fa fa-fw fa-power-off"></i> {!! trans('labels.logout') !!}</a>
                         </li>
                     </ul>
                 </li>
