@@ -17,6 +17,14 @@ body {
     }
 }
 
+#colorlogo{
+    color:green;
+}
+
+#coloruseradmin{
+    color: #1abc9c;
+}
+
 #wrapper {
     padding-left: 0;
 }
