@@ -15,19 +15,22 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     // Combine scripts
   mix.scripts([ 
-      'vendors/jquery/dist/jquery.min.js',
-      'vendors/bootstrap/dist/js/bootstrap.min.js'
+      'gentelella/vendors/jquery/dist/jquery.min.js',
+      'gentelella/vendors/bootstrap/dist/js/bootstrap.min.js',
+      'datatables.net/js/jquery.dataTables.min.js'
     ],
     'public/backend/js/vendor.js',
-    'vendor/bower_dl/gentelella'
+    'vendor/bower_dl'
   );
 
   // Compile css
   mix.styles([
-  	  'vendors/bootstrap/dist/css/bootstrap.min.css',
-  	  'vendors/font-awesome/css/font-awesome.min.css'  
+  	  'gentelella/vendors/bootstrap/dist/css/bootstrap.min.css',
+  	  'gentelella/vendors/font-awesome/css/font-awesome.min.css',
+      'datatables.net-dt/css/jquery.dataTables.min.css',
+      'datatables.net-responsive-dt/css/responsive.dataTables.min.css'  
   ], 
     'public/backend/css/vendor.css',
-    'vendor/bower_dl/gentelella'
+    'vendor/bower_dl'
   );
 });
