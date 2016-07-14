@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class AdminUser extends Model
+class AdminUser extends Authenticatable
 {
     /**
      * The attributes that are mass assignable.
@@ -47,5 +48,19 @@ class AdminUser extends Model
     public function books()
     {
         return $this->hasMany('App/Book');
+    }
+
+    /**
+     * Get all user for AdminUser.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany('App/User');
+    }
+
+    public function getname(){
+        return $this->username ?: $this->fullname;
     }
 }

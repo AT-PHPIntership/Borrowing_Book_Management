@@ -24,6 +24,7 @@ class Category extends Model
     {
         return $this->belongsTo('App/AdminUser', 'admin_user_id');
     }
+    
     /**
      * Get book from Category.
      *
