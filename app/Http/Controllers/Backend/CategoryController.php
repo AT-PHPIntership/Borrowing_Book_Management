@@ -34,11 +34,9 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request input
-     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -46,11 +44,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id Show category has this id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -58,11 +54,9 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id Edit category has this id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -70,12 +64,9 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request input
-     * @param int                      $id      Update category has this id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
         //
     }
@@ -83,11 +74,9 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id Delete category has this id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
     }
