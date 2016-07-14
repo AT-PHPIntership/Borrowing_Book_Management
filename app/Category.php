@@ -22,7 +22,7 @@ class Category extends Model
      */
     public function adminUser()
     {
-        return $this->belongsTo('App/AdminUser', 'admin_user_id');
+        return $this->belongsTo('App\AdminUser', 'admin_user_id');
     }
     
     /**
@@ -32,6 +32,6 @@ class Category extends Model
      */
     public function books()
     {
-        return $this->hasMany('App/Book');
+        return $this->hasMany('App\Book');
     }
 }

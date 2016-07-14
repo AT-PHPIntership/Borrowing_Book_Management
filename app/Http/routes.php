@@ -15,3 +15,7 @@ Route::get('/', function () {
     return view('admin.layouts.master');
 });
 Route::resource('book', 'BooksController');
+Route::get('/login', ['as' => 'admin.login', 'uses' => 'Backend\AuthController@getlogin']);
+Route::post('/login', ['uses' => 'Backend\AuthController@postlogin']);
+Route::get('/logout', ['as' => 'admin.logout', 'uses' => 'Backend\AuthController@logout']);
+Route::get('/', ['as' => 'home.admin', 'uses' => 'Backend\HomeController@index', 'middleware' => 'auth:admin']);

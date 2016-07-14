@@ -22,7 +22,7 @@ class Borrow extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App/User', 'user_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**
@@ -32,7 +32,7 @@ class Borrow extends Model
      */
     public function adminUser()
     {
-        return $this->belongsTo('App/AdminUser', 'admin_user_id');
+        return $this->belongsTo('App\AdminUser', 'admin_user_id');
     }
 
     /**
@@ -42,6 +42,6 @@ class Borrow extends Model
      */
     public function borrowDetails()
     {
-        return $this->hasMany('App/BorrowDetail');
+        return $this->hasMany('App\BorrowDetail');
     }
 }
