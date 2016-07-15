@@ -18,7 +18,7 @@ return [
     'name' => 'Name',
     'created_by' => 'Created By',
     'more' => 'More',
-    'no' => 'No',
+    'no' => 'No.',
     'title_page_category' => 'Manage Category',
     'dashboard' => 'Dashboard',
     'category' => 'Category'

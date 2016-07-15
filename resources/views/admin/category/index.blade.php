@@ -11,7 +11,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i> <a href="{{url('/')}}">{{trans('labels.dashboard')}}</a>
+                                <i class="fa fa-dashboard"></i> <a href="{{route('home.admin')}}">{{trans('labels.dashboard')}}</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> {{trans('category_manage_lang.category')}}
@@ -24,7 +24,7 @@
                     <div class="col col-md-12">
                         <h1 class="text-center">{{trans('category_manage_lang.category_table')}}</h1>
                          <div class="text-right">    
-                    <a href="{{url('category/create')}}" class="btn btn-lg btn-danger">{{trans('category_manage_lang.create_category')}}</a>
+                    <a href="{{route('admin.category.create')}}" class="btn btn-lg btn-danger">{{trans('category_manage_lang.create_category')}}</a>
                         </div>
                         <br>                       
                         <div class="table-responsive">
@@ -38,13 +38,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i=1; ?>
+                                    <?php $index=1; ?>
                                     @foreach($categories as $category)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $index++ }}</td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->adminUser->fullname}}</td>
-                                        <td><a href="{{url('category/'.$category->id.'/edit')}}"><i class="fa fa-pencil fa-2x"></i></a>
+                                        <td><a href=""><i class="fa fa-pencil fa-2x"></i></a>
                                             <a href=""><i class="fa fa-times-circle fa-2x"></i></a>                                   
                                     </tr>
                                     @endforeach
