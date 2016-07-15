@@ -33,7 +33,7 @@ class User extends Authenticatable
      */
     public function borrows()
     {
-        return $this->hasMany('App/Borrow');
+        return $this->hasMany('App\Borrow');
     }
 
     /**
@@ -43,6 +43,6 @@ class User extends Authenticatable
      */
     public function adminUser()
     {
-        return $this->belongsTo('App/AdminUser', 'admin_user_id');
+        return $this->belongsTo('App\AdminUser', 'admin_user_id');
     }
 }
