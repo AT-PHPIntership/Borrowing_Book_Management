@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'title_home' => 'Borrowing Book',
     'title_admin' => 'Borrowing Book Admin',
     'logout' => 'Log Out',
     'setting_admin' => 'Settings',
