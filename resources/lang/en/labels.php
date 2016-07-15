@@ -27,5 +27,5 @@ return [
     'HistoryBorrow' => 'History Borrow',
     'Borrowing' => 'Borrowing',
     'Create' => 'Create',
-    'Turnback' => 'Turn back',
+    'Turnback' => 'Turn back'
 ];
