@@ -1,4 +1,4 @@
 $(document).ready(function(){
-  var frmId = $('table').attr('id');
-  $('#' + frmId).DataTable();
+  $('#list_users').DataTable();
+  $('#list_books').DataTable();
 });

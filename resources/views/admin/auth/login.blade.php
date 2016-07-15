@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Admin</title>
+    <title>{{trans('labels.login_admin')}}</title>
     <link href="{{ url('backend/css/login.css')}}" rel="stylesheet">
 </head>
 <body>

@@ -28,4 +28,5 @@ return [
     'borrowing' => 'Borrowing',
     'create' => 'Create',
     'turn_back' => 'Turn back',
+    'login_admin' => 'Admin Login'
 ];

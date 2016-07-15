@@ -38,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $index=1 ?>
+                    <?php $index=1; ?>
                     @foreach($users as $user)
                     <tr>
                         <td>{!! $index++ !!}</td>

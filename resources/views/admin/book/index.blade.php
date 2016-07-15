@@ -30,7 +30,7 @@
                         </div>
                         <br>
                         <div class="table-responsive">
-                            <table id="myTable" class="display text-center">
+                            <table id="list_books" class="display text-center">
                                 <thead>
                                     <tr>
                                         <th class="text-center">{!!trans('book_manage_lang.no' )!!}</th>
