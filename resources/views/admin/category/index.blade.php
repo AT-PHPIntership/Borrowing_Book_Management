@@ -11,7 +11,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i> <a href="{{url('/')}}">{{trans('category_manage_lang.dashboard')}}</a>
+                                <i class="fa fa-dashboard"></i> <a href="{{url('/')}}">{{trans('labels.dashboard')}}</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> {{trans('category_manage_lang.category')}}
