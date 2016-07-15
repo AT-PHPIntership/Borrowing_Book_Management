@@ -28,7 +28,7 @@
                         </div>
                         <br>                       
                         <div class="table-responsive">
-                            <table class="display text-center" id="myTable">
+                            <table class="display text-center" id="list_categories">
                                 <thead>
                                     <tr>
                                         <th class="text-center">{{trans('category_manage_lang.no')}}</th>

@@ -21,5 +21,5 @@ return [
     'no' => 'No.',
     'title_page_category' => 'Manage Category',
     'dashboard' => 'Dashboard',
-    'category' => 'Category'
+    'category' => 'Category List'
 ];
