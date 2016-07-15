@@ -16,7 +16,9 @@
                                 <a href="#">{!! trans('labels.Category') !!}</a>
                             </li>
                             <li>
-                                <a href="#">{!! trans('labels.Book') !!}</a>
+
+                                <a href="{{url('/book')}}">{!! trans('labels.Book') !!}</a>
+
                             </li>
                         </ul>
                     </li> 
