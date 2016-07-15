@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Manage Book')
+@section('title', trans('book_manage_lang.title'))
 
 @section('content')
 <!-- Page Heading -->
