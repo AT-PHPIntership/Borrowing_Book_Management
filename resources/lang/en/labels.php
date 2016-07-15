@@ -27,10 +27,5 @@ return [
     'HistoryBorrow' => 'History Borrow',
     'Borrowing' => 'Borrowing',
     'Create' => 'Create',
-    'Turnback' => 'Turn back',
-    'CategoryTable' => 'Category Table',
-    'CreateCategory' => 'Create Category',
-    'Name' => 'Name',
-    'CreatedBy' => 'Created By',
-    'More' => 'More',
+    'Turnback' => 'Turn back'
 ];
