@@ -7,11 +7,7 @@
                         <a href="#"><i class="fa fa-fw fa-edit"></i> {!! trans('labels.createaccount') !!}</a>
                     </li>
                     <li>
-<<<<<<< HEAD
-                        <a href="{!! URL('/user') !!}"><i class="fa fa-fw fa-table"></i> Manage User</a>
-=======
-                        <a href="#"><i class="fa fa-fw fa-table"></i> {!! trans('labels.ManageUser') !!}</a>
->>>>>>> 30ab2d291e8354fa850181609c4f8843a76a7b23
+                        <a href="{!! URL('/user') !!}"><i class="fa fa-fw fa-table"></i> {!! trans('labels.ManageUser') !!}</a>
                     </li>                   
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.ManageBook') !!} <i class="fa fa-fw fa-caret-down"></i></a>
