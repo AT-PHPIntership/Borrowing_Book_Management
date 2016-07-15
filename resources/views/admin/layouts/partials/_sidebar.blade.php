@@ -7,7 +7,7 @@
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Create Account</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Manage User</a>
+                        <a href="{!! URL('/user') !!}"><i class="fa fa-fw fa-table"></i> Manage User</a>
                     </li>                   
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> Manage Book <i class="fa fa-fw fa-caret-down"></i></a>
