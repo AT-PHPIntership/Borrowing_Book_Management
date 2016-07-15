@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.layouts.master');
+Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
+    //login
+    Route::get('/login', ['as' => 'admin.login', 'uses' => 'AuthController@getlogin']);
+    Route::post('/login', ['uses' => 'AuthController@postlogin']);
+    Route::get('/logout', ['as' => 'admin.logout', 'uses' => 'AuthController@logout']);
+    
+    Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
+        //user
+        Route::resource('user', 'UserController');
+        //book
+        Route::resource('book', 'BookController');
+    });
 });
-Route::resource('category', 'Backend\CategoryController');
-Route::resource('book', 'Backend\BookController');
-Route::get('/login', ['as' => 'admin.login', 'uses' => 'Backend\AuthController@getlogin']);
-Route::post('/login', ['uses' => 'Backend\AuthController@postlogin']);
-Route::get('/logout', ['as' => 'admin.logout', 'uses' => 'Backend\AuthController@logout']);
-Route::get('/', ['as' => 'home.admin', 'uses' => 'Backend\HomeController@index', 'middleware' => 'auth:admin']);
+
