@@ -7,7 +7,7 @@
                         <a href="#"><i class="fa fa-fw fa-edit"></i> {!! trans('labels.createaccount') !!}</a>
                     </li>
                     <li>
-                        <a href="{!! URL('/user') !!}"><i class="fa fa-fw fa-table"></i> {!! trans('labels.ManageUser') !!}</a>
+                        <a href="{!! route('admin.user.index') !!}"><i class="fa fa-fw fa-table"></i> {!! trans('labels.ManageUser') !!}</a>
                     </li>                   
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#book"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.ManageBook') !!} <i class="fa fa-fw fa-caret-down"></i></a>
@@ -17,7 +17,7 @@
                             </li>
                             <li>
 
-                                <a href="{{url('/book')}}">{!! trans('labels.Book') !!}</a>
+                                <a href="{!! route('admin.book.index') !!}">{!! trans('labels.Book') !!}</a>
 
                             </li>
                         </ul>

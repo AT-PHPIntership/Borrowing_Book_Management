@@ -2,7 +2,7 @@
 
 return [
 
-    'no' => 'NO',
+    'no' => 'No',
     'full_name' => 'Full Name',
     'birthday' => 'Birthday',
     'gender' => 'Gender',

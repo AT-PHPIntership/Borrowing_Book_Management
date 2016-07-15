@@ -11,7 +11,8 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="{!! URL('/') !!}">{!! trans('labels.Dashboard') !!}</a>
+                <i class="fa fa-dashboard"></i>
+                <a href="{!! URL('/') !!}">{!! trans('labels.Dashboard') !!}</a>
             </li>
             <li class="active">
                 <i class="fa fa-table"></i> {!! trans('user.manage_user') !!}
@@ -24,7 +25,7 @@
 <div class="row">
     <div class="col col-md-12">
         <div class="table-responsive">
-            <table id="myTable" class="text-center display" cellspacing="0" width="100%">
+            <table id="list_users" class="text-center display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th class="text-center">{!! trans('user.no') !!}</th>
@@ -37,10 +38,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1 ?>
+                    <?php $index=1 ?>
                     @foreach($users as $user)
                     <tr>
-                        <td>{!! $i++ !!}</td>
+                        <td>{!! $index++ !!}</td>
                         <td><a href="#">{!! $user->fullname !!}</a></td>
                         <td>{!! $user->birthday !!}</td>
                         <td>{!! $user->gender !!}</td>

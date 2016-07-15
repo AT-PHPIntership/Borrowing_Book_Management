@@ -11,7 +11,8 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                                <i class="fa fa-dashboard"></i>
+                                <a href="index.html">{!!trans('book_manage_lang.dashboard' )!!} </a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> {!!trans('book_manage_lang.book_list' )!!} 
@@ -23,10 +24,9 @@
 
                 <div class="row">
                     <div class="col col-md-12">
-
                         <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2>
                         <div class="text-right">    
-                    <a href="/Createbook" class="btn btn-lg btn-primary">{!!trans('book_manage_lang.create_book' )!!}</a>
+                            <a href="/Createbook" class="btn btn-lg btn-primary">{!!trans('book_manage_lang.create_book' )!!}</a>
                         </div>
                         <br>
                         <div class="table-responsive">
