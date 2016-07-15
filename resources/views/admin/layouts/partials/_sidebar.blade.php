@@ -17,13 +17,13 @@
                             </li>
                             <li>
 
-                                <a href="{{url('/book')}}">{!! trans('labels.Book') !!}</a>
+                                <a href="{{url('/book')}}">{!! trans('labels.book') !!}</a>
 
                             </li>
                         </ul>
                     </li> 
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-wrench"></i> {!! trans('labels.history_borrow') !!}</a>
+                        <a href="#"><i class="fa fa-file-text-o"></i> {!! trans('labels.history_borrow') !!}</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#borrow"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.borrowing') !!} <i class="fa fa-fw fa-caret-down"></i></a>
