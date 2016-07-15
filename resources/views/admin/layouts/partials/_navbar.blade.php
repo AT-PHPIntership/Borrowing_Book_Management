@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand " href="index.html" id="colorlogo">{!! trans('labels.titleadmin') !!}</a>
+                <a class="navbar-brand " href="index.html" id="colorlogo">{!! trans('labels.title_admin') !!}</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -95,13 +95,13 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="coloruseradmin"><i class="fa fa-user"></i> {{ Auth::guard('admin')->user()->username }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> {!! trans('labels.profileadmin') !!}</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> {!! trans('labels.profile_admin') !!}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> {!! trans('labels.inboxadmin') !!}</a>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> {!! trans('labels.inbox_admin') !!}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> {!! trans('labels.settingadmin') !!}</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> {!! trans('labels.setting_admin') !!}</a>
                         </li>
                         <li class="divider"></li>
                         <li>
