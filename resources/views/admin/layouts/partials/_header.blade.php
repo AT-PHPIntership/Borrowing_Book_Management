@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@yield('title')</title>
+    <title>{!! trans('labels.title_home') !!} @yield('title')</title>
     <!-- COMBINE BOOTSTRAP AND FONT-AWERSOME CSS -->
     <link href="backend/css/vendor.css" rel="stylesheet">
     <!-- Custom CSS -->
