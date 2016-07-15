@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Admin</title>
-    <link href="backend/css/login.css" rel="stylesheet">
+    <title>{{trans('labels.login_admin')}}</title>
+    <link href="{{ url('backend/css/login.css')}}" rel="stylesheet">
 </head>
 <body>
     <div class="container" style="margin-top:200px;">
@@ -40,7 +40,7 @@
         </form><!-- form -->
     </section><!-- content -->
     </div><!-- container -->
-    <script src="backend/js/login.js"></script>
+    <script src="{{ url('backend/js/login.js') }}"></script>
 </body>
 </html>
 
