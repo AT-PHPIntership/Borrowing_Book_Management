@@ -12,7 +12,7 @@
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a href="{!! URL('/') !!}">{!! trans('labels.Dashboard') !!}</a>
+                <a href="{!! route('home.admin') !!}">{!! trans('labels.dashboard') !!}</a>
             </li>
             <li class="active">
                 <i class="fa fa-table"></i> {!! trans('user.manage_user') !!}
