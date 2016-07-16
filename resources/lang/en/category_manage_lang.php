@@ -19,7 +19,8 @@ return [
     'created_by' => 'Created By',
     'more' => 'More',
     'no' => 'No.',
-    'title_page_category' => 'Manage Category',
+    'title' => 'Manage Category',
     'dashboard' => 'Dashboard',
-    'category' => 'Category List'
+    'category' => 'Category List',
+    'manage_category' => 'Manage Category'
 ];

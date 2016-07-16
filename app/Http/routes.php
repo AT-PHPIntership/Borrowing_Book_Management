@@ -27,4 +27,3 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('category', 'CategoryController');
     });
 });
-
