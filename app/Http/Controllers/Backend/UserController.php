@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -36,9 +36,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(UserController $request)
     {
-        //
+        $user = User::create($request->all());
+        return redirect('admin.users');
     }
 
     /**
