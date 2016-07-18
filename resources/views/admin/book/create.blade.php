@@ -25,43 +25,41 @@
                     </div>
                 </div>
                 <!-- /.row -->
-            <form>
+            
+                {!! Form::open(array('route' => 'admin.book.store','files' => true)) !!}
                 <div class="form-group">
-                    <label for="name">{!!trans('book_manage_lang.name')!!}</label>
-                    <input id="name" type="text" class="form-control" name="name">
+                    {!! Form::label('name',trans('book_manage_lang.name')) !!}
+                    {!! Form::text('name',null, array('class' => 'form-control', 'id' => 'name')) !!}
+
                 </div>
                 <div class="form-group">
-                    <label for="category">{!!trans('book_manage_lang.category')!!}</label>
-                    <select id="category" name="category" class="form-control">
-                        <option value="">----------Choose-----------</option>
-                        @foreach($categories as $category)
-                            <option value="{!! $category->id !!}">{!! $category->name !!}</option>
-                        @endforeach
-                    </select>
+                    {!! Form::label('category',trans('book_manage_lang.category')) !!}
+                    {!! Form::select('category_id', $categories,null, array('class' => 'form-control', 'id' => 'category')) !!}
+                    
                 </div>
                 <div class="form-group">
-                    <label for="author">{!!trans('book_manage_lang.author')!!}</label>
-                    <input id="author" type="text" class="form-control" name="author">
+                    {!! Form::label('author',trans('book_manage_lang.author')) !!}
+                    {!! Form::text('author',null, array('class' => 'form-control', 'id' => 'author')) !!}
                 </div>
                 <div class="form-group">
-                    <label for="publishyear">{!!trans('book_manage_lang.publish_year')!!}</label>
-                    <input id="publishyear" type="text" class="form-control" name="publish year">
+                    {!! Form::label('publishyear',trans('book_manage_lang.publish_year')) !!}
+                    {!! Form::text('publish_year',null, array('class' => 'form-control', 'id' => 'publishyear')) !!}
                 </div>
                 <div class="form-group">
-                    <label for="numberpage">{!!trans('book_manage_lang.number_of_page')!!}</label>
-                    <input id="numberpage" type="text" class="form-control" name="numberpage" placeholder="Number page">
+                    {!! Form::label('numberpage',trans('book_manage_lang.number_of_page')) !!}
+                    {!! Form::text('number_of_page',null, array('class' => 'form-control', 'id' => 'numberpage')) !!}
                 </div>
                 <div class="form-group">
-                    <label for="quantity">{!!trans('book_manage_lang.quantity')!!}</label>
-                    <input id="quantity" type="text" class="form-control" name="quantity" placeholder="Quanity">
+                    {!! Form::label('quantity',trans('book_manage_lang.quantity')) !!}
+                    {!! Form::text('quantity',null, array('class' => 'form-control', 'id' => 'quantity')) !!}
                 </div>
                 <div class="form-group">
-                    <label for="image">{!!trans('book_manage_lang.choose_image')!!}</label>
-                    <input type="file" id="image" name="image">
-                        <p class="help-block">Example block-level help text here.</p>
+                    {!! Form::label('image',trans('book_manage_lang.choose_image')) !!}
+                    {{ Form::file('image',null, array('class' => 'form-control', 'id' => 'image')) }}
                 </div>
-                    <button type="submit" class="btn btn-default">{!!trans('book_manage_lang.submit' )!!}</button>
-            </form>
+                     {!! Form::submit(trans('book_manage_lang.submit'), ['class' =>'btn btn-primary'])!!}
+                {!! Form::close() !!}
+            
                 
                 <!-- /.row -->
 @endsection
