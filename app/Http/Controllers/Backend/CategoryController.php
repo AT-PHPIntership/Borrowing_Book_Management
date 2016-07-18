@@ -6,21 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Book;
 use App\Category;
-use App\AdminUser;
 
-class BookController extends Controller
+class CategoryController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $list= Book::all();
-        return view('admin.book.index', compact('list'));
+        $categories = Category::all();
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -58,12 +56,9 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $list = Book::find($id);
-        $categories = Category::lists('name','id');
-        $adminuser = AdminUser::lists('username','id');
-        return view('admin.book.edit',compact('list','categories','adminuser'));
+        //
     }
 
     /**
@@ -71,11 +66,9 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update()
     {
-        $list = Book::find($id);
-        $list -> update($request -> all());
-        return redirect() -> route('admin.book.index');  
+        //
     }
 
     /**
@@ -83,10 +76,8 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $list = Book::find($id);
-        $list->delete();
-        return redirect()->route('admin.book.index');
+        //
     }
 }

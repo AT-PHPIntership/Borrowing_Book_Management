@@ -23,5 +23,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');
+        //category
+        Route::resource('category', 'CategoryController');
     });
 });
