@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Book;
+use App\Category;
 
 class BookController extends Controller
 {
@@ -28,17 +30,20 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::all();
+        return view('admin.book.create',compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request\BookRequest $request input value
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(BookRequest $request)
     {
-        //
+        
     }
 
     /**
