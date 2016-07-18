@@ -56,9 +56,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        $users = User::findOrFail($id);
+        return  view('admin.users.edit',compact('users'));
     }
 
     /**
