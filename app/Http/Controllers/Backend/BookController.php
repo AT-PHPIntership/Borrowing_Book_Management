@@ -43,29 +43,19 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         // $book = new Book();
         $data=$request->all();
-        dd($data);
-        $data['image']='abc.jpg';
         $data['admin_user_id']=Auth::guard('admin')->user()->id;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('upload.path')), $imagename);
+        }
         $book=new Book($data);
         $book->save();
-        // $book->name= $request->name;
-        // $book->category_id= $request->category;
-        // $book->author= $request->author;
-        // $book->publish_year=$request->publish_year;
-        // $book->number_of_page=$request->number_of_page;
-        // $book->quantity=$request->quantity;
-        // if ($request->hasFile('image')) {
-        //     $img = $request->file('image');
-        //     $imagename=time() . '_' . $img->getClientOriginalName();
-        //     $book->image = $imagename;
-        //     $img->move(public_path(config('upload.path')), $imagename);
-        // }
-        // $book->admin_user_id=Auth::guard('admin')->user()->id;
-        // $book->save();
         return redirect()->route('admin.book.index');
     }
 

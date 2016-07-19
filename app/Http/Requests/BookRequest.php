@@ -24,13 +24,13 @@ class BookRequest extends Request
     public function rules()
     {
         return [
-            'name'     => 'require|unique:books,name',
-            'category' => 'require',
-            'author'   => 'require',
-            'publishyear' => 'require',
-            'numberpage'  => 'require',
-            'quantity' => 'require',
-            'image'    => 'require'
+            'name'     => 'required|unique:books,name',
+            'category_id' => 'required',
+            'author'   => 'required',
+            'publish_year' => 'required',
+            'number_of_page'  => 'required',
+            'quantity' => 'required',
+            'image'    => 'required'
         ];
     }
 
@@ -39,17 +39,5 @@ class BookRequest extends Request
      *
      * @return array
      */
-    public function messages()
-    {
-        return [
-            'name.require' => trans('book_manage_lang.require'),
-            'name.unique' => trans('book_manage_lang.unique'),
-            'category.require' => trans('book_manage_lang.require'),
-            'author.require' => trans('book_manage_lang.require'),
-            'publishyear.require' => trans('book_manage_lang.require'),
-            'numberpage.require'  => trans('book_manage_lang.require'),
-            'quantity.require' => trans('book_manage_lang.require'),
-            'image.require'  => trans('book_manage_lang.require')
-        ];
-    }
+
 }
