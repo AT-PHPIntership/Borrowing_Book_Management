@@ -30,5 +30,4 @@ class UserRequest extends Request
             'phone' => 'required|min:11'
         ];
     }
-
 }

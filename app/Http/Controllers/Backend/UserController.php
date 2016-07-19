@@ -37,21 +37,21 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\UserRequest $request User request
      * @return \Illuminate\Http\Response
      */
     public function store(UserRequest $request)
     {
         $data = $request->all();
-        
         $data['admin_user_id'] = Auth::guard('admin')->user()->id;
-        $file_name = "";
-        if($request->hasFile('image')){
-            $file_name = time() . '_' .$request->file('image')->getClientOriginalName();
-            $request->file('image')->move('images/uploads/users/',$file_name);
-        }else{
-            $file_name = null;
+        $img = "";
+        if ($request->hasFile('image')) {
+            $img = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image') -> move('images/uploads/users/', $img);
+        } else {
+            $img = null;
         }
-        $data['image'] = $file_name;
+        $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
         $user = new User($data);
         $user->save();
