@@ -34,8 +34,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        $categories=Category::lists('name','id');
-        return view('admin.book.create',compact('categories'));
+        $categories= Category::lists('name', 'id');
+        return view('admin.book.create', compact('categories'));
     }
 
     /**
@@ -58,10 +58,9 @@ class BookController extends Controller
         }
         $book=new Book($data);
         $book->save();
-        $book_item=Book::orderBy('created_at', 'desc')->first();
-        for ($i=0; $i < $data['quantity'] ; $i++) { 
-            
-            BookItem::create(['book_id' => $book_item['id']]);
+        $bookItem=Book::orderBy('created_at', 'desc')->first();
+        for ($i=0; $i < $data['quantity']; $i++) {
+            BookItem::create(['book_id' => $bookItem['id']]);
         }
         return redirect()->route('admin.book.index');
     }
