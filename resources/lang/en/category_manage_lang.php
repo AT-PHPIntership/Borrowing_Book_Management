@@ -15,6 +15,7 @@ return [
 
     'category_table' => 'Category Table',
     'create_category' => 'Create Category',
+    'edit_category' => 'Edit Category',
     'name' => 'Name',
     'created_by' => 'Created By',
     'more' => 'More',
