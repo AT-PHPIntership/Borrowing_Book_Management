@@ -8,9 +8,11 @@ use App\Http\Requests;
 use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Book;
+use App\BookItem;
 use App\Category;
 use File;
 use Auth;
+use DB;
 
 class BookController extends Controller
 {
@@ -56,6 +58,11 @@ class BookController extends Controller
         }
         $book=new Book($data);
         $book->save();
+        $book_item=Book::orderBy('created_at', 'desc')->first();
+        for ($i=0; $i < $data['quantity'] ; $i++) { 
+            
+            BookItem::create(['book_id' => $book_item['id']]);
+        }
         return redirect()->route('admin.book.index');
     }
 

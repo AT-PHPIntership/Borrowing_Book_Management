@@ -30,7 +30,7 @@ class BookRequest extends Request
             'publish_year' => 'required',
             'number_of_page'  => 'required',
             'quantity' => 'required',
-            'image'    => 'required'
+            'image'    => 'required|mimes:jpeg,jpg,png'
         ];
     }
 
@@ -39,5 +39,10 @@ class BookRequest extends Request
      *
      * @return array
      */
-
+    public function messages()
+    {
+        return [
+           //
+        ];
+    }
 }
