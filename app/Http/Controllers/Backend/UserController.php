@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -36,10 +39,23 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(UserController $request)
+    public function store(UserRequest $request)
     {
-        $user = User::create($request->all());
-        return redirect('admin.users');
+        $data = $request->all();
+        
+        $data['admin_user_id'] = Auth::guard('admin')->user()->id;
+        $file_name = "";
+        if($request->hasFile('image')){
+            $file_name = time() . '_' .$request->file('image')->getClientOriginalName();
+            $request->file('image')->move('images/uploads/users/',$file_name);
+        }else{
+            $file_name = null;
+        }
+        $data['image'] = $file_name;
+        $data['password'] = bcrypt($request->password);
+        $user = new User($data);
+        $user->save();
+        return redirect()->route('admin.user.index')->withMessage('Successful!');
     }
 
     /**

@@ -24,44 +24,69 @@
 
 <div class="row">
     <div class="col col-lg-6">
-        <form>
+        {!! Form::open(array('route' => 'admin.user.store', 'id' => 'user-form', 'enctype' => 'multipart/form-data')) !!}
             <div class="form-group">
-                <label for="username">{!! trans('user.username') !!}</label>
-                    <input type="text" class="form-control" name="username" placeholder="{!! trans('user.username') !!}">
-            </div>
-            <div class="form-group">
-                <label for="fullname">{!! trans('user.full_name') !!}</label>
-                    <input type="text" class="form-control" name="fullName" placeholder="{!! trans('user.full_name') !!}">
-            </div>
-            <div>
-                <label for="gender">{!! trans('user.gender') !!} :
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{!! trans('user.male') !!}"> {!! trans('user.male') !!}
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{!! trans('user.female') !!}"> {!! trans('user.female') !!}
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{!! trans('user.unisex') !!}"> {!! trans('user.unisex') !!} </br></br>
+                {!! Form::label('username', trans('user.username')) !!}
+                {!! Form::text('username', null, array('class' => 'form-control', 'placeholder' => trans('user.username'))) !!}
+                @if ($errors->has('username'))
+                    <span class="errors">
+                        {{ $errors->first('username') }}
+                    </span>
+                @endif
             </div>
             <div class="form-group">
-                <label for="birthday">{!! trans('user.birthday') !!}</label>
-                    <input type="date" class="form-control" name="birthday" placeholder="{!! trans('user.birthday') !!}">
+                {!! Form::label('fullname', trans('user.full_name')) !!}
+                {!! Form::text('fullname', null, array('class' => 'form-control', 'placeholder' => trans('user.full_name'))) !!}
             </div>
             <div class="form-group">
-                <label for="phone">{!! trans('user.phone') !!}</label>
-                    <input type="text" class="form-control" name="phone" placeholder="{!! trans('user.phone') !!}">
+                {!! Form::label('gender', trans('user.gender')) !!}
+                {!! Form::radio('gender', trans('user.male')) !!} {!! trans('user.male') !!}
+                {!! Form::radio('gender', trans('user.female')) !!} {!! trans('user.female') !!}
+                {!! Form::radio('gender', trans('user.unisex')) !!} {!! trans('user.unisex') !!}
             </div>
             <div class="form-group">
-                <label for="address">{!! trans('user.address') !!}</label>
-                    <input type="text" class="form-control" name="address" placeholder="{!! trans('user.address') !!}">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">{!! trans('user.password') !!}</label>
-                    <input type="password" class="form-control" name="password" placeholder="{!! trans('user.password') !!}">
+                {!! Form::label('birthday', trans('user.birthday')) !!}
+                {!! Form::date('birthday', null, array('class' => 'form-control')) !!}
             </div>
             <div class="form-group">
-                <label for="exampleInputFile">{!! trans('user.image') !!}</label>
-                <input type="file" id="exampleInputFile">                        
+                {!! Form::label('phone', trans('user.phone')) !!}
+                {!! Form::number('phone', null, array('class' => 'form-control', 'placeholder' => trans('user.phone'))) !!}
+                 @if ($errors->has('phone'))
+                    <span class="errors">
+                        {{ $errors->first('phone') }}
+                    </span>
+                @endif
             </div>
-            <button type="submit" class="btn btn-primary">{!! trans('user.submit') !!}</button>
-        </form>
+            <div class="form-group">
+                {!! Form::label('address', trans('user.address')) !!}
+                {!! Form::text('address', null, array('class' => 'form-control', 'placeholder' => trans('user.address'))) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('expiretime', trans('user.expiretime')) !!}
+                {!! Form::date('expiretime', null, array('class' => 'form-control')) !!}
+                @if ($errors->has('expiretime'))
+                    <span class="errors">
+                        {{ $errors->first('expiretime') }}
+                    </span>
+                @endif
+            </div>
+            <div class="form-group">
+                {!! Form::label('password', trans('user.password')) !!}
+                {!! Form::password('password', array('class' => 'form-control', 'placeholder' => trans('user.password'))) !!}
+                @if ($errors->has('password'))
+                    <span class="errors">
+                        {{ $errors->first('password') }}
+                    </span>
+                @endif
+            </div>
+            <div class="form-group">
+                {!! Form::label('image', trans('user.image')) !!}
+                {!! Form::file('image',['class' => 'control','id' => 'image', 'name' => 'image']) !!}<br>
+                {!! Form::image('#', null, ['class' => 'setpicture img-thumbnail img_upload','id' => 'image_no']) !!}<br>
+
+            </div>
+            {!! Form::submit(trans('user.submit'), array('class' => 'btn btn-primary')) !!}
+        {!! Form::close() !!}
     </div>
 </div>
 @endsection

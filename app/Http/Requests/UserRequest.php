@@ -24,7 +24,11 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            //
+            'username' => 'required|unique:users|max:50',
+            'password' => 'required|min:6',
+            'expiretime' => 'required',
+            'phone' => 'required|min:11'
         ];
     }
+
 }

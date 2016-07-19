@@ -233,3 +233,15 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+.form-group .errors {
+    color: red;
+    font-style: italic;
+}
+.note-info {
+    background-color: #eef7fb;
+    border-color: #a6e1ec;
+    color: #31708f;
+    padding: 10px 10px 5px;
+    border-radius: 5px;
+    font-style: italic;
+}

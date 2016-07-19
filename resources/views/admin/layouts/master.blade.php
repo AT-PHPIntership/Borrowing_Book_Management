@@ -11,6 +11,11 @@
 
         <div id="page-wrapper">
             <div class="container-fluid">
+                @if (Session::has('message'))
+                    <div class="note note-info">
+                        <p>{{ Session::get('message') }}</p>
+                    </div>
+                @endif
                 @yield('content')
             </div>
             <!-- /.container-fluid -->

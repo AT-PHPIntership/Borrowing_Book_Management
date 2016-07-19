@@ -17,6 +17,8 @@ return [
     'female' => 'Female',
     'unisex' => 'Unisex',
     'image' => 'Choose Image',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
+    'expiretime' => 'ExpireTime',
+    'phone_regex' => 'Phone malformed.'
 
 ];
