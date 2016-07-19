@@ -22,5 +22,7 @@ return [
     'title' => 'Manage Category',
     'dashboard' => 'Dashboard',
     'category' => 'Category List',
-    'manage_category' => 'Manage Category'
+    'manage_category' => 'Manage Category',
+    'title_model_confirm' => 'Delete Category',
+    'question_confirm' => 'Are you sure delete this Category?'
 ];
