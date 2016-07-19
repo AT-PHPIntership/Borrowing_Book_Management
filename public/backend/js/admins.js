@@ -16,7 +16,7 @@ function readURL(input) {
     }
 }
 
-$("#image").change(function(){
+$("#image").on('change', function(){
     readURL(this);
 });
 

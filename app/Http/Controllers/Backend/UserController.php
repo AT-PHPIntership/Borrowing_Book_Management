@@ -48,7 +48,7 @@ class UserController extends Controller
         $img = "";
         if ($request->hasFile('image')) {
             $img = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image') -> move('images/uploads/users/', $img);
+            $request->file('image') -> move(config('path.upload_user'), $img);
         } else {
             $img = null;
         }
