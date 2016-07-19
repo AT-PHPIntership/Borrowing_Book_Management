@@ -7,5 +7,7 @@ return [
     |
     */
     'images' => 'backend/images/',
+
     'upload' => 'images/upload/books/'
+
 ];
