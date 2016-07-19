@@ -69,8 +69,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request\UserEditRequest $request input
-     * @param int                                      $id      world
+     * @param \Illuminate\Http\Request\UserEditRequest $request request
+     * @param int                                      $id      id
      *
      * @return \Illuminate\Http\Response
      */
