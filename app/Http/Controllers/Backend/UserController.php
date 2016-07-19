@@ -78,9 +78,9 @@ class UserController extends Controller
     {
         $data = $request -> all();
         if ($request -> hasFile('image')) {
-            $file_name = time() . '_' .$request -> file('image') -> getClientOriginalName();
-            $request -> file('image') -> move('images/uploads/users/', $file_name);
-            $data['image'] = $file_name;
+            $img = time() . '_' .$request -> file('image') -> getClientOriginalName();
+            $request -> file('image') -> move('images/uploads/users/', $img);
+            $data['image'] = $img;
         }
         $users = User::findOrFail($id);
         if ($users) {
