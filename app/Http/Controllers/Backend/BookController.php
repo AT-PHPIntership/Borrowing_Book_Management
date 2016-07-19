@@ -83,9 +83,9 @@ class BookController extends Controller
     {
         $data = $request->all();
         if ($request->hasFile('image')) {
-            $file_name = time() . '_' .$request->file('image')->getClientOriginalName();
-            $request->file('image')->move('images/uploads/books/', $file_name);
-            $data['image'] = $file_name;
+            $img = time() . '_' .$request->file('image')->getClientOriginalName();
+            $request->file('image')->move('images/uploads/books/', $img);
+            $data['image'] = $img;
         }
         $list = Book::find($id);
         if ($list) {
