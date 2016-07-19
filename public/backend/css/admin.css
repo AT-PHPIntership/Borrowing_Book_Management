@@ -233,3 +233,9 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+.container-fluid{
+    min-height: 600px;
+}
+#formcreatecategory{
+    margin-top: 60px;
+}

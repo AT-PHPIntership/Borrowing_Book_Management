@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Auth;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -28,17 +30,27 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['admin_user_id'] = Auth::guard('admin')->user()->id;
+        $category = new Category($data);
+        $category->save();
+
+        Session::flash('success', 'Create Categorys was successfully save!');
+
+        //redirect to another page
+        return redirect()->route('admin.category.index');
     }
 
     /**
