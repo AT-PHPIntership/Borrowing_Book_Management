@@ -54,7 +54,7 @@ class BookController extends Controller
             $img = $request->file('image');
             $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
             $data['image'] = $imagename;
-            $img->move(public_path(config('upload.path')), $imagename);
+            $img->move(public_path(config('path.upload')), $imagename);
         }
         $book=new Book($data);
         $book->save();
