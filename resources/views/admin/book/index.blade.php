@@ -55,14 +55,27 @@
                                         <th>{{ date('d/m/Y', strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
-                                            <div class="col-md-6 text-right">
-                                                {!! Form::open([
+                                           {{--  <div class="col-md-6 text-right">
+                                                {{Form::open(array(
+                                                    'route' => array('admin.book.destroy', $list->id),
                                                     'method' => 'DELETE',
-                                                    'route' => ['admin.book.destroy', $item->id]
-                                                ]) !!}
-                                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
-                                            </div>
+                                                    'style' => 'display:inline'
+                                                    ))
+                                                }}
+                                                {{Form::button('Disable', array(
+                                                    'class' => 'btn btn-danger',
+                                                    'data-toggle' => 'modal',
+                                                    'data-target' => '#confirmDelete',
+                                                    'data-title' => 'Disable User',
+                                                    'data-message' => 'Are you sure you want to disable this book?',
+                                                    'data-btncancel' => 'btn-default',
+                                                    'data-btnaction' => 'btn-danger',
+                                                    'data-btntxt' => 'Disable'
+                                                    ))
+                                                }}
+
+                                                {{Form::close()}}
+                                            </div> --}}
                                             <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">Edit</button></a> 
                                     </tr>
                                     @endforeach

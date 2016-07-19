@@ -27,6 +27,8 @@ return [
     'number_of_page' => 'Number of page',
     'more' => 'More',
     'edit_book' => 'Edit Book',
-    'admin_user_id' => 'Admin Change', 
+    'admin_user_id' => 'Admin Change',
     'image' => 'Image',
+    'update' => 'Update',
+    'cancel' => 'Cancel',
 ];

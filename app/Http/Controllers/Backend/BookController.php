@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\BookEditRequest;
 use App\Http\Controllers\Controller;
 use App\Book;
 use App\Category;
 use App\AdminUser;
+use Auth;
 
 class BookController extends Controller
 {
@@ -56,30 +58,48 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $list = Book::find($id);
-        $categories = Category::lists('name','id');
-        $adminuser = AdminUser::lists('username','id');
-        return view('admin.book.edit',compact('list','categories','adminuser'));
+        $categories = Category::lists('name', 'id');
+        $adminuser = AdminUser::lists('username', 'id');
+        return view('admin.book.edit', compact('list', 'categories', 'adminuser'));
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param \Illuminate\Http\Request $request request
+     * @param int                      $id      id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update(BookEditRequest $request, $id)
     {
+        $data = $request->all();
+        if ($request->hasFile('image')) {
+            $file_name = time() . '_' .$request->file('image')->getClientOriginalName();
+            $request->file('image')->move('images/uploads/books/', $file_name);
+            $data['image'] = $file_name;
+        }
         $list = Book::find($id);
-        $list -> update($request -> all());
-        return redirect() -> route('admin.book.index');  
+        if($list) {
+            $list -> update($data);
+        }
+        else{
+            Session::flash('danger','No find id');
+        }
+        return redirect() -> route('admin.book.index');
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param int $id id
      *
      * @return \Illuminate\Http\Response
      */
