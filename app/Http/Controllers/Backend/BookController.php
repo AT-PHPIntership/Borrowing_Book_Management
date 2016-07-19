@@ -11,6 +11,7 @@ use App\Book;
 use App\Category;
 use App\AdminUser;
 use Auth;
+use Session;
 
 class BookController extends Controller
 {
@@ -87,11 +88,10 @@ class BookController extends Controller
             $data['image'] = $file_name;
         }
         $list = Book::find($id);
-        if($list) {
+        if ($list) {
             $list -> update($data);
-        }
-        else{
-            Session::flash('danger','No find id');
+        } else {
+            Session::flash('danger', 'No find id');
         }
         return redirect() -> route('admin.book.index');
     }

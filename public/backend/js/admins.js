@@ -9,12 +9,12 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#image').attr('src', e.target.result);
+            $('#image_no').attr('src', e.target.result);
         }
         reader.readAsDataURL(input.files[0]);
     }
 }
 
-$("#image_no").on('change',function(){
+$("#image").on('change',function(){
     readURL(this);
 });

@@ -30,5 +30,5 @@ return [
     'admin_user_id' => 'Admin Change',
     'image' => 'Image',
     'update' => 'Update',
-    'cancel' => 'Cancel',
+    'cancle' => 'Cancle',
 ];
