@@ -48,7 +48,7 @@
                         <td>{!! $user->phone !!}</td>
                         <td>{!! $user->address !!}</td>
                         <td>
-                            <a href="{{ route('admin.user.edit',['id' => $user -> id])}}"><i class="fa fa-pencil fa-fw"></i></a> 
+                            <a href="{{ route('admin.user.edit',$user ->id)}}"><i class="fa fa-pencil fa-fw"></i></a> 
                             <a href="#"><i class="fa fa-times-circle fa-fw"></i></a>
                         </td>
                     </tr>

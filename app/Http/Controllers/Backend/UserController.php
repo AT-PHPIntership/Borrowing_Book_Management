@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UserEditRequest;
 use App\Http\Controllers\Controller;
 use App\User;
+use Session;
 
 class UserController extends Controller
 {
@@ -54,22 +56,40 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $users = User::findOrFail($id);
-        return  view('admin.users.edit',compact('users'));
+        return  view('admin.users.edit', compact('users'));
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param \Illuminate\Http\Request\UserEditRequest $request input
+     * @param int                                      $id      world
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        $data = $request -> all();
+        if ($request -> hasFile('image')) {
+            $file_name = time() . '_' .$request -> file('image') -> getClientOriginalName();
+            $request -> file('image') -> move('images/uploads/users/', $file_name);
+            $data['image'] = $file_name;
+        }
+        $users = User::findOrFail($id);
+        if ($users) {
+            Session::flash('success', 'Edit user succesfully!');
+        } else {
+            Session::flash('danger', 'Error');
+        }
+        $users -> update($data);
+        return redirect() -> route('admin.user.index');
     }
 
     /**
