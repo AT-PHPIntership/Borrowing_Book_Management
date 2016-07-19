@@ -48,16 +48,35 @@
                                     @foreach($list as $item)
                                     <tr>
                                         <td>{{$i++}}</td>
-                                        <td><a href="{{url('book/'.$item->id.'/edit')}}">{{ $item->name }}</a></td>
+                                        <td><a href="{{url('book/'.$item->id.'/view')}}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <!-- <td>{{ $item->publish_year }}</td> -->
                                         <th>{{ date('d/m/Y', strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
-                                        <td> <a href="/Editbook"><i class="fa fa-pencil fa-fw"></i></a> 
-                                             <a href=""><i class="fa fa-times-circle fa-fw"></i></a>
-                                             <a href=""><i class="fa fa-wrench fa-fw"></i></td>
+                                        <td>
+                                           {{--  <div class="col-md-6 text-right">
+                                                {{Form::open(array(
+                                                    'route' => array('admin.book.destroy', $list->id),
+                                                    'method' => 'DELETE',
+                                                    'style' => 'display:inline'
+                                                    ))
+                                                }}
+                                                {{Form::button('Disable', array(
+                                                    'class' => 'btn btn-danger',
+                                                    'data-toggle' => 'modal',
+                                                    'data-target' => '#confirmDelete',
+                                                    'data-title' => 'Disable User',
+                                                    'data-message' => 'Are you sure you want to disable this book?',
+                                                    'data-btncancel' => 'btn-default',
+                                                    'data-btnaction' => 'btn-danger',
+                                                    'data-btntxt' => 'Disable'
+                                                    ))
+                                                }}
+
+                                                {{Form::close()}}
+                                            </div> --}}
+                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">Edit</button></a> 
                                     </tr>
                                     @endforeach
                                 </tbody>
