@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -82,6 +83,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        Session::flash('success', 'Category was successfully deleted!');
         return redirect()->route('admin.category.index');
     }
 }

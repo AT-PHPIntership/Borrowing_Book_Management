@@ -22,4 +22,7 @@ $(document).ready(function(){
   $('#confirmDelete').find('.modal-footer #confirm').on('click', function(){
       $(this).data('form').submit();
   });
+
+  //countdown shutdown alert
+  $("div.alert").delay(3000).slideUp();
 });
