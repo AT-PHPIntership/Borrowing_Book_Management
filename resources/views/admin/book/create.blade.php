@@ -85,7 +85,7 @@
                 <div class="form-group">
                     {!! Form::label('image',trans('book_manage_lang.choose_image')) !!}
                     {{ Form::file('image',null, array('class' => 'form-control', 'id' => 'image','onchange' => 'handleFileSelect')) }}
-                    {!! Form::image(config('path.path').'noimage.png',null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}
+                    {!! Form::image(config('path.images').'noimage.png',null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}
                     @if ($errors->has('image'))
                     <span class="errors">
                         <strong>{{ $errors->first('image') }}</strong>
