@@ -25,6 +25,10 @@ return [
     'quantity' => 'Quantity',
     'publish_year' => 'Publish Year',
     'number_of_page' => 'Number of page',
-    'more' => 'More'
-    
+    'more' => 'More',
+    'create_book' => 'Create Book',
+    'submit' => 'Submit',
+    'choose_image' => 'Choose Image',
+    'require' => 'Require',
+    'unique' => 'Value is exist'
 ];
