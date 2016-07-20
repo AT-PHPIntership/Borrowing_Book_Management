@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UserRequest extends Request
+class CreateCategoryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|unique:users|max:50',
-            'password' => 'required|min:6',
-            'birthday' => 'required|date',
-            'expiretime' => 'required|date',
-            'phone' => 'required|min:11'
+            'name' => 'required|max:100|unique:categories,name'
         ];
     }
 }

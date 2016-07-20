@@ -11,9 +11,8 @@ return [
 
 
     'upload_book' => 'images/upload/books/',
-    'upload_user'=> 'images/upload/users/',
-    'formatdate' => 'd/m/Y',
+    'upload_user' => 'images/upload/users/',
+    'formatdate' => 'Y-m-d',
     'images' => 'backend/images/'
-
 
 ];

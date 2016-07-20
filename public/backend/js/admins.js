@@ -21,7 +21,7 @@ $(document).ready(function(){
  
       //Form confirm (yes/ok) handler, submits form
   $('#confirmDelete .modal-footer #confirm').on('click', function(){
-      $('form').submit();
+      $(this).data('form').submit();
   });
 
   //countdown shutdown alert
