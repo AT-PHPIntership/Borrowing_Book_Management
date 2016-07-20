@@ -62,8 +62,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $users = User::findOrFail($id);
-        return  view('admin.users.edit', compact('users'));
+        $users = User::find($id);
+        if (empty($users)) {
+            Session::flash(trans('user.danger'),trans('user.editfind'));
+            return redirect() -> route('admin.user.index');  
+        }
+        return  view('admin.users.edit', compact('users'));     
     }
 
     /**
@@ -77,18 +81,18 @@ class UserController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         $data = $request -> all();
-        if ($request -> hasFile('image')) {
-            $img = time() . '_' .$request -> file('image') -> getClientOriginalName();
-            $request -> file('image') -> move('images/uploads/users/', $img);
-            $data['image'] = $img;
+        if ($request -> hasFile(trans('user.img'))) {
+            $img = time() . '_' .$request -> file(trans('user.img')) -> getClientOriginalName();
+            $request -> file(trans('user.img')) -> move('images/uploads/users/', $img);
+            $data[trans('user.img')] = $img;
         }
-        $users = User::findOrFail($id);
-        if ($users) {
-            Session::flash('success', 'Edit user succesfully!');
+        $users = User::find($id);
+        if (empty($users)) {
+            Session::flash(trans('user.danger'), trans('user.editfail'));
         } else {
-            Session::flash('danger', 'Error');
+            $users -> update($data);
+            Session::flash(trans('user.success'), trans('user.editsuccess'));
         }
-        $users -> update($data);
         return redirect() -> route('admin.user.index');
     }
 

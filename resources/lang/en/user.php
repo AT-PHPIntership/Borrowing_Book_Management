@@ -20,5 +20,11 @@ return [
     'male' => 'Male',
     'female' => 'Female',
     'unisex' => 'Unisex',
-    'cancle' => 'Cancle'
+    'cancle' => 'Cancle',
+    'success'=> 'success',
+    'danger' => 'danger',
+    'editfail' => 'Fail edit user!',
+    'editsuccess' => 'Edit user succesfully!',
+    'editfind'  => 'Not found User!',
+    'img' => 'image'
 ];
