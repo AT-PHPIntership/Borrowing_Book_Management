@@ -1,16 +1,18 @@
 <?php
 return [
-	/*
+
+    /*
+
     |--------------------------------------------------------------------------
     | Path 
     |--------------------------------------------------------------------------
     |
     */
-
-    'formatdate' => 'd/m/Y',
-
     'images' => 'backend/images/',
-    
-    'upload_book' => 'images/upload/books/'
+
+    'upload_book' => 'images/upload/books/',
+    'upload_user' => 'images/upload/users/',
+    'formatdate' => 'd/m/Y'
 
 ];
+
