@@ -83,9 +83,9 @@ class UserController extends Controller
         $data = $request -> all();
         if ($request -> hasFile(trans('user.img'))) {
             $img = $request->file(trans('user.img'));
-            $imgname = time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
-            $request -> file(trans('user.img')) -> move('images/uploads/users/', $img);
+            $imgname = time() . '_'.$data[trans('user.fullname')] .'.'. $img->getClientOriginalExtension();
             $data[trans('user.img')] = $imgname;
+            $img->move(public_path(config('path.upload_user')), $imgname);
         }
         $users = User::find($id);
         if (empty($users)) {

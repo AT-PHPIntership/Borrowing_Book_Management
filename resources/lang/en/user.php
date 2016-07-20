@@ -26,5 +26,6 @@ return [
     'editfail' => 'Fail edit user!',
     'editsuccess' => 'Edit user succesfully!',
     'editfind'  => 'Not found User!',
-    'img' => 'image'
+    'img' => 'image',
+    'fullname' => 'fullname'
 ];

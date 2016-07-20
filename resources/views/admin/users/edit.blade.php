@@ -41,7 +41,7 @@
             <div class = "form-group {!!$errors->has('image') ? ' has-error' : '' !!}">
             {!! Form::label('image', trans('user.image'), ['class' =>'control-label'])!!} <br>
             {!! Form::file('image', ['class' => 'control', 'id' => 'image']) !!}<br>
-            {!! Form::image('images/uploads/users/'.$users->image,null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}<br>
+            {!! Form::image(config('path.upload_user').$users->image,null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}<br>
             @if($errors->has('image'))
             <span class="help-block">{{ $errors->first('image') }}</span>
             @endif

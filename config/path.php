@@ -9,6 +9,6 @@ return [
     'images' => 'backend/images/',
 
     'upload_book' => 'images/upload/books/',
-    'upload_users'=> 'image/upload/users/'
+    'upload_user'=> 'images/upload/users/'
 
 ];
