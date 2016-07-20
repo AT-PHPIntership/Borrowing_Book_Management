@@ -45,12 +45,10 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['admin_user_id'] = Auth::guard('admin')->user()->id;
-        $img = "";
+        $img = null;
         if ($request->hasFile('image')) {
             $img = time() . '_' . $request->file('image')->getClientOriginalName();
             $request->file('image') -> move(config('path.upload_user'), $img);
-        } else {
-            $img = null;
         }
         $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
