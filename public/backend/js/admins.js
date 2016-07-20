@@ -24,5 +24,5 @@ $(document).ready(function(){
   });
 
   //countdown shutdown alert
-  $("div.alert").delay(3000).slideUp();
+  $("div.alert").delay(timeout).slideUp();
 });

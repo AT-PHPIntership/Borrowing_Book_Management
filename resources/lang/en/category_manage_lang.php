@@ -24,5 +24,9 @@ return [
     'category' => 'Category List',
     'manage_category' => 'Manage Category',
     'title_model_confirm' => 'Delete Category',
-    'question_confirm' => 'Are you sure delete this Category?'
+    'question_confirm' => 'Are you sure delete this CATEGORY?',
+    'error' => 'ERROR!',
+    'message_warning_category_exist' => 'This Category being used!',
+    'message_success_delete' => 'Category was successfully deleted!',
+    'message_unsuccess_delete' => 'This category does not exist!'
 ];
