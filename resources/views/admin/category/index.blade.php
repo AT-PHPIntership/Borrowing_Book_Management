@@ -2,8 +2,6 @@
 
 @section('title', trans('category_manage_lang.title_page_category'))
 
-@include('admin.layouts.partials._model_confirm')
-
 @section('content')
 <!-- Page Heading -->
                 <div class="row">
@@ -49,7 +47,7 @@
                                         <td><a href=""><i class="fa fa-pencil fa-2x"></i></a>
 
                                             {!! Form::open(['route' => ['admin.category.destroy', $category->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
-                                            {!! Form::button('Delete', ['class' => 'btn btn-danger',
+                                            {!! Form::button(trans('labels.delete'), ['class' => 'btn btn-danger',
                                                 'data-toggle' => 'modal','data-target' => '#confirmDelete',
                                                 'data-title' => trans('category_manage_lang.title_model_confirm'),
                                                 'data-message' => trans('category_manage_lang.question_confirm')]) !!}
