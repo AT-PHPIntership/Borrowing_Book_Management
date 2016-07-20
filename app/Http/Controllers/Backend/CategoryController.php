@@ -84,19 +84,19 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::findorFail($id)->books->first();
-                if (empty($category)) {
-                    $result = Category::destroy($id);
-                    if ($result) {
-                        Session::flash('success', trans('category_manage_lang.message_success_delete'));
-                    } else {
-                        Session::flash('success', trans('category_manage_lang.message_unsuccess_delete'));
-                    }
+            if (empty($category)) {
+                $result = Category::destroy($id);
+                if ($result) {
+                    Session::flash('success', trans('category_manage_lang.message_success_delete'));
                 } else {
-                    Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
-                } 
-            return redirect()->route('admin.category.index');            
-        } catch(ModelNotFoundException $ex) {
+                    Session::flash('success', trans('category_manage_lang.message_unsuccess_delete'));
+                }
+            } else {
+                Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
+            }
+            return redirect()->route('admin.category.index');
+        } catch (ModelNotFoundException $ex) {
             Session::flash('success', trans('category_manage_lang.error'));
-        } 
+        }
     }
 }
