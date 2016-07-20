@@ -39,5 +39,6 @@ return [
     'submit' => 'Submit',
     'choose_image' => 'Choose Image',
     'require' => 'Require',
-    'unique' => 'Value is exist'
+    'unique' => 'Value is exist',
+    'btnedit' => 'Edit',
 ];

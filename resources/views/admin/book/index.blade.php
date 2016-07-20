@@ -12,7 +12,7 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>
-                                <a href="index.html">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                                <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> {!!trans('book_manage_lang.book_list' )!!} 
@@ -55,7 +55,7 @@
                                         <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
-                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">Edit</button></a> 
+                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">{!!trans('book_manage_lang.btnedit' )!!}</button></a> 
                                     </tr>
                                     @endforeach
                                 </tbody>
