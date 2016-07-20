@@ -8,6 +8,6 @@ return [
     */
     'images' => 'backend/images/',
 
-    'upload' => 'images/upload/books/'
+    'upload_book' => 'images/upload/books/'
 
 ];
