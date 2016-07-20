@@ -2,8 +2,6 @@
 
 @section('title', trans('category_manage_lang.title_page_category'))
 
-@include('admin.layouts.partials._model_confirm')
-
 @section('content')
 <!-- Page Heading -->
                 <div class="row">
