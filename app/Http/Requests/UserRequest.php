@@ -26,7 +26,8 @@ class UserRequest extends Request
         return [
             'username' => 'required|unique:users|max:50',
             'password' => 'required|min:6',
-            'expiretime' => 'required',
+            'birthday' => 'required|date',
+            'expiretime' => 'required|date',
             'phone' => 'required|min:11'
         ];
     }
