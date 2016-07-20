@@ -67,8 +67,9 @@ class BookController extends Controller
     {
         $list = Book::find($id);
         $categories = Category::lists('name', 'id');
-        if($list){
-            Session::flash('error',trans('book_manage_lang.noid' ));
+        if (empty($list)) {
+            Session::flash('danger', trans('book_manage_lang.noid'));
+            return redirect()->route('admin.book.index');
         }
         return view('admin.book.edit', compact('list', 'categories'));
     }
@@ -83,14 +84,19 @@ class BookController extends Controller
      */
     public function update(BookEditRequest $request, $id)
     {
-        $data = $request->all();
-        if ($request->hasFile('image')) {
-            $img = time() . '_' .$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(config('path.upload_book'), $img);
-            $data['image'] = $img;
-        }
-        $list = Book::find($id);
-        $list->update($data);
+            $data = $request->all();
+            if ($request->hasFile('image')) {
+                $img = time() . '_' .$request->file('image')->getClientOriginalName();
+                $request->file('image')->move(public_path(config('path.upload_book')), $img);
+                $data['image'] = $img;
+            }
+            $list = Book::findOrFail($id);
+            if ($list) {
+                $list->update($data);
+                Session::flash('success', trans('book_manage_lang.editsuccess'));
+            } else {
+                Session::flash('error', trans('book_manage_lang.error'));
+            }
         return redirect() -> route('admin.book.index');
     }
 
@@ -104,8 +110,8 @@ class BookController extends Controller
     public function destroy($id)
     {
         $list = Book::find($id);
-        if(empty($list)){
-            Session::flash('error',trans('book_manage_lang.noid' ));
+        if (empty($list)) {
+            Session::flash('error', trans('book_manage_lang.noid'));
         }
         $list->delete();
         return redirect()->route('admin.book.index');

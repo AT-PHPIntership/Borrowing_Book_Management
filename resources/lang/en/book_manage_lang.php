@@ -32,4 +32,7 @@ return [
     'update' => 'Update',
     'cancle' => 'Cancle',
     'noid' => 'Can not find id',
+    'error404' => 'No find page',
+    'editsuccess' => 'Edit successfully Book',
+    'error' => 'Error Update',
 ];
