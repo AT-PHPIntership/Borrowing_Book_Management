@@ -15,7 +15,8 @@ return [
 
     'category_table' => 'Category Table',
     'create_category' => 'Create Category',
-    'name' => 'Name',
+    'name' => 'Name Category',
+    'submit' => 'Submit',
     'created_by' => 'Created By',
     'more' => 'More',
     'no' => 'No.',
@@ -28,5 +29,7 @@ return [
     'error' => 'ERROR!',
     'message_warning_category_exist' => 'This Category being used!',
     'message_success_delete' => 'Category was successfully deleted!',
-    'message_unsuccess_delete' => 'This category does not exist!'
+    'message_unsuccess_delete' => 'This category does not exist!',
+    'message_success_create' => 'Create Categorys was successfully save!',
+    'message_unsuccess_create' => 'Create Categorys was unsuccessfully save!'
 ];
