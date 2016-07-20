@@ -16,6 +16,11 @@ body {
         margin-top: 50px;
     }
 }
+.setpicture{
+    width: 100px;
+    height: 100px;
+    border-radius: 2px;
+}
 
 #colorlogo{
     color:green;
@@ -39,6 +44,7 @@ body {
     font-size: 50px;
     line-height: normal;
 }
+
 
 @media(min-width:768px) {
     #wrapper {
@@ -233,3 +239,22 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+.container-fluid{
+    min-height: 600px;
+}
+#formcreatecategory{
+    margin-top: 60px;
+}
+.form-group .errors {
+    color: red;
+    font-style: italic;
+}
+.note-info {
+    background-color: #eef7fb;
+    border-color: #a6e1ec;
+    color: #31708f;
+    padding: 10px 10px 5px;
+    border-radius: 5px;
+    font-style: italic;
+}
+

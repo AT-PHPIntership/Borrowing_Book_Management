@@ -20,11 +20,19 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
+            <div id="formcreatecategory">
             {!! Form::model($category, ['route' => ['admin.category.update', $category->id], 'method' => 'PUT']) !!}
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             {{ Form::label('name', 'Title:')}}
             {{ Form::text('name', null, ['class' => 'form-control input-lg'])}}
-            {{ Form::submit(trans('category_manage_lang.edit_category'), ['class' => 'btn btn-success btn-block'])}}
+            @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+                </div>
+            {{ Form::submit(trans('category_manage_lang.edit_category'), ['class' => 'btn btn-success btn-block btn-lg '])}}
             {!! Form::close() !!}
+            </div>
 
 @endsection

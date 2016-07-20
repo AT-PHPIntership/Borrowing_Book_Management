@@ -8,21 +8,39 @@ $(document).ready(function(){
   $('#confirmDelete').on('show.bs.modal', function (e) {
   	  // set message
       $message = $(e.relatedTarget).attr('data-message');
-      $(this).find('.modal-body p').text($message);
+      $('.modal-body p').text($message);
       // set title for model
       $title = $(e.relatedTarget).attr('data-title');
-      $(this).find('.modal-title').text($title);
+      $('.modal-title').text($title);
 
       // Pass form reference to modal for submission on yes/ok
       var form = $(e.relatedTarget).closest('form');
-      $(this).find('.modal-footer #confirm').data('form', form);
+      $('.modal-footer #confirm').data('form', form);
   });
  
       //Form confirm (yes/ok) handler, submits form
-  $('#confirmDelete').find('.modal-footer #confirm').on('click', function(){
+  $('#confirmDelete .modal-footer #confirm').on('click', function(){
       $(this).data('form').submit();
   });
 
   //countdown shutdown alert
-  $("div.alert").delay(3000).slideUp();
+  $("div.alert").delay(timeout).slideUp();
+});
+
+$('.img_upload').hide();
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image_no').show();
+            $('#image_no').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#image").on('change', function(){
+    readURL(this);
+
 });

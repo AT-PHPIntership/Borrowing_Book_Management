@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Auth;
+use App\Book;
 use Session;
+use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\EditCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -29,17 +33,28 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request $request request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateCategoryRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['admin_user_id'] = Auth::guard('admin')->user()->id;
+        $category = new Category($data);
+        $result = $category->save();
+        if ($result) {
+            Session::flash('success', trans('category_manage_lang.message_success_create'));
+        } else {
+            Session::flash('danger', trans('category_manage_lang.message_unsuccess_create'));
+        }
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -61,8 +76,17 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        try{
+            $category = Category::findorFail($id);
+            if (empty($category)){
+                return view('admin.category.edit', compact('category'));  
+            } else {
+                Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
+            }
+        } catch (ModelNotFoundException $ex) {
+          Session::flash('danger', trans('category_manage_lang.error'));
+        }
+        
     }
 
     /**
@@ -74,11 +98,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditCategoryRequest $request, $id)
     {
         $category = new Category;
         $category->name = $request->name;
-        $category->save();
+        $result = $category->save();
+        if ($result) {
+            Session::flash('danger', trans('category_manage_lang.message_success_update'))
+        } else {
+            Session::flash('danger', trans('category_manage_lang.message_unsuccess_update'))
+        }
         return redirect()->route('admin.category.index');
     }
 
@@ -91,9 +120,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        Session::flash('success', 'Category was successfully deleted!');
-        return redirect()->route('admin.category.index');
+        try {
+            $category = Category::findorFail($id)->books->first();
+            if (empty($category)) {
+                $result = Category::destroy($id);
+                if ($result) {
+                    Session::flash('success', trans('category_manage_lang.message_success_delete'));
+                } else {
+                    Session::flash('danger', trans('category_manage_lang.message_unsuccess_delete'));
+                }
+            } else {
+                Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
+            }
+            return redirect()->route('admin.category.index');
+        } catch (ModelNotFoundException $ex) {
+            Session::flash('danger', trans('category_manage_lang.error'));
+        }
     }
 }
