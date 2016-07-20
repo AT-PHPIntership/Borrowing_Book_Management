@@ -36,7 +36,8 @@ return [
     'successful_message' => 'Successful!',
     'error_message' => 'Something went wrong! Please try again.',
     'profile' => 'User Profile',
-    'create_at' => 'Create At'
+    'create_at' => 'Create At',
+    'fail' => 'Not found!'
 
 
 ];

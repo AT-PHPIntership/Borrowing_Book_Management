@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Redirect;
 use App\Http\Requests;
@@ -76,12 +77,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        if (empty($user)) {
+        try {
+            $user = User::findOrFail($id);
+            return  view('admin.users.show', compact('user'));
+        } catch (ModelNotFoundException $e) {
             Session::flash(trans('user.danger'), trans('user.editfind'));
             return redirect()->route('admin.user.index');
         }
-        return  view('admin.users.show', compact('user'));
     }
 
     /**
@@ -95,7 +97,7 @@ class UserController extends Controller
     {
         $users = User::find($id);
         if (empty($users)) {
-            Session::flash(trans('user.danger'), trans('user.editfind'));
+            Session::flash(trans('user.danger'), trans('user.fail'));
             return redirect() -> route('admin.user.index');
         }
         return  view('admin.users.edit', compact('users'));
