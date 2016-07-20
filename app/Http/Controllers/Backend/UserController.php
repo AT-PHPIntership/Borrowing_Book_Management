@@ -52,9 +52,13 @@ class UserController extends Controller
         }
         $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
-        $user = new User($data);
-        $user->save();
-        return redirect()->route('admin.user.index')->withMessage('Successful!');
+        try{
+            $user = new User($data);
+            $user->save();
+            return redirect()->route('admin.user.index')->withMessage(trans('user.successful_message'));
+        } catch(Exception $e) {
+             return redirect()->route('admin.user.create')->withMessage(trans('user.error_message'));
+        }
     }
 
     /**

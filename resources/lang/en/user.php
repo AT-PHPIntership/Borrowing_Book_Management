@@ -19,6 +19,8 @@ return [
     'image' => 'Choose Image',
     'submit' => 'Submit',
     'expiretime' => 'ExpireTime',
-    'phone_regex' => 'Phone malformed.'
+    'phone_regex' => 'Phone malformed.',
+    'successful_message' => 'Successful!',
+    'error_message' => 'Something went wrong! Please try again.'
 
 ];
