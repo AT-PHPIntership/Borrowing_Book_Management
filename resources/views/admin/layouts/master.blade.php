@@ -11,6 +11,7 @@
 
         <div id="page-wrapper">
             <div class="container-fluid">
+                @include('admin.layouts.partials._message')
                 @yield('content')
             </div>
             <!-- /.container-fluid -->

@@ -30,5 +30,7 @@ return [
     'turn_back' => 'Turn back',
     'login_admin' => 'Admin Login',
     'cancel' => 'Cancel',
-    'delete' => 'Delete'
+    'delete' => 'Delete',
+    'title_success' => 'Success:',
+    'title_warning' => 'Warning:'
 ];

@@ -5,8 +5,14 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Book;
+use App\BookItem;
+use App\Category;
+use File;
+use Auth;
+use DB;
 
 class BookController extends Controller
 {
@@ -28,17 +34,35 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $categories= Category::lists('name', 'id');
+        return view('admin.book.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request\BookRequest $request input value
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(BookRequest $request)
     {
-        //
+        // $book = new Book();
+        $data=$request->all();
+        $data['admin_user_id']=Auth::guard('admin')->user()->id;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('path.upload_book')), $imagename);
+        }
+        $book=new Book($data);
+        $book->save();
+        $bookItem=Book::orderBy('created_at', 'desc')->first();
+        for ($i=0; $i < $data['quantity']; $i++) {
+            BookItem::create(['book_id' => $bookItem['id']]);
+        }
+        return redirect()->route('admin.book.index');
     }
 
     /**
