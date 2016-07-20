@@ -73,7 +73,7 @@
             </div>
             <div class = "form-group {!!$errors->has('expiretime') ? ' has-error' : '' !!}">
             {!! Form::label('expiretime', trans('user.expiretime'), ['class' =>'control-label']) !!} <br>
-            {!! Form::input('date', 'expiretime', date("Y-m-d"), ['class' =>'form-control']) !!} <br />
+            {!! Form::date('date', null, ['class' =>'form-control']) !!} <br />
             @if($errors->has('expiretime'))
             <span class="help-block">{{ $errors->first('expiretime') }}</span>
             @endif
