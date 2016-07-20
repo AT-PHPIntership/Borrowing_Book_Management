@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Redirect;
 use App\Http\Requests;
+use App\Http\Requests\UserEditRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
@@ -53,7 +54,7 @@ class UserController extends Controller
         }
         $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
-        $data['birthday'] = date((config('path.formatdate'), strtotime($request->birthday));
+        $data['birthday'] = date(config('path.formatdate'), strtotime($request->birthday));
         $data['expiretime'] = date(config('path.formatdate'), strtotime($request->expiretime));
         try {
             $user = new User($data);
@@ -79,21 +80,45 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        $users = User::find($id);
+        if (empty($users)) {
+            Session::flash(trans('user.danger'), trans('user.editfind'));
+            return redirect() -> route('admin.user.index');
+        }
+        return  view('admin.users.edit', compact('users'));
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param \Illuminate\Http\Request\UserEditRequest $request request
+     * @param int                                      $id      id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        $data = $request -> all();
+        if ($request -> hasFile(trans('user.img'))) {
+            $img = $request->file(trans('user.img'));
+            $imgname = time() . '_'.$data[trans('user.fullname')] .'.'. $img->getClientOriginalExtension();
+            $data[trans('user.img')] = $imgname;
+            $img->move(public_path(config('path.upload_user')), $imgname);
+        }
+        $users = User::find($id);
+        if (empty($users)) {
+            Session::flash(trans('user.danger'), trans('user.editfail'));
+        } else {
+            $users -> update($data);
+            Session::flash(trans('user.success'), trans('user.editsuccess'));
+        }
+        return redirect() -> route('admin.user.index');
     }
 
     /**

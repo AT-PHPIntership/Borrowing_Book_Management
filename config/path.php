@@ -8,11 +8,11 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'images' => 'backend/images/',
+
 
     'upload_book' => 'images/upload/books/',
     'upload_user' => 'images/upload/users/',
-    'formatdate' => 'Y-m-d'
+    'formatdate' => 'Y-m-d',
+    'images' => 'backend/images/'
 
 ];
-
