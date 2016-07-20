@@ -45,6 +45,7 @@ body {
     line-height: normal;
 }
 
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
@@ -237,4 +238,7 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+.form-group .errors {
+    color: red;
 }

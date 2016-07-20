@@ -66,7 +66,7 @@
                     <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                         {!! Form::label('image',trans('book_manage_lang.image'),['class' =>'control-label']) !!}
                         {!! Form::file('image',['class' => 'control','id' => 'image']) !!}
-                        {!! Form::image('images/uploads/books/'.$list->image,null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}<br>
+                        {!! Form::image(config('path.upload_book').$list->image,null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}<br>
                         @if($errors->has('image'))
                             <span class="help-block">{{ $errors->first('image') }}</span>
                         @endif

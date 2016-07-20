@@ -26,7 +26,7 @@
                     <div class="col col-md-12">
                         <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2>
                         <div class="text-right">    
-                            <a href="/Createbook" class="btn btn-lg btn-primary">{!!trans('book_manage_lang.create_book' )!!}</a>
+                            <a href="{!! route('admin.book.create')!!}" class="btn btn-lg btn-primary">{!!trans('book_manage_lang.create_book' )!!}</a>
                         </div>
                         <br>
                         <div class="table-responsive">
@@ -44,15 +44,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i=1;?>
+                                    <?php $index=1;?>
                                     @foreach($list as $item)
                                     <tr>
-                                        <td>{{$i++}}</td>
+                                        <td>{{ $index++ }}</td>
                                         <td><a href="{{url('book/'.$item->id.'/view')}}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <th>{{ date(config('path.formatdate')), strtotime($item->publish_year)) }}</th>
+                                        <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
                                            {{--  <div class="col-md-6 text-right">

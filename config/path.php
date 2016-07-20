@@ -6,7 +6,11 @@ return [
     |--------------------------------------------------------------------------
     |
     */
+
     'formatdate' => 'd/m/Y',
 
+    'images' => 'backend/images/',
+    
     'upload_book' => 'images/upload/books/'
+
 ];

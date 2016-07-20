@@ -35,4 +35,9 @@ return [
     'error404' => 'No find page',
     'editsuccess' => 'Edit successfully Book',
     'error' => 'Error Update',
+    'create_book' => 'Create Book',
+    'submit' => 'Submit',
+    'choose_image' => 'Choose Image',
+    'require' => 'Require',
+    'unique' => 'Value is exist'
 ];

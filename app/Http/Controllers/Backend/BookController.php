@@ -10,8 +10,12 @@ use App\Http\Controllers\Controller;
 use App\Book;
 use App\Category;
 use App\AdminUser;
-use Auth;
 use Session;
+use App\Http\Requests\BookRequest;
+use App\BookItem;
+use File;
+use Auth;
+use DB;
 
 class BookController extends Controller
 {
@@ -33,17 +37,35 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $categories= Category::lists('name', 'id');
+        return view('admin.book.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request\BookRequest $request input value
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(BookRequest $request)
     {
-        //
+        // $book = new Book();
+        $data=$request->all();
+        $data['admin_user_id']=Auth::guard('admin')->user()->id;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('path.upload_book')), $imagename);
+        }
+        $book=new Book($data);
+        $book->save();
+        $bookItem=Book::orderBy('created_at', 'desc')->first();
+        for ($i=0; $i < $data['quantity']; $i++) {
+            BookItem::create(['book_id' => $bookItem['id']]);
+        }
+        return redirect()->route('admin.book.index');
     }
 
     /**
@@ -86,11 +108,12 @@ class BookController extends Controller
     {
             $data = $request->all();
             if ($request->hasFile('image')) {
-                $img = time() . '_' .$request->file('image')->getClientOriginalName();
-                $request->file('image')->move(public_path(config('path.upload_book')), $img);
-                $data['image'] = $img;
+                $img = $request->file('image');
+                $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+                $data['image'] = $imagename;
+                $img->move(public_path(config('path.upload_book')), $imagename);
             }
-            $list = Book::findOrFail($id);
+            $list = Book::find($id);
             if ($list) {
                 $list->update($data);
                 Session::flash('success', trans('book_manage_lang.editsuccess'));
