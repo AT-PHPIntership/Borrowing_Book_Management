@@ -2,6 +2,7 @@ $(document).ready(function(){
   //datatables
   $('#list_users').DataTable();
   $('#list_books').DataTable();
+  $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
 
   //Confirm delete
@@ -26,7 +27,9 @@ $(document).ready(function(){
   //countdown shutdown alert
   $("div.alert").delay(timeout).slideUp();
 });
+
 $('.img_upload').hide();
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();

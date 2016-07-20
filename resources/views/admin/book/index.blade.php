@@ -48,7 +48,7 @@
                                     @foreach($list as $item)
                                     <tr>
                                         <td>{{ $index++ }}</td>
-                                        <td><a href="{{url('book/'.$item->id.'/view')}}">{{ $item->name }}</a></td>
+                                        <td><a href="{{ route('admin.book.show',$item->id) }}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
@@ -56,6 +56,8 @@
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
                                             <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">{!!trans('book_manage_lang.btnedit' )!!}</button></a> 
+                                            <a href="#"><button class="btn btn-danger">{!!trans('book_manage_lang.btndelete' )!!}</button></a> 
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -71,11 +71,19 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        //
+        $list = Book::find($id);
+        if (empty($list)) {
+            Session::flash('danger', trans('book_manage_lang.noid'));
+            return redirect()->route('admin.book.index');
+        }
+        $bookitem=BookItem::select('id', 'book_id')->where('book_id', $id)->get();
+        return view('admin.book.show', compact('list', 'bookitem'));
     }
 
     /**
