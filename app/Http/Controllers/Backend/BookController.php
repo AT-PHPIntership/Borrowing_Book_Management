@@ -67,8 +67,10 @@ class BookController extends Controller
     {
         $list = Book::find($id);
         $categories = Category::lists('name', 'id');
-        $adminuser = AdminUser::lists('username', 'id');
-        return view('admin.book.edit', compact('list', 'categories', 'adminuser'));
+        if($list){
+            Session::flash('error',trans('book_manage_lang.noid' ));
+        }
+        return view('admin.book.edit', compact('list', 'categories'));
     }
 
     /**
@@ -84,15 +86,11 @@ class BookController extends Controller
         $data = $request->all();
         if ($request->hasFile('image')) {
             $img = time() . '_' .$request->file('image')->getClientOriginalName();
-            $request->file('image')->move('images/uploads/books/', $img);
+            $request->file('image')->move(config('path.upload_book'), $img);
             $data['image'] = $img;
         }
         $list = Book::find($id);
-        if ($list) {
-            $list -> update($data);
-        } else {
-            Session::flash('danger', 'No find id');
-        }
+        $list->update($data);
         return redirect() -> route('admin.book.index');
     }
 
@@ -106,6 +104,9 @@ class BookController extends Controller
     public function destroy($id)
     {
         $list = Book::find($id);
+        if(empty($list)){
+            Session::flash('error',trans('book_manage_lang.noid' ));
+        }
         $list->delete();
         return redirect()->route('admin.book.index');
     }

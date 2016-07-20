@@ -88,8 +88,8 @@
                         @endif
                     </div>
 
-                    {!! Form::submit(trans('book_manage_lang.update'), ['class' => 'btn-btn btn-sm btn-primary'])!!}
-                    {!! link_to(route('admin.user.index'), trans('book_manage_lang.cancle'), ['class' => 'btn btn-danger']) !!}
+                    {!! Form::submit(trans('book_manage_lang.update'), ['class' => 'btn btn-sm btn-primary'])!!}
+                    {!! link_to(route('admin.user.index'), trans('book_manage_lang.cancle'), ['class' => 'btn btn-sm btn-danger']) !!}
                 {!! Form::close() !!}
             <br>
         </div>    

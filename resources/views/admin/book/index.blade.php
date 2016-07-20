@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
+                
                 <div class="row">
                     <div class="col col-md-12">
                         <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2>
@@ -52,7 +52,7 @@
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <th>{{ date('d/m/Y', strtotime($item->publish_year)) }}</th>
+                                        <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
                                            {{--  <div class="col-md-6 text-right">

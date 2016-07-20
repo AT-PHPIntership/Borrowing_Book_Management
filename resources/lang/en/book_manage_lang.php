@@ -31,4 +31,5 @@ return [
     'image' => 'Image',
     'update' => 'Update',
     'cancle' => 'Cancle',
+    'noid' => 'Can not find id',
 ];
