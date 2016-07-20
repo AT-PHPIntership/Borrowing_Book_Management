@@ -22,13 +22,17 @@
                 <!-- /.row -->
                 <div id="formcreatecategory">
                 {!! Form::open(['route' => 'admin.category.store']) !!}
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {{ Form::label('name', trans('category_manage_lang.name')) }}
                 {{ Form::text('name', null, ['class' => 'form-control'])}}
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
                 </div>
                 {{ Form::submit(trans('category_manage_lang.create_category'), ['class' => 'btn btn-success btn-lg btn-block']) }}
 
                 {!! Form::close() !!}
-                </div>
-                   
+                </div>                  
 @endsection

@@ -10,6 +10,7 @@ use App\Category;
 use Auth;
 use App\Book;
 use Session;
+use App\Http\Requests\CreateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -41,16 +42,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
         $data = $request->all();
         $data['admin_user_id'] = Auth::guard('admin')->user()->id;
         $category = new Category($data);
-        $category->save();
-
-        Session::flash('success', 'Create Categorys was successfully save!');
-
-        //redirect to another page
+        $result = $category->save();
+        if ($result) {
+            Session::flash('success', trans('category_manage_lang.message_success_create'));
+        } else {
+            Session::flash('danger', trans('category_manage_lang.message_unsuccess_create'));
+        }
         return redirect()->route('admin.category.index');
     }
 
@@ -100,14 +102,14 @@ class CategoryController extends Controller
                 if ($result) {
                     Session::flash('success', trans('category_manage_lang.message_success_delete'));
                 } else {
-                    Session::flash('success', trans('category_manage_lang.message_unsuccess_delete'));
+                    Session::flash('danger', trans('category_manage_lang.message_unsuccess_delete'));
                 }
             } else {
                 Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
             }
             return redirect()->route('admin.category.index');
         } catch (ModelNotFoundException $ex) {
-            Session::flash('success', trans('category_manage_lang.error'));
+            Session::flash('danger', trans('category_manage_lang.error'));
         }
     }
 }
