@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
+                
                 <div class="row">
                     <div class="col col-md-12">
                         <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2>
@@ -44,20 +44,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i=1;?>
+                                    <?php $index=1;?>
                                     @foreach($list as $item)
                                     <tr>
-                                        <td>{{$i++}}</td>
-                                        <td><a href="{{url('book/'.$item->id.'/edit')}}">{{ $item->name }}</a></td>
+                                        <td>{{ $index++ }}</td>
+                                        <td><a href="{{url('book/'.$item->id.'/view')}}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <!-- <td>{{ $item->publish_year }}</td> -->
-                                        <th>{{ date('d/m/Y', strtotime($item->publish_year)) }}</th>
+                                        <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
-                                        <td> <a href="/Editbook"><i class="fa fa-pencil fa-fw"></i></a> 
-                                             <a href=""><i class="fa fa-times-circle fa-fw"></i></a>
-                                             <a href=""><i class="fa fa-wrench fa-fw"></i></td>
+                                        <td>
+                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">Edit</button></a> 
                                     </tr>
                                     @endforeach
                                 </tbody>
