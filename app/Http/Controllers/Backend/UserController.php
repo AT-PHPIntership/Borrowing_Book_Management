@@ -81,7 +81,7 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             return  view('admin.users.show', compact('user'));
         } catch (ModelNotFoundException $e) {
-            Session::flash(trans('user.danger'), trans('user.editfind'));
+            Session::flash(trans('user.danger'), trans('user.fail'));
             return redirect()->route('admin.user.index');
         }
     }
@@ -95,12 +95,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $users = User::find($id);
-        if (empty($users)) {
-            Session::flash(trans('user.danger'), trans('user.fail'));
+        try {
+            $users = User::findOrFail($id);
+            return  view('admin.users.edit', compact('users'));
+        } catch (ModelNotFoundException $e) {
+            Session::flash(trans('user.danger'), trans('user.editfind'));
             return redirect() -> route('admin.user.index');
         }
-        return  view('admin.users.edit', compact('users'));
     }
 
     /**
