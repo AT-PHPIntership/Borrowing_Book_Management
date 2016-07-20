@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Auth;
 use App\Book;
 use Session;
+use App\Http\Requests\CreateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -30,17 +32,28 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request $request request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateCategoryRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['admin_user_id'] = Auth::guard('admin')->user()->id;
+        $category = new Category($data);
+        $result = $category->save();
+        if ($result) {
+            Session::flash('success', trans('category_manage_lang.message_success_create'));
+        } else {
+            Session::flash('danger', trans('category_manage_lang.message_unsuccess_create'));
+        }
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -89,14 +102,14 @@ class CategoryController extends Controller
                 if ($result) {
                     Session::flash('success', trans('category_manage_lang.message_success_delete'));
                 } else {
-                    Session::flash('success', trans('category_manage_lang.message_unsuccess_delete'));
+                    Session::flash('danger', trans('category_manage_lang.message_unsuccess_delete'));
                 }
             } else {
                 Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
             }
             return redirect()->route('admin.category.index');
         } catch (ModelNotFoundException $ex) {
-            Session::flash('success', trans('category_manage_lang.error'));
+            Session::flash('danger', trans('category_manage_lang.error'));
         }
     }
 }

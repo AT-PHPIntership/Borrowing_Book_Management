@@ -42,11 +42,15 @@
                 {!! Form::label('gender', trans('user.gender')) !!}
                 {!! Form::radio('gender', trans('user.male')) !!} {!! trans('user.male') !!}
                 {!! Form::radio('gender', trans('user.female')) !!} {!! trans('user.female') !!}
-                {!! Form::radio('gender', trans('user.unisex')) !!} {!! trans('user.unisex') !!}
             </div>
             <div class="form-group">
                 {!! Form::label('birthday', trans('user.birthday')) !!}
                 {!! Form::date('birthday', null, array('class' => 'form-control')) !!}
+                @if ($errors->has('birthday'))
+                    <span class="errors">
+                        {{ $errors->first('birthday') }}
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 {!! Form::label('phone', trans('user.phone')) !!}
