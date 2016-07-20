@@ -8,7 +8,7 @@
 
         <!-- Navigation -->
         @include('admin.layouts.partials._navbar')
-
+        @include('admin.layouts.partials._model_confirm')
         <div id="page-wrapper">
             <div class="container-fluid">
                 @include('admin.layouts.partials._message')

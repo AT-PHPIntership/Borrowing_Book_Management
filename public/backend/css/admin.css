@@ -239,6 +239,12 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+.container-fluid{
+    min-height: 600px;
+}
+#formcreatecategory{
+    margin-top: 60px;
+}
 .form-group .errors {
     color: red;
     font-style: italic;
@@ -251,3 +257,4 @@ ul.alert-dropdown {
     border-radius: 5px;
     font-style: italic;
 }
+
