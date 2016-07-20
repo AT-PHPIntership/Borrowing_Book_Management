@@ -2,6 +2,8 @@
 
 @section('title', trans('category_manage_lang.title_page_category'))
 
+@include('admin.layouts.partials._model_confirm')
+
 @section('content')
 <!-- Page Heading -->
                 <div class="row">
@@ -28,7 +30,7 @@
                         </div>
                         <br>                       
                         <div class="table-responsive">
-                            <table class="display text-center" id="list_categories">
+                            <table class="display text-center" id="list_categories" data-toggle="dataTable" data-form="deleteForm">
                                 <thead>
                                     <tr>
                                         <th class="text-center">{{trans('category_manage_lang.no')}}</th>
@@ -45,7 +47,13 @@
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->adminUser->fullname}}</td>
                                         <td><a href=""><i class="fa fa-pencil fa-2x"></i></a>
-                                            <a href=""><i class="fa fa-times-circle fa-2x"></i></a>
+
+                                            {!! Form::open(['route' => ['admin.category.destroy', $category->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                                            {!! Form::button('Delete', ['class' => 'btn btn-danger',
+                                                'data-toggle' => 'modal','data-target' => '#confirmDelete',
+                                                'data-title' => trans('category_manage_lang.title_model_confirm'),
+                                                'data-message' => trans('category_manage_lang.question_confirm')]) !!}
+                                            {!! Form::close() !!}
                                     </tr>
                                     @endforeach
                                 </tbody>
