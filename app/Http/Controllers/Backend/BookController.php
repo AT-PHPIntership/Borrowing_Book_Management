@@ -107,20 +107,20 @@ class BookController extends Controller
     public function update(BookEditRequest $request, $id)
     {
             $data = $request->all();
-            if ($request->hasFile('image')) {
-                $img = $request->file('image');
-                $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
-                $data['image'] = $imagename;
-                $img->move(public_path(config('path.upload_book')), $imagename);
-            }
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $imagename=time() . '_'.$data['name'] .'.'. $img->getClientOriginalExtension();
+            $data['image'] = $imagename;
+            $img->move(public_path(config('path.upload_book')), $imagename);
+        }
             $list = Book::find($id);
-            if ($list) {
-                $list->update($data);
-                Session::flash('success', trans('book_manage_lang.editsuccess'));
-            } else {
-                Session::flash('error', trans('book_manage_lang.error'));
-            }
-        return redirect() -> route('admin.book.index');
+        if (empty($list)) {
+            Session::flash('danger', trans('book_manage_lang.danger'));          
+        } else {
+            $list->update($data);
+            Session::flash('success', trans('book_manage_lang.editsuccess'));
+            return redirect() -> route('admin.book.index');           
+        }
     }
 
     /**

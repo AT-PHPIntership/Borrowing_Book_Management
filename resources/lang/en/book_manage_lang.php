@@ -34,7 +34,7 @@ return [
     'noid' => 'Can not find id',
     'error404' => 'No find page',
     'editsuccess' => 'Edit successfully Book',
-    'error' => 'Error Update',
+    'danger' => 'Error Update',
     'create_book' => 'Create Book',
     'submit' => 'Submit',
     'choose_image' => 'Choose Image',
