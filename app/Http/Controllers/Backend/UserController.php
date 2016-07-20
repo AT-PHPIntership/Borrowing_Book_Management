@@ -70,11 +70,18 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        if (empty($user)) {
+            Session::flash(trans('user.danger'), trans('user.editfind'));
+            return redirect()->route('admin.user.index');
+        }
+        return  view('admin.users.show', compact('user'));
     }
 
     /**
