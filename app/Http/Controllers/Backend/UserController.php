@@ -86,10 +86,10 @@ class UserController extends Controller
     {
         $users = User::find($id);
         if (empty($users)) {
-            Session::flash(trans('user.danger'),trans('user.editfind'));
-            return redirect() -> route('admin.user.index');  
+            Session::flash(trans('user.danger'), trans('user.editfind'));
+            return redirect() -> route('admin.user.index');
         }
-        return  view('admin.users.edit', compact('users'));     
+        return  view('admin.users.edit', compact('users'));
     }
 
     /**
