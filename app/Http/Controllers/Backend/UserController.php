@@ -53,6 +53,8 @@ class UserController extends Controller
         }
         $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
+        $data['birthday'] = date((config('path.formatdate'), strtotime($request->birthday));
+        $data['expiretime'] = date(config('path.formatdate'), strtotime($request->expiretime));
         try {
             $user = new User($data);
             $user->save();
