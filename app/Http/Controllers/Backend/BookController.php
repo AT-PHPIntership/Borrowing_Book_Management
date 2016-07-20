@@ -115,12 +115,12 @@ class BookController extends Controller
         }
             $list = Book::find($id);
         if (empty($list)) {
-            Session::flash('danger', trans('book_manage_lang.danger'));          
+            Session::flash('danger', trans('book_manage_lang.danger'));
         } else {
             $list->update($data);
             Session::flash('success', trans('book_manage_lang.editsuccess'));
-            return redirect() -> route('admin.book.index');           
         }
+        return redirect() -> route('admin.book.index');
     }
 
     /**
