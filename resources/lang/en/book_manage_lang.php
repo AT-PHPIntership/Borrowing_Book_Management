@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'title' => 'Manage Book',
+    'title' => '- Manage Book',
     'dashboard' => 'Dashboard',
     'no' => 'No',
     'name' => 'Name',
@@ -26,6 +26,15 @@ return [
     'publish_year' => 'Publish Year',
     'number_of_page' => 'Number of page',
     'more' => 'More',
+    'edit_book' => 'Edit Book',
+    'admin_user_id' => 'Admin Change',
+    'image' => 'Image',
+    'update' => 'Update',
+    'cancle' => 'Cancle',
+    'noid' => 'Can not find id',
+    'error404' => 'No find page',
+    'editsuccess' => 'Edit successfully Book',
+    'danger' => 'Error Update',
     'create_book' => 'Create Book',
     'submit' => 'Submit',
     'choose_image' => 'Choose Image',
