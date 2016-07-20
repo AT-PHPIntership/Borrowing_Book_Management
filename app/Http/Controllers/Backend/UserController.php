@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use App\Http\Requests\UserRequest;
+use Session;
 
 class UserController extends Controller
 {
@@ -52,12 +53,14 @@ class UserController extends Controller
         }
         $data['image'] = $img;
         $data['password'] = bcrypt($request->password);
-        try{
+        try {
             $user = new User($data);
             $user->save();
-            return redirect()->route('admin.user.index')->withMessage(trans('user.successful_message'));
-        } catch(Exception $e) {
-             return redirect()->route('admin.user.create')->withMessage(trans('user.error_message'));
+            Session::flash('success', trans('user.successful_message'));
+            return redirect()->route('admin.user.index');
+        } catch (Exception $e) {
+            Session::flash('danger', trans('user.error_message'));
+            return redirect()->route('admin.user.create');
         }
     }
 

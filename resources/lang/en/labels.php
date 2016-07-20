@@ -28,5 +28,7 @@ return [
     'borrowing' => 'Borrowing',
     'create' => 'Create',
     'turn_back' => 'Turn back',
-    'login_admin' => 'Admin Login'
+    'login_admin' => 'Admin Login',
+    'title_success' => 'Success',
+    'title_warning' => 'Sorry, something went wrong. Please try again!'
 ];
