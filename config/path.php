@@ -12,7 +12,7 @@ return [
     'images' => 'backend/images/',
 
     'upload_book' => 'images/upload/books/',
-    'upload_user' => 'images/uploads/users'
+    'upload_user' => 'images/upload/users/'
 
 ];
 
