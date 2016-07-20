@@ -34,7 +34,9 @@ return [
     'expiretime' => 'ExpireTime',
     'phone_regex' => 'Phone malformed.',
     'successful_message' => 'Successful!',
-    'error_message' => 'Something went wrong! Please try again.'
+    'error_message' => 'Something went wrong! Please try again.',
+    'title_delete'  => 'Delete User',
+    'confirm' => 'Do you want delete this User ?',
 
 
 ];

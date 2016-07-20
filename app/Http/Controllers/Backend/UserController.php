@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use App\Http\Requests\UserRequest;
+use App\Borrow;
 use Session;
 
 class UserController extends Controller
@@ -103,6 +104,7 @@ class UserController extends Controller
     public function update(UserEditRequest $request, $id)
     {
         $data = $request -> all();
+        dd($data);
         if ($request -> hasFile(trans('user.img'))) {
             $img = $request->file(trans('user.img'));
             $imgname = time() . '_'.$data[trans('user.fullname')] .'.'. $img->getClientOriginalExtension();
@@ -124,8 +126,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id)->borrows->get();
+        dd($user);
     }
 }

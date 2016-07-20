@@ -49,7 +49,12 @@
                         <td>{!! $user->address !!}</td>
                         <td>
                             <a href="{{ route('admin.user.edit',$user ->id)}}"><i class="fa fa-pencil fa-fw"></i></a> 
-                            <a href="#"><i class="fa fa-times-circle fa-fw"></i></a>
+                            {!! Form::open(['route' => ['admin.user.destroy', $user->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                            {!! Form::button('Delete', ['class' => 'btn btn-danger',
+                            'data-toggle' => 'modal','data-target' => '#confirmDelete',
+                            'data-title' => trans('user.title_delete'),
+                            'data-message' => trans('user.confirm')]) !!}
+                            {!! Form::close() !!}
                         </td>
                     </tr>
                     @endforeach
