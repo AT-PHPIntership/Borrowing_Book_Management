@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
 use Redirect;
 use App\Http\Requests;
 use App\Http\Requests\UserEditRequest;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Borrow;
 use Auth;
 use App\Http\Requests\UserRequest;
 use Session;
@@ -121,23 +121,42 @@ class UserController extends Controller
             $data[trans('user.img')] = $imgname;
             $img->move(public_path(config('path.upload_user')), $imgname);
         }
-        $users = User::find($id);
-        if (empty($users)) {
-            Session::flash(trans('user.danger'), trans('user.editfail'));
-        } else {
+        try {
+            $users = User::findOrFail($id);
             $users -> update($data);
             Session::flash(trans('user.success'), trans('user.editsuccess'));
+            return redirect() -> route('admin.user.index');
+        } catch (ModelNotFoundException $ex) {
+            Session::flash(trans('user.danger'), trans('user.editfail'));
+            return redirect() -> route('admin.user.index');
         }
-        return redirect() -> route('admin.user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        try {
+            $count = User::findOrFail($id)->borrows()->where('quantity', '<>', 0)->count();
+            if ($count == 0) {
+                $result = User::destroy($id);
+                if ($result) {
+                    Session::flash(trans('user.success'), trans('user.delete_success'));
+                } else {
+                    Session::flash(trans('user.danger'), trans('user.delete_fail'));
+                }
+            } else {
+                Session::flash(trans('user.danger'), trans('user.delete_fail'));
+            }
+            return redirect() -> route('admin.user.index');
+        } catch (ModelNotFoundException $ex) {
+            Session::flash(trans('user.danger'), trans('user.delete_find'));
+            return redirect() -> route('admin.user.index');
+        }
     }
 }

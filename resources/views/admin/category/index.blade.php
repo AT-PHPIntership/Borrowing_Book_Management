@@ -34,7 +34,8 @@
                                         <th class="text-center">{{trans('category_manage_lang.no')}}</th>
                                         <th class="text-center">{{trans('category_manage_lang.name')}}</th>
                                         <th class="text-center">{{trans('category_manage_lang.created_by')}}</th>
-                                        <th class="text-center">{{trans('category_manage_lang.more')}}</th>
+                                        <th class="text-center">{{trans('category_manage_lang.edit')}}</th>
+                                        <th class="text-center">{{trans('category_manage_lang.delete')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,14 +45,18 @@
                                         <td>{{ $index++ }}</td>
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->adminUser->fullname}}</td>
-                                        <td><a href=""><i class="fa fa-pencil fa-2x"></i></a>
-
+                                        <td>
+                                        
+                                        <a href="{{ route('admin.category.edit', $category->id)}}" class="btn btn-primary">Edit</a></td>
+                                            <td>
                                             {!! Form::open(['route' => ['admin.category.destroy', $category->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
                                             {!! Form::button(trans('labels.delete'), ['class' => 'btn btn-danger',
                                                 'data-toggle' => 'modal','data-target' => '#confirmDelete',
                                                 'data-title' => trans('category_manage_lang.title_model_confirm'),
                                                 'data-message' => trans('category_manage_lang.question_confirm')]) !!}
                                             {!! Form::close() !!}
+                                            </td>
+                                            
                                     </tr>
                                     @endforeach
                                 </tbody>

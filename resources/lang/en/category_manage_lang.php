@@ -15,6 +15,7 @@ return [
 
     'category_table' => 'Category Table',
     'create_category' => 'Create Category',
+    'edit_category' => 'Edit Category',
     'name' => 'Name Category',
     'submit' => 'Submit',
     'created_by' => 'Created By',
@@ -26,10 +27,14 @@ return [
     'manage_category' => 'Manage Category',
     'title_model_confirm' => 'Delete Category',
     'question_confirm' => 'Are you sure delete this CATEGORY?',
-    'error' => 'ERROR!',
-    'message_warning_category_exist' => 'This Category being used!',
-    'message_success_delete' => 'Category was successfully deleted!',
-    'message_unsuccess_delete' => 'This category does not exist!',
-    'message_success_create' => 'Create Categorys was successfully save!',
-    'message_unsuccess_create' => 'Create Categorys was unsuccessfully save!'
+    'warning_category_exist' => 'This Category being used!',
+    'warning_category_not_exist' => 'This category does not exist!',
+    'success_delete' => 'Category was successfully deleted!',
+    'unsuccess_delete' => 'Category was successfully deleted!',
+    'success_create' => 'Create Categorys was successfully save!',
+    'unsuccess_create' => 'Create Categorys was unsuccessfully save!',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'success_update' => 'Update Categorys was successfully save!',
+    'unsuccess_update' => 'Update Categorys was unsuccessfully save!',
 ];

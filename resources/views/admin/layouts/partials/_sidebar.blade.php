@@ -21,7 +21,7 @@
                         </ul>
                     </li> 
                     <li>
-                        <a href="#"><i class="fa fa-file-text-o"></i> {!! trans('labels.history_borrow') !!}</a>
+                        <a href="{!! route('admin.borrow.index') !!}"><i class="fa fa-file-text-o"></i> {!! trans('labels.history_borrow') !!}</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#borrow"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.borrowing') !!} <i class="fa fa-fw fa-caret-down"></i></a>

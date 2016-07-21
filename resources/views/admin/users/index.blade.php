@@ -34,7 +34,8 @@
                         <th class="text-center">{!! trans('user.gender') !!}</th>
                         <th class="text-center">{!! trans('user.phone') !!}</th>
                         <th class="text-center">{!! trans('user.address') !!}</th>
-                        <th class="text-center">{!! trans('user.more') !!}</th>
+                        <th class="text-center">{!! trans('labels.edit') !!}</th>
+                        <th class="text-center">{!! trans('labels.delete') !!}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,8 +49,15 @@
                         <td>{!! $user->phone !!}</td>
                         <td>{!! $user->address !!}</td>
                         <td>
-                            <a href="{{ route('admin.user.edit',$user ->id)}}"><i class="fa fa-pencil fa-fw"></i></a> 
-                            <a href="#"><i class="fa fa-times-circle fa-fw"></i></a>
+                            <a href="{{ route('admin.user.edit',$user ->id)}}"><button class="btn btn-info">{!!trans('labels.edit' )!!}</button></a>
+                        </td>
+                        <td>
+                            {!! Form::open(['route' => ['admin.user.destroy', $user->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                            {!! Form::button(trans('labels.delete'), ['class' => 'btn btn-danger',
+                            'data-toggle' => 'modal','data-target' => '#confirmDelete',
+                            'data-title' => trans('user.title_delete'),
+                            'data-message' => trans('user.confirm')]) !!}
+                            {!! Form::close() !!}
                         </td>
                     </tr>
                     @endforeach
