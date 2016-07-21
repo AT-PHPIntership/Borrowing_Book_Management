@@ -2,6 +2,7 @@ $(document).ready(function(){
   //datatables
   $('#list_users').DataTable();
   $('#list_books').DataTable();
+  $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
 
   //Confirm delete
