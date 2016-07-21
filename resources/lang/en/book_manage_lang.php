@@ -14,7 +14,7 @@ return [
     */
     'title' => '- Manage Book',
     'dashboard' => 'Dashboard',
-    'no' => 'No',
+    'no' => 'No.',
     'name' => 'Name',
     'category' => 'Category',
     'manage_book' => 'Manage Book',
@@ -39,5 +39,8 @@ return [
     'submit' => 'Submit',
     'choose_image' => 'Choose Image',
     'require' => 'Require',
-    'unique' => 'Value is exist'
+    'unique' => 'Value is exist',
+    'btnedit' => 'Edit',
+    'btndelete' => 'Delete',
+    'book_item_id' => 'Book Item ID',
 ];
