@@ -40,7 +40,8 @@
                                         <th class="text-center">{!!trans('book_manage_lang.quantity' )!!}</th>
                                         <th class="text-center">{!!trans('book_manage_lang.publish_year' )!!}</th>
                                         <th class="text-center">{!!trans('book_manage_lang.number_of_page' )!!}</th>
-                                        <th class="text-center">{!!trans('book_manage_lang.more' )!!}</th>
+                                        <th class="text-center">{!!trans('book_manage_lang.edit' )!!}</th>
+                                        <th class="text-center">{!!trans('book_manage_lang.delete' )!!}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,7 +56,16 @@
                                         <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
-                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">Edit</button></a> 
+                                            <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">{!!trans('book_manage_lang.edit' )!!}</button></a>
+                                        </td>
+                                        <td> 
+                                            {!! Form::open(['route' => ['admin.book.destroy', $item->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                                            {!! Form::button('Delete', ['class' => 'btn btn-danger',
+                                                'data-toggle' => 'modal','data-target' => '#confirmDelete',
+                                                'data-title' => trans('book_manage_lang.title_model_confirm'),
+                                                'data-message' => trans('book_manage_lang.question_confirm')]) !!}
+                                            {!! Form::close() !!}
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

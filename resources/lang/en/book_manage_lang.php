@@ -31,7 +31,7 @@ return [
     'image' => 'Image',
     'update' => 'Update',
     'cancle' => 'Cancle',
-    'noid' => 'Can not find id',
+    'noid' => 'Can not find book',
     'error404' => 'No find page',
     'editsuccess' => 'Edit successfully Book',
     'danger' => 'Error Update',
@@ -39,5 +39,13 @@ return [
     'submit' => 'Submit',
     'choose_image' => 'Choose Image',
     'require' => 'Require',
-    'unique' => 'Value is exist'
+    'unique' => 'Value is exist',
+    'success_delete' => 'Delete book successful !',
+    'warning_not_empty' => 'This book is not empty. Check again or delete book item first !',
+    'unsuccess_delete' => 'Delete book unsuccessful',
+    'title_model_confirm' => 'Delete Book',
+    'question_confirm' => 'Are you sure delete all of this Book?',
+    'edit' => 'Edit',
+    'delete' => 'Delete'
+
 ];
