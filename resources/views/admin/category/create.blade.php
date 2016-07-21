@@ -24,7 +24,7 @@
                 {!! Form::open(['route' => 'admin.category.store']) !!}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {{ Form::label('name', trans('category_manage_lang.name')) }}
-                {{ Form::text('name', null, ['class' => 'form-control'])}}
+                {{ Form::text('name', null, ['class' => 'form-control input-lg'])}}
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
