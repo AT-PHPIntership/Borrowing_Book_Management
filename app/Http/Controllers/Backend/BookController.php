@@ -16,6 +16,7 @@ use App\BookItem;
 use File;
 use Auth;
 use DB;
+use Exception;
 
 class BookController extends Controller
 {
@@ -77,13 +78,14 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $list = Book::find($id);
-        if (empty($list)) {
+        try {
+            $list = Book::findOrFail($id);
+            $bookitem=BookItem::select('id', 'book_id')->where('book_id', $id)->get();
+            return view('admin.book.show', compact('list', 'bookitem'));
+        } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.noid'));
             return redirect()->route('admin.book.index');
         }
-        $bookitem=BookItem::select('id', 'book_id')->where('book_id', $id)->get();
-        return view('admin.book.show', compact('list', 'bookitem'));
     }
 
     /**
@@ -95,13 +97,14 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $list = Book::find($id);
-        $categories = Category::lists('name', 'id');
-        if (empty($list)) {
+        try {
+            $list = Book::findOrFail($id);
+            $categories = Category::lists('name', 'id');
+            return view('admin.book.edit', compact('list', 'categories'));
+        } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.noid'));
             return redirect()->route('admin.book.index');
         }
-        return view('admin.book.edit', compact('list', 'categories'));
     }
 
     /**
@@ -140,11 +143,13 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $list = Book::find($id);
-        if (empty($list)) {
-            Session::flash('error', trans('book_manage_lang.noid'));
+        try {
+            $list = Book::find($id);
+            $list->delete();
+            return redirect()->route('admin.book.index');
+        } catch (Exception $ex) {
+            Session::flash('danger', trans('book_manage_lang.noid'));
+            return redirect()->route('admin.book.index');
         }
-        $list->delete();
-        return redirect()->route('admin.book.index');
     }
 }
