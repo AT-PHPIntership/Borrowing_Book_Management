@@ -47,5 +47,7 @@ return [
     'question_confirm' => 'Are you sure delete all of this Book?',
     'edit' => 'Edit',
     'delete' => 'Delete',
-    'book_item_id' => 'Book Item ID'
+    'book_item_id' => 'Book Item ID',
+    'create_success' => 'Create Book successful !',
+    'create_fail' => 'Create Book Fail !'
 ];
