@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
 use Redirect;
 use App\Http\Requests;
 use App\Http\Requests\UserEditRequest;
@@ -13,7 +12,6 @@ use App\User;
 use App\Borrow;
 use Auth;
 use App\Http\Requests\UserRequest;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Session;
 
 class UserController extends Controller
