@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Http\Requests;
 use App\Http\Requests\BookEditRequest;
@@ -137,9 +138,28 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
+        try {
+            $bookItem = Book::findorFail($id)->bookItems->first();
+            if (empty($bookItem)) {
+                $result = Book::destroy($id);
+                if ($result) {
+                    Session::flash('success', trans('book_manage_lang.success_delete'));
+                } else {
+                    Session::flash('danger', trans('book_manage_lang.unsuccess_delete'));
+                }
+            } else {
+                Session::flash('danger', trans('book_manage_lang.warning_not_empty'));
+            }
+            return redirect()->route('admin.book.index');
+        } catch (ModelNotFoundException $ex) {
+            Session::flash('danger', trans('book_manage_lang.noid'));
+            return redirect()->route('admin.book.index');
+        }
     }
 }
