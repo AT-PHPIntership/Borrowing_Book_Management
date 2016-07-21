@@ -22,6 +22,53 @@ body {
     border-radius: 2px;
 }
 
+.styletext{
+    font-size: 18px;
+}
+
+@-webkit-keyframes my {
+    0% { color: rgba(230, 126, 34,1.0); } 
+    50% { color: #fff;  } 
+    100% { color: rgba(230, 126, 34,1.0);  } 
+}
+
+@-moz-keyframes my { 
+    0% { color: rgba(230, 126, 34,1.0);  } 
+    50% { color: #fff;  }
+    100% { color: rgba(230, 126, 34,1.0);  } 
+}
+
+@-o-keyframes my { 
+    0% { color: rgba(230, 126, 34,1.0); } 
+    50% { color: #fff; } 
+    100% { color: rgba(230, 126, 34,1.0);  } 
+}
+
+@keyframes my { 
+    0% { color: rgba(230, 126, 34,1.0);  } 
+    50% { color: #fff;  }
+    100% { color: rgba(230, 126, 34,1.0);  } 
+}
+
+.test {
+         font-size:40px;
+         font-weight:bold;
+     -webkit-animation: my 7000ms infinite;
+     -moz-animation: my 7000ms infinite; 
+     -o-animation: my 7000ms infinite; 
+     animation: my 7000ms infinite;
+}
+
+#styleshowbook{
+    margin-bottom: 40px;  
+    padding: 0px 2px 2px 3px;    
+    border-width: 5px;
+    border-bottom-width:4px;
+    border-bottom-color:rgba(44, 62, 80,1.0);
+    border-bottom-style: solid;
+    width: 100%;
+}
+
 #colorlogo{
     color:green;
 }
@@ -256,6 +303,9 @@ ul.alert-dropdown {
     padding: 10px 10px 5px;
     border-radius: 5px;
     font-style: italic;
+}
+.table-responsive{
+    min-height: 690px;
 }
 .profile {
     padding-left: 0;
