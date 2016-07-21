@@ -42,7 +42,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td>{!! $index++ !!}</td>
-                        <td><a href="#">{!! $user->fullname !!}</a></td>
+                        <td><a href="{!! route('admin.user.show', $user ->id) !!}">{!! $user->fullname !!}</a></td>
                         <td>{!! $user->birthday !!}</td>
                         <td>{!! $user->gender !!}</td>
                         <td>{!! $user->phone !!}</td>

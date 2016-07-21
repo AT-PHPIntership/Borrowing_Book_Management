@@ -40,5 +40,8 @@ return [
     'delete_success' => 'Delete Successful !',
     'delete_fail' => 'Delete Fail !',
     'delete_find' => 'Not found user forDelete',
+    'profile' => 'User Profile',
+    'create_at' => 'Create At',
+    'fail' => 'Not found!'
 
 ];

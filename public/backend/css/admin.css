@@ -257,4 +257,11 @@ ul.alert-dropdown {
     border-radius: 5px;
     font-style: italic;
 }
+.profile {
+    padding-left: 0;
+    line-height: 26px;
+}
+.profile li{
+    list-style-type: none;
+}
 
