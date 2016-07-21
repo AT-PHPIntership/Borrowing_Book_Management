@@ -43,4 +43,7 @@ return [
     'btnedit' => 'Edit',
     'btndelete' => 'Delete',
     'book_item_id' => 'Book Item ID',
+    'view_bookItem' => 'View BookItem',
+    'notfound' => 'NOT FOUND IMAGE'
+    
 ];
