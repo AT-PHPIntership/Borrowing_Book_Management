@@ -14,7 +14,7 @@ return [
     */
     'title' => '- Manage Book',
     'dashboard' => 'Dashboard',
-    'no' => 'No',
+    'no' => 'No.',
     'name' => 'Name',
     'category' => 'Category',
     'manage_book' => 'Manage Book',
@@ -47,5 +47,5 @@ return [
     'question_confirm' => 'Are you sure delete all of this Book?',
     'edit' => 'Edit',
     'delete' => 'Delete'
-
+    'book_item_id' => 'Book Item ID',
 ];

@@ -12,11 +12,11 @@
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-dashboard"></i>
-                    <a href="index.html">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                    <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                 </li>
                 <li>
                     <i class="fa fa-pencil fa-fw"></i>
-                    <a href="#">{!!trans('book_manage_lang.book_list' )!!} </a>
+                    <a href="{{ route('admin.book.index') }}">{!!trans('book_manage_lang.book_list' )!!} </a>
                 </li>
                 <li class="active">
                     <i class="fa fa-table"></i> {!!trans('book_manage_lang.edit_book' )!!}  

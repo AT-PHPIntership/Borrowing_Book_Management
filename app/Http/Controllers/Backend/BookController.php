@@ -17,6 +17,7 @@ use App\BookItem;
 use File;
 use Auth;
 use DB;
+use Exception;
 
 class BookController extends Controller
 {
@@ -72,11 +73,20 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        //
+        try {
+            $list = Book::findOrFail($id);
+            $bookitem=BookItem::select('id', 'book_id')->where('book_id', $id)->get();
+            return view('admin.book.show', compact('list', 'bookitem'));
+        } catch (Exception $ex) {
+            Session::flash('danger', trans('book_manage_lang.noid'));
+            return redirect()->route('admin.book.index');
+        }
     }
 
     /**
@@ -88,13 +98,14 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $list = Book::find($id);
-        $categories = Category::lists('name', 'id');
-        if (empty($list)) {
+        try {
+            $list = Book::findOrFail($id);
+            $categories = Category::lists('name', 'id');
+            return view('admin.book.edit', compact('list', 'categories'));
+        } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.noid'));
             return redirect()->route('admin.book.index');
         }
-        return view('admin.book.edit', compact('list', 'categories'));
     }
 
     /**
@@ -127,11 +138,9 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         try {
             $bookItem = Book::findorFail($id)->bookItems->first();

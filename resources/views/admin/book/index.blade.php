@@ -12,7 +12,7 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>
-                                <a href="index.html">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                                <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> {!!trans('book_manage_lang.book_list' )!!} 
@@ -49,7 +49,7 @@
                                     @foreach($list as $item)
                                     <tr>
                                         <td>{{ $index++ }}</td>
-                                        <td><a href="{{url('book/'.$item->id.'/view')}}">{{ $item->name }}</a></td>
+                                        <td><a href="{{ route('admin.book.show',$item->id) }}">{{ $item->name }}</a></td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
