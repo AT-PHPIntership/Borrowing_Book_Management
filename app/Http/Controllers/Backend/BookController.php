@@ -138,9 +138,11 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         try {
             $bookItem = Book::findorFail($id)->bookItems->first();

@@ -60,7 +60,7 @@
                                         </td>
                                         <td> 
                                             {!! Form::open(['route' => ['admin.book.destroy', $item->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
-                                            {!! Form::button('Delete', ['class' => 'btn btn-danger',
+                                            {!! Form::button(trans('book_manage_lang.delete'), ['class' => 'btn btn-danger',
                                                 'data-toggle' => 'modal','data-target' => '#confirmDelete',
                                                 'data-title' => trans('book_manage_lang.title_model_confirm'),
                                                 'data-message' => trans('book_manage_lang.question_confirm')]) !!}

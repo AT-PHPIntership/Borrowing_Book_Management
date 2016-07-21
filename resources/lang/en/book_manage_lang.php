@@ -46,6 +46,6 @@ return [
     'title_model_confirm' => 'Delete Book',
     'question_confirm' => 'Are you sure delete all of this Book?',
     'edit' => 'Edit',
-    'delete' => 'Delete'
-    'book_item_id' => 'Book Item ID',
+    'delete' => 'Delete',
+    'book_item_id' => 'Book Item ID'
 ];
