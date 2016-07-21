@@ -62,11 +62,11 @@ class BookController extends Controller
         }
         $book=new Book($data);
         $result=$book->save();
-        if ($result){
+        if ($result) {
             Session::flash('success', trans('book_manage_lang.create_success'));
             for ($i=0; $i < $book['quantity']; $i++) {
-            BookItem::create(['book_id' => $book['id']]);
-        }
+                    BookItem::create(['book_id' => $book['id']]);
+            }
         } else {
             Session::flash('danger', trans('book_manage_lang.create_fail'));
         }
