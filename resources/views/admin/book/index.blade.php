@@ -15,7 +15,7 @@
                                 <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> {!!trans('book_manage_lang.book_list' )!!} 
+                                <i class="fa fa-table"></i> {!!trans('book_manage_lang.manage_book' )!!} 
                             </li>
                         </ol>
                     </div>
