@@ -11,10 +11,13 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">{{trans('labels.dashboard')}}</a>
+                                <i class="fa fa-dashboard"></i>  <a href="{{route('home.admin')}}">{{trans('labels.dashboard')}}</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-table"></i>  <a href="{{route('admin.category.index')}}"> {{trans('category_manage_lang.category')}}</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-edit"></i>{{trans('category_manage_lang.edit_category')}}
+                                <i class="fa fa-edit"></i> {{trans('category_manage_lang.edit_category')}}
                             </li>
                         </ol>
                     </div>
