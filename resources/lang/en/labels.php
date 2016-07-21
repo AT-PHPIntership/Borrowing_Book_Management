@@ -31,6 +31,8 @@ return [
     'login_admin' => 'Admin Login',
     'cancel' => 'Cancel',
     'delete' => 'Delete',
+    'edit' => 'Edit',
     'title_success' => 'Success:',
-    'title_warning' => 'Warning:'
+    'title_warning' => 'Warning:',
+    'not_found' => 'Not Found!'
 ];
