@@ -23,7 +23,7 @@ return [
     'danger' => 'danger',
     'editfail' => 'Fail edit user!',
     'editsuccess' => 'Edit user succesfully!',
-    'editfind'  => 'Not found User!',
+    'editfind'  => 'Not found user for Edit!',
     'img' => 'image',
     'fullname' => 'fullname',
     'create_user' => 'Create Account',
@@ -37,6 +37,8 @@ return [
     'error_message' => 'Something went wrong! Please try again.',
     'title_delete'  => 'Delete User',
     'confirm' => 'Do you want delete this User ?',
-
+    'delete_success' => 'Delete Successful !',
+    'delete_fail' => 'Delete Fail !',
+    'delete_find' => 'Not found user forDelete',
 
 ];
