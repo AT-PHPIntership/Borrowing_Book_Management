@@ -36,5 +36,6 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'message_success_update' => 'Update Categorys was successfully save!',
-    'message_unsuccess_update' => 'Update Categorys was unsuccessfully save!'
+    'message_unsuccess_update' => 'Update Categorys was unsuccessfully save!',
+    'error404' => '404 NOT FOUND'
 ];

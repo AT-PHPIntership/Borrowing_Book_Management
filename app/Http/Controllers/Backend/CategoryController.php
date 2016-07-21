@@ -84,7 +84,7 @@ class CategoryController extends Controller
                 Session::flash('danger', trans('category_manage_lang.message_warning_category_exist'));
             }
         } catch (ModelNotFoundException $ex) {
-          Session::flash('danger', trans('category_manage_lang.error'));
+          Session::flash('danger', trans('category_manage_lang.error404'));
         }
         
     }
