@@ -39,7 +39,7 @@ return [
     'confirm' => 'Do you want delete this User ?',
     'delete_success' => 'Delete Successful !',
     'delete_fail' => 'Delete Fail !',
-    'delete_find' => 'Not found user forDelete',
+    'delete_find' => 'Not found user for Delete',
     'profile' => 'User Profile',
     'create_at' => 'Create At',
     'fail' => 'Not found!'
