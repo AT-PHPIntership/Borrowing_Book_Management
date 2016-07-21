@@ -137,19 +137,9 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id id
-     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        try {
-            $list = Book::find($id);
-            $list->delete();
-            return redirect()->route('admin.book.index');
-        } catch (Exception $ex) {
-            Session::flash('danger', trans('book_manage_lang.noid'));
-            return redirect()->route('admin.book.index');
-        }
     }
 }
