@@ -52,7 +52,6 @@ class BookController extends Controller
      */
     public function store(BookRequest $request)
     {
-        // $book = new Book();
         $data=$request->all();
         $data['admin_user_id']=Auth::guard('admin')->user()->id;
         if ($request->hasFile('image')) {
@@ -62,11 +61,16 @@ class BookController extends Controller
             $img->move(public_path(config('path.upload_book')), $imagename);
         }
         $book=new Book($data);
-        $book->save();
-        $bookItem=Book::orderBy('created_at', 'desc')->first();
-        for ($i=0; $i < $data['quantity']; $i++) {
-            BookItem::create(['book_id' => $bookItem['id']]);
+        $result=$book->save();
+        if ($result) {
+            Session::flash('success', trans('book_manage_lang.create_success'));
+            for ($i=0; $i < $book['quantity']; $i++) {
+                    BookItem::create(['book_id' => $book['id']]);
+            }
+        } else {
+            Session::flash('danger', trans('book_manage_lang.create_fail'));
         }
+        
         return redirect()->route('admin.book.index');
     }
 

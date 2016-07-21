@@ -15,7 +15,8 @@
                 <a href="{!! route('home.admin') !!}">{!! trans('labels.dashboard') !!}</a>
             </li>
              <li class="active">
-                <i class="fa fa-table"></i> {!! trans('user.manage_user') !!}
+                <i class="fa fa-table"></i> 
+                <a href="{!! route('admin.user.index') !!}">{!! trans('user.manage_user') !!}</a>
             </li>
             <li class="active">
                 <i class="fa fa-user"></i> {!! trans('user.profile') !!}

@@ -54,4 +54,6 @@ return [
     'delete_bookitem' => 'Delete BookItem',
     'question_delete_bookitem' => 'Are you sure delete all of this BookItem?',
     'book_item_no' => 'This BookItem is not empty !',
+    'create_success' => 'Create Book successful !',
+    'create_fail' => 'Create Book Fail !'
 ];

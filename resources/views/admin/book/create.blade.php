@@ -12,7 +12,7 @@
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  
-                                <a href="#">{!!trans('book_manage_lang.dashboard' )!!}</a>
+                                <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!}</a>
                             </li>
                             <li>
                                 <i class="fa fa-dashboard"></i>  
