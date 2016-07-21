@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="col-lg-12">
-					{{trans('book_manage_lang.category')}}  {!! Form::label(null,$list->category_id,['class' =>'control-label']) !!}
+					{{trans('book_manage_lang.category')}}  {!! Form::label(null,$list->category->name,['class' =>'control-label']) !!}
 				</div>
 
 				<div class="col-lg-12">
@@ -71,17 +71,18 @@
                         @foreach($bookitem as $itembook)
                         <tr>
                             <td>{{ $index++ }}</td>
-                            <td>{{ $itembook->id .($list->name) }}</td>
+                            <td>{{ $itembook->id }}</td>
                             <td>
-                                {!! Form::open(['route' => ['delete.bookitem', $itembook->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
-                                {!! Form::button(trans('book_manage_lang.btndelete' ), ['class' => 'btn btn-danger',
+                                {!! Form::open(['route' => ['admin.bookItem.destroy', $itembook->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                                {!! Form::button(trans('book_manage_lang.delete'), ['class' => 'btn btn-danger',
                                     'data-toggle' => 'modal','data-target' => '#confirmDelete',
-                                    'data-title' => trans('category_manage_lang.title_model_confirm'),
-                                    'data-message' => trans('category_manage_lang.question_confirm')]) !!}
+                                    'data-title' => trans('book_manage_lang.delete_bookitem'),
+                                    'data-message' => trans('book_manage_lang.question_delete_bookitem')]) !!}
                                 {!! Form::close() !!}
-                    		</td>
+                            </td>
                         </tr>
                         @endforeach
+
                     </tbody>
                 </table>
             </div>    

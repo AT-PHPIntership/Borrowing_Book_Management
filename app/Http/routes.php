@@ -25,6 +25,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('book', 'BookController');
         //category
         Route::resource('category', 'CategoryController');
-        Route::get('/bookItem/delete/{id}',['as' => 'delete.bookitem', 'uses' => 'bookItemController@destroy']);
+        Route::resource('bookItem', 'BookItemController');
     });
 });
