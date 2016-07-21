@@ -134,8 +134,8 @@ class BookController extends Controller
     public function destroy($id)
     {
         try {
-            $book_item = Book::findorFail($id)->bookItems->first();
-            if (empty($book_item)) {
+            $bookItem = Book::findorFail($id)->bookItems->first();
+            if (empty($bookItem)) {
                 $result = Book::destroy($id);
                 if ($result) {
                     Session::flash('success', trans('book_manage_lang.success_delete'));
