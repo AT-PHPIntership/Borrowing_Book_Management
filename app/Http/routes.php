@@ -29,5 +29,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('bookItem', 'BookItemController');
         //borrow
         Route::resource('borrow', 'BorrowController');
+        // additional Book
+        Route::resource('addbook', 'AddBookController');
     });
 });

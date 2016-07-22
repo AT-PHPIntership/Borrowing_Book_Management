@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('user.create_user'))
+@section('title', trans('user.title'))
 
 @section('content')
 <!-- Page Heading -->
@@ -23,7 +23,7 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col col-lg-6">
+    <div class="col col-lg-8 col-lg-offset-2">
         {!! Form::open(array('route' => 'admin.user.store', 'id' => 'user-form', 'enctype' => 'multipart/form-data')) !!}
             <div class="form-group">
                 {!! Form::label('username', trans('user.username')) !!}

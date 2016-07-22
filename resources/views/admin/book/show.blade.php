@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('book_manage_lang.title'))
+@section('title', trans('book_manage_lang.title_view_bookItem'))
 
 @section('content')
 	<div class="row">
@@ -14,11 +14,11 @@
                     <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                 </li>
                 <li>
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <a href="{{ route('admin.book.index') }}">{!!trans('book_manage_lang.book_list' )!!} </a>
+                    <i class="fa fa-table"></i>
+                    <a href="{{ route('admin.book.index') }}">{!!trans('book_manage_lang.manage_book' )!!} </a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-table"></i> {!!trans('book_manage_lang.view_bookItem')!!}  
+                    <i class="fa fa-book"></i> {!!trans('book_manage_lang.view_bookItem')!!}  
                 </li>
             </ol>
         </div>
