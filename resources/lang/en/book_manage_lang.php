@@ -49,5 +49,13 @@ return [
     'delete' => 'Delete',
     'book_item_id' => 'Book Item ID',
     'create_success' => 'Create Book successful !',
-    'create_fail' => 'Create Book Fail !'
+    'create_fail' => 'Create Book Fail !',
+    'add_book' => 'Add',
+    'add_quantity_book' => 'Additional Book',
+    'quantity_additional' => 'Quantity Additional:',
+    'success_add_book' => 'Additional Book was successful!',
+    'unsuccess_add_book' => 'Additional Book was unsuccessful!',
+    'title_add_book' => '- Additional Book',
+    'title_edit_book' => '- Edit Book',
+    'title_create_book' => '- Create Book'
 ];
