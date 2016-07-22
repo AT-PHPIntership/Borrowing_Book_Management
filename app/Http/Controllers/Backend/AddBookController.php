@@ -57,7 +57,7 @@ class AddBookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id id
+     * @param int $id id
      *
      * @return \Illuminate\Http\Response
      */
@@ -75,8 +75,8 @@ class AddBookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request request
-     * @param  int  $id id
+     * @param \Illuminate\Http\Request $request request
+     * @param int                      $id      id
      *
      * @return \Illuminate\Http\Response
      */
@@ -84,10 +84,10 @@ class AddBookController extends Controller
     {
         try {
             $book = Book::findorFail($id);
-            $number = $request->input('quantity_additional');        
+            $number = $request->input('quantity_additional');
             $book->quantity = $book['quantity'] + $number;
             $result = $book->save();
-            if ($result){
+            if ($result) {
                 Session::flash('success', trans('book_manage_lang.success_add_book'));
                 for ($i=0; $i < $number; $i++) {
                     BookItem::create(['book_id' => $book['id']]);
@@ -96,11 +96,10 @@ class AddBookController extends Controller
                 Session::flash('danger', trans('book_manage_lang.unsuccess_add_book'));
             }
             return redirect()->route('admin.book.index');
-        } catch(Exception $ex){
+        } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.noid'));
             return redirect()->route('admin.book.index');
         }
-        
     }
 
     /**

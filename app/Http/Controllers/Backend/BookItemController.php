@@ -11,7 +11,7 @@ use App\BookItem;
 use App\Book;
 use Session;
 
-class bookItemController extends Controller
+class BookItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -97,10 +97,10 @@ class bookItemController extends Controller
             } else {
                 Session::flash('danger', trans('book_manage_lang.unsuccess_delete'));
             }
-            return redirect()->route('admin.book.show',$bookitem->book_id);
+            return redirect()->route('admin.book.show', $bookitem->book_id);
         } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.book_item_no'));
-            return redirect()->route('admin.book.show',$bookitem->book_id);
+            return redirect()->route('admin.book.show', $bookitem->book_id);
         }
     }
 }
