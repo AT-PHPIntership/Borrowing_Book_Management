@@ -23,7 +23,7 @@ body {
 }
 
 .styletext{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 @-webkit-keyframes my {
@@ -305,7 +305,7 @@ ul.alert-dropdown {
     font-style: italic;
 }
 .table-responsive{
-    min-height: 690px;
+    min-height: 500px;
 }
 .profile {
     padding-left: 0;

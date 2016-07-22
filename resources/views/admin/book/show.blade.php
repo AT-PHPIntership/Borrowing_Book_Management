@@ -3,11 +3,31 @@
 @section('title', trans('book_manage_lang.title'))
 
 @section('content')
+	<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {!!trans('book_manage_lang.manage_book')!!}
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>
+                    <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                </li>
+                <li>
+                    <i class="fa fa-pencil fa-fw"></i>
+                    <a href="{{ route('admin.book.index') }}">{!!trans('book_manage_lang.book_list' )!!} </a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-table"></i> {!!trans('book_manage_lang.view_bookItem')!!}  
+                </li>
+            </ol>
+        </div>
+    </div>
 	<div class="col-lg-12 " id="styleshowbook">
 		<div class="col-lg-6">
 			<div class="col-lg-4">
 				<div class="col-lg-12">
-					{!! Form::image(config('path.upload_book').$list->image,null,['class' => ' img-thumbnail ','id' => 'image_no'])!!}
+					{!! Form::image(config('path.upload_book').$list->image,null,['class' => ' img-thumbnail ','id' => 'image_no', 'alt' =>trans('book_manage_lang.notfound')])!!}
 				</div>
 			</div>
 			<div class="col-lg-8 styletext">
@@ -28,7 +48,7 @@
 				</div>
 
 				<div class="col-lg-12">
-					{{trans('book_manage_lang.category')}}  {!! Form::label(null,$list->category_id,['class' =>'control-label']) !!}
+					{{trans('book_manage_lang.category')}}  {!! Form::label(null,$list->category->name,['class' =>'control-label']) !!}
 				</div>
 
 				<div class="col-lg-12">
@@ -51,12 +71,18 @@
                         @foreach($bookitem as $itembook)
                         <tr>
                             <td>{{ $index++ }}</td>
-                            <td>{{ $itembook->id .($list->name) }}</td>
+                            <td>{{ $itembook->id }}</td>
                             <td>
-                                <a href="#"><button class="btn btn-danger">{!!trans('book_manage_lang.btndelete' )!!}</button></a> 
+                                {!! Form::open(['route' => ['admin.bookItem.destroy', $itembook->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}
+                                {!! Form::button(trans('book_manage_lang.delete'), ['class' => 'btn btn-danger',
+                                    'data-toggle' => 'modal','data-target' => '#confirmDelete',
+                                    'data-title' => trans('book_manage_lang.delete_bookitem'),
+                                    'data-message' => trans('book_manage_lang.question_delete_bookitem')]) !!}
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach
+
                     </tbody>
                 </table>
             </div>    
