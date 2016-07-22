@@ -42,6 +42,7 @@
                                         <th class="text-center">{!!trans('book_manage_lang.number_of_page' )!!}</th>
                                         <th class="text-center">{!!trans('book_manage_lang.edit' )!!}</th>
                                         <th class="text-center">{!!trans('book_manage_lang.delete' )!!}</th>
+                                        <th class="text-center">{!!trans('book_manage_lang.add_book' )!!}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,6 +66,9 @@
                                                 'data-title' => trans('book_manage_lang.title_model_confirm'),
                                                 'data-message' => trans('book_manage_lang.question_confirm')]) !!}
                                             {!! Form::close() !!}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.addbook.edit',$item->id) }}"><button class="btn btn-primary">{!!trans('book_manage_lang.add_book' )!!}</button></a>
                                         </td>
                                     </tr>
                                     @endforeach

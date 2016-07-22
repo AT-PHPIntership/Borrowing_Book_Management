@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('user.manage_user'))
+@section('title', trans('user.title_manage_user'))
 
 @section('content')
 <!-- Page Heading -->
@@ -24,6 +24,7 @@
 
 <div class="row">
     <div class="col col-md-12">
+    <h2 class="text-left">{{trans('user.user_list')}}</h2><br>
         <div class="table-responsive">
             <table id="list_users" class="text-center display" cellspacing="0" width="100%">
                 <thead>

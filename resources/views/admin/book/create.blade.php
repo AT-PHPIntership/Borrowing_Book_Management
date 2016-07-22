@@ -1,22 +1,22 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('book_manage_lang.create_book'))
+@section('title', trans('book_manage_lang.title_create_book'))
 
 @section('content')
 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            {!!trans('book_manage_lang.create_book')!!}
+                            {!!trans('book_manage_lang.manage_book' )!!}
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  
-                                <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!}</a>
+                                <a href="{{ route('home.admin') }}"> {!!trans('book_manage_lang.dashboard' )!!}</a>
                             </li>
                             <li>
-                                <i class="fa fa-dashboard"></i>  
-                                <a href="{!!route('admin.book.index')!!}">{!!trans('book_manage_lang.manage_book')!!}</a>
+                                <i class="fa fa-table"></i>  
+                                <a href="{!!route('admin.book.index')!!}"> {!!trans('book_manage_lang.manage_book' )!!}</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> {!!trans('book_manage_lang.create_book')!!}
@@ -25,7 +25,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
+                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
+                <h2 class="text-center">{!!trans('book_manage_lang.create_book' )!!}</h2>
                 {!! Form::open(array('route' => 'admin.book.store','files' => true)) !!}
                 <div class="form-group">
                     {!! Form::label('name',trans('book_manage_lang.name')) !!}

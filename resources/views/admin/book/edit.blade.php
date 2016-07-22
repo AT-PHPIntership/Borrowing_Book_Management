@@ -1,25 +1,25 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('book_manage_lang.title'))
+@section('title', trans('book_manage_lang.title_edit_book'))
 
 @section('content')
 <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                {!!trans('book_manage_lang.manage_book')!!}
+                {!!trans('book_manage_lang.manage_book' )!!}
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-dashboard"></i>
-                    <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
+                    <a href="{{ route('home.admin') }}"> {!!trans('book_manage_lang.dashboard' )!!} </a>
                 </li>
                 <li>
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <a href="{{ route('admin.book.index') }}">{!!trans('book_manage_lang.book_list' )!!} </a>
+                    <i class="fa fa-table"></i>
+                    <a href="{{ route('admin.book.index') }}"> {!!trans('book_manage_lang.manage_book' )!!} </a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-table"></i> {!!trans('book_manage_lang.edit_book' )!!}  
+                    <i class="fa fa-pencil fa-fw"></i> {!!trans('book_manage_lang.edit_book' )!!}  
                 </li>
             </ol>
         </div>
@@ -27,8 +27,8 @@
     <!-- /.row -->
 
     <div class="row">
-        <div class="col-lg-offset-3 col-lg-6">
-            <h2 class="text-center">{!!trans('book_manage_lang.edit_book' )!!}</h2>
+        <div class="col-lg-offset-2 col-lg-8">
+        <h2 class="text-center">{!!trans('book_manage_lang.edit_book' )!!}</h2>
                 {!! Form::model($list,[ 'route' => ['admin.book.update',$list ->id],'method'=>'PUT', 'enctype' => 'multipart/form-data']) !!}
                 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
