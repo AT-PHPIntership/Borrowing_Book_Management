@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'Borrow Book')
+@section('title', trans('labels.title_home'))
 
 @section('navbar')
  <!-- Navigation -->

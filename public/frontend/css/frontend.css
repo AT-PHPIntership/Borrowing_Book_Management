@@ -307,3 +307,7 @@ social {
 .main-center {
     min-height: 730px;
 }
+.modal-title span {
+    font-size:30px;
+    color:#2ecc71;
+}

@@ -13,7 +13,7 @@
     <div class="col-md-4 col-md-offset-4">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-center" id="exampleModalLabel"><span style="font-size:30px; color:#2ecc71;">{!! trans('labels.login_title') !!}</span></h4>
+                <h4 class="modal-title text-center"><span>{!! trans('labels.login_title') !!}</span></h4>
             </div>
             <form action="{{ route('login') }}" method="POST">
                 {{ csrf_field() }}

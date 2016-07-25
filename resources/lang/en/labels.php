@@ -42,6 +42,7 @@ return [
     'home' => 'Home',
     'contact' => 'Contact',
     'search' => 'Search',
-    'footer' => 'Copyright &copy; Your Website 2016'
+    'footer' => 'Copyright &copy; Your Website 2016',
+    'tog_nav' => 'Toggle navigation'
 
 ];
