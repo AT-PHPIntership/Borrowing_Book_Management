@@ -22,7 +22,7 @@ class Authenticate
             if ($guard == 'admin') {
                 return redirect('admin/login');
             } else {
-                return redirect('login');
+                return redirect('/');
             }
         }
 

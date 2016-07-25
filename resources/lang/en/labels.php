@@ -34,5 +34,13 @@ return [
     'edit' => 'Edit',
     'title_success' => 'Success:',
     'title_warning' => 'Warning:',
-    'not_found' => 'Not Found!'
+    'not_found' => 'Not Found!',
+    'login_user' => 'Log in',
+    'login_title' => 'LOG IN',
+    'reset' => 'Reset',
+    'close' => 'Close',
+    'home' => 'Home',
+    'contact' => 'Contact',
+    'search' => 'Search'
+
 ];

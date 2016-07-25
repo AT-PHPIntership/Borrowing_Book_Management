@@ -40,8 +40,10 @@ return [
     'delete_success' => 'Delete Successful !',
     'delete_fail' => 'Delete Fail !',
     'delete_find' => 'Not found user for Delete',
-    'profile' => 'User Profile',
+    'profile' => 'Profile',
     'create_at' => 'Create At',
-    'fail' => 'Not found!'
+    'fail' => 'Not found!',
+    'borrow_list' => 'Borrow List'
+
 
 ];

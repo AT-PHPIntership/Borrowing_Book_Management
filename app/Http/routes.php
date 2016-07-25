@@ -31,3 +31,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('borrow', 'BorrowController');
     });
 });
+Route::get('/', ['as' => '/', function () {
+    return view('frontend.index');
+}]);
+Route::group(['namespace' => 'Frontend'], function () {
+    //User login
+    Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getlogin']);
+    Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
+    //User logout
+    Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+});
