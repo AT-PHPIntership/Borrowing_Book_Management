@@ -4,7 +4,8 @@ $(document).ready(function(){
   $('#list_books').DataTable();
   $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
-
+  $('#example').DataTable();
+  $('#example #example_length').attr('style','none');
   //Confirm delete
   $('#confirmDelete').on('show.bs.modal', function (e) {
   	  // set message
@@ -45,3 +46,32 @@ $("#image").on('change', function(){
     readURL(this);
 
 });
+    $(document).ready(function() {
+    var t = $('#example').DataTable();
+    var counter = 1;
+ 
+    $(document).on( 'click', '#addRow', function () {
+        t.row.add( [
+            '<input type="text" class="form-control" name ="txt'+counter+'" value = "" >'
+        ] ).draw( false );
+    });
+    // Automatically add a first row of data
+    $('#addRow').click();
+} );
+    $(document).ready(function() {
+    var table = $('#example').DataTable();
+ 
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+ 
+    $('#deleteRow').click( function () {
+        table.row('.selected').remove().draw( false );
+    } );
+} );
