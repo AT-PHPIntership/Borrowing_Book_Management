@@ -41,6 +41,7 @@ return [
     'close' => 'Close',
     'home' => 'Home',
     'contact' => 'Contact',
-    'search' => 'Search'
+    'search' => 'Search',
+    'footer' => 'Copyright &copy; Your Website 2016'
 
 ];

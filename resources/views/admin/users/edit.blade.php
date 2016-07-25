@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('user.edit_user'))
+@section('title', trans('user.title_edit_user'))
 
 @section('content')
 <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                {!!trans('user.edit_user')!!}
+                {!!trans('user.manage_user')!!}
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -28,7 +28,7 @@
     <!-- /.row -->
 
     <div class="row">
-        <div class="col-lg-12"> 
+        <div class="col col-lg-8 col-lg-offset-2"> 
             <h2 class="text-center">{!!trans('user.form_edit' )!!}</h2>
                {!! Form::model($users,['route' => ['admin.user.update',$users -> id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
             <div class ="form-group {!!$errors->has('fullname') ? ' has-error' : '' !!}"> 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('user.create_user'))
+@section('title', trans('user.title_profile'))
 
 @section('content')
 <!-- Page Heading -->

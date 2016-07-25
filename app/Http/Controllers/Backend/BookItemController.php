@@ -97,10 +97,10 @@ class BookItemController extends Controller
             } else {
                 Session::flash('danger', trans('book_manage_lang.unsuccess_delete'));
             }
-            return redirect()->route('admin.book.index');
+            return redirect()->route('admin.book.show', $bookitem->book_id);
         } catch (Exception $ex) {
             Session::flash('danger', trans('book_manage_lang.book_item_no'));
-            return redirect()->route('admin.book.index');
+            return redirect()->route('admin.book.show', $bookitem->book_id);
         }
     }
 }

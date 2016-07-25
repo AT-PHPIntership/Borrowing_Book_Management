@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', trans('category_manage_lang.title_page_category'))
+@section('title', trans('category_manage_lang.title'))
 
 @section('content')
 <!-- Page Heading -->
@@ -22,7 +22,7 @@
                 <!-- /.row -->
                 <div class="row">
                     <div class="col col-md-12">
-                        <h1 class="text-center">{{trans('category_manage_lang.category_table')}}</h1>
+                        <h2 class="text-left">{{trans('category_manage_lang.category_list')}}</h2>
                          <div class="text-right">    
                     <a href="{{route('admin.category.create')}}" class="btn btn-lg btn-primary">{{trans('category_manage_lang.create_category')}}</a>
                         </div>

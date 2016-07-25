@@ -21,9 +21,9 @@ return [
     'created_by' => 'Created By',
     'more' => 'More',
     'no' => 'No.',
-    'title' => 'Manage Category',
+    'title' => '- Manage Category',
     'dashboard' => 'Dashboard',
-    'category' => 'Category List',
+    'category_list' => 'Category List',
     'manage_category' => 'Manage Category',
     'title_model_confirm' => 'Delete Category',
     'question_confirm' => 'Are you sure delete this CATEGORY?',
@@ -37,4 +37,7 @@ return [
     'delete' => 'Delete',
     'success_update' => 'Update Categorys was successfully save!',
     'unsuccess_update' => 'Update Categorys was unsuccessfully save!',
+    'title_create_category' => '- Create Category',
+    'title_edit_category' => '- Edit Category',
+    'category' => 'Manage Category'
 ];

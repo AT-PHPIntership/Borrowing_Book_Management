@@ -8,12 +8,12 @@ return [
     'gender' => 'Gender',
     'phone' => 'Phone',
     'address' => 'Address',
-    'admin' => 'Update By :',
+    'admin' => 'Update By: ',
     'more' => 'More',
     'manage_user' => 'Manage User',
     'edit_user' => 'Edit User',
-    'dashboard' => 'Dash Board',
-    'form_edit' => 'Form Edit User',
+    'dashboard' => 'DashBoard',
+    'form_edit' => 'Edit User',
     'update' => 'Update',
     'male' => 'Male',
     'female' => 'Female',
@@ -27,6 +27,10 @@ return [
     'img' => 'image',
     'fullname' => 'fullname',
     'create_user' => 'Create Account',
+    'title' => '- Create Account',
+    'title_manage_user' => '- Manage User',
+    'title_edit_user' => '- Edit User',
+    'user_list' => 'User List',
     'username' => 'User Name',
     'password' => 'Password',
     'image' => 'Choose Image',
@@ -43,7 +47,9 @@ return [
     'profile' => 'Profile',
     'create_at' => 'Create At',
     'fail' => 'Not found!',
-    'borrow_list' => 'Borrow List'
-
+    'borrow_list' => 'Borrow List',
+    'title_profile' => '- User Profile',
+    'create_at' => 'Create At',
+    'fail' => 'Not found!',
 
 ];
