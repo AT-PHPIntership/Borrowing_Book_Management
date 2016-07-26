@@ -38,7 +38,6 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success" title="Login">{!! trans('labels.login_user') !!}</button>
                     <button type="reset" class="btn btn-info" title="Reset">{!! trans('labels.reset') !!}</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" title="Close">{!! trans('labels.close') !!}</button>
                 </div>
             </form>
         </div>
