@@ -16,10 +16,11 @@ class SearchController extends Controller
       $search = $request->input('valuesearch');
       
       if(!$search ) {
-        return redirect()->route('/home');
+        return view('frontend.index');
       }
 
       $book = Book::select('id','name','author','quantity','image','publish_year','number_of_page')->where('name','like',"%$search%")->orwhere('author','like',"%$search%")->get();
+
       return view('frontend.searchs.results', compact('book'));
     }
     public function getjson(){

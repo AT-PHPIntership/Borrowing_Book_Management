@@ -9,9 +9,9 @@
 
 @section('content')
   @foreach($book as $item)
-  <div class="col-sm-4 col-lg-4 col-md-4">
+  <div class="col-sm-3 col-lg-3 col-md-3">
         <div class="thumbnail">
-            <img src="{{ url('/images/upload/books/')}}/{!! $item->image !!}" alt="No image for {{ $item->name}}" id="picturebook">
+            <img src="{{ url('/images/upload/books/')}}/{!! $item->image !!}" alt="No image for {{ $item->name}}" >
             <div class="caption">
                 <h4 class="pull-right">{{ $item->quantity }}</h4>
                 <h4><a href="#">{{ $item->name }}</a>

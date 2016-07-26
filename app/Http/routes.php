@@ -33,9 +33,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('addbook', 'AddBookController');
     });
 });
-// Route::get('/', ['as' => '/', function () {
-//     return view('frontend.index');
-// }]);
 Route::group(['namespace' => 'Frontend'], function () {
     //User login
     Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getlogin']);
@@ -43,7 +40,6 @@ Route::group(['namespace' => 'Frontend'], function () {
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
     //Search
-    Route::get('/search',['as' => 'search','uses' => 'SearchController@getsearch']);
+    Route::get('/',['as' => '/','uses' => 'SearchController@getsearch']);
     Route::get('/search/book',['uses' => 'SearchController@getjson']);
-    Route::get('/',['as'=>'/', 'uses' => 'HomeController@getindex']);
 });
