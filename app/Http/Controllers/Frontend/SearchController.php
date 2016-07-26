@@ -11,20 +11,34 @@ use App\Book;
 
 class SearchController extends Controller
 {
-    public function getsearch(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request\BookRequest $request request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getsearch(Request $request)
+    {
       
-      $search = $request->input('valuesearch');
+        $search = $request->input('valuesearch');
       
-      if(!$search ) {
-        return view('frontend.index');
-      }
+        if (!$search) {
+            return view('frontend.index');
+        }
 
-      $book = Book::select('id','name','author','quantity','image','publish_year','number_of_page')->where('name','like',"%$search%")->orwhere('author','like',"%$search%")->get();
+        $book = Book::select('id', 'name', 'author', 'quantity', 'image', 'publish_year', 'number_of_page')->where('name', 'like', "%$search%")->orwhere('author', 'like', "%$search%")->get();
 
-      return view('frontend.searchs.results', compact('book'));
+        return view('frontend.searchs.results', compact('book'));
     }
-    public function getjson(){
-      $book = Book::all();
-      return Response::json($book);
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getjson()
+    {
+        $book = Book::all();
+        return Response::json($book);
     }
 }

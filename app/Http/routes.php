@@ -40,6 +40,6 @@ Route::group(['namespace' => 'Frontend'], function () {
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
     //Search
-    Route::get('/',['as' => '/','uses' => 'SearchController@getsearch']);
-    Route::get('/search/book',['uses' => 'SearchController@getjson']);
+    Route::get('/', ['as' => '/','uses' => 'SearchController@getsearch']);
+    Route::get('/search/book', ['uses' => 'SearchController@getjson']);
 });
