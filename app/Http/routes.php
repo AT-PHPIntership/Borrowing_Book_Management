@@ -42,4 +42,5 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    Route::resource('profile','ProfileController');
 });
