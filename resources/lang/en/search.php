@@ -16,4 +16,6 @@ return [
     'publish_year' => 'Publish Year',
     'number_of_page' => 'Number Of Page',
     'review' => '15 reviews',
+    'noimage' => 'No image for',
+    'title' => 'Search Results',
 ];

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'Search Results')
+@section('title', trans('search.title'))
 
 @section('navbar')
  <!-- Navigation -->
@@ -11,7 +11,7 @@
   @foreach($book as $item)
   <div class="col-sm-3 col-lg-3 col-md-3">
         <div class="thumbnail">
-            <img src="{{ url('/images/upload/books/')}}/{!! $item->image !!}" alt="No image for {{ $item->name}}" >
+            <img src="{{ url('/images/upload/books/')}}/{!! $item->image !!}" alt="{{trans('search.noimage')}} {{ $item->name}}" >
             <div class="caption">
                 <h4 class="pull-right">{{ $item->quantity }}</h4>
                 <h4><a href="#">{{ $item->name }}</a>

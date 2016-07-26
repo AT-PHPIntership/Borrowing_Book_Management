@@ -1,7 +1,7 @@
 var books;
 
 $(document).ready(function(){
-  $.getJSON( 'http://homestead.app/search/book', function( data ) {
+  $.getJSON( pathjsonsearch, function( data ) {
     books = data;
     setAutocomplete();
   });
