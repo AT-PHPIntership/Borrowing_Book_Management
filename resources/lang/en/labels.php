@@ -38,7 +38,6 @@ return [
     'login_user' => 'Log in',
     'login_title' => 'LOG IN',
     'reset' => 'Reset',
-    'close' => 'Close',
     'home' => 'Home',
     'contact' => 'Contact',
     'search' => 'Search',
