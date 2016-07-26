@@ -19,8 +19,8 @@ class BorrowDetailController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $listBorrowDetail = BorrowDetail::join('borrows', 'borrow_details.borrow_id', '=', 'borrows.id')->where('borrows.user_id', $user_id)->get();
+        $userId = Auth::user()->id;
+        $listBorrowDetail = BorrowDetail::join('borrows', 'borrow_details.borrow_id', '=', 'borrows.id')->where('borrows.user_id', $userId)->get();
         return view('frontend.borrows.index', compact('listBorrowDetail'));
     }
 }
