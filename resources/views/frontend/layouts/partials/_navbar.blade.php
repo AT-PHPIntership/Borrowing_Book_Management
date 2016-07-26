@@ -29,9 +29,9 @@
                         <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
-                        <form class="navbar-form navbar-left"  role="search">
+                        <form class="navbar-form navbar-left" acction="{!! route('search') !!}" role="search">
                         <div class="form-group">
-                            <input id="search-input" type="text" class="form-control" placeholder="{!! trans('labels.search') !!}" >
+                            <input id="search-input" type="text" class="form-control" name="valuesearch" placeholder="{!! trans('labels.search') !!}" >
                         </div>
                             <button type="submit" class="btn btn-success" title="{!! trans('labels.search') !!}">{!! trans('labels.search') !!}</button>
                         </form>

@@ -8,6 +8,7 @@
     <link href="backend/css/vendor.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="frontend/css/frontend.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

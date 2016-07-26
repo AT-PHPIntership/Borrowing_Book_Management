@@ -1,3 +1,5 @@
 <!-- COMBINE BOOTSTRAP AND JQUERY JS -->
-    <script src="backend/js/vendor.js"></script>
+    <script src="{{ url('backend/js/vendor.js') }}"></script>
+    <script src="{{ url('frontend/js/search.js') }}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     @yield('script')

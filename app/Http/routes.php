@@ -42,4 +42,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    //Search
+    Route::get('/search',['as' => 'search', 'uses' => 'SearchController@getsearch']);
+    Route::get('/search/book', ['uses' => 'SearchController@getjson']);
 });
