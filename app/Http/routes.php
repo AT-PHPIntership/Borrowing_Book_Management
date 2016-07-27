@@ -34,8 +34,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     });
 });
 
-
-
 Route::group(['namespace' => 'Frontend'], function () {
     // show index
     Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
@@ -48,4 +46,12 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/show/{show}', ['as' => 'show.book', 'uses' => 'IndexController@show']);
     // list book via category
     Route::get('/category/{category}', ['as' => 'list.category', 'uses' => 'IndexController@filter']);
+    Route::resource('profile', 'ProfileController');
+    //Search
+    Route::get('/search', ['as' => 'search','uses' => 'SearchController@getsearch']);
+    Route::get('/search/book', ['uses' => 'SearchController@getjson']);
+    //borrow
+    Route::group(['middleware' => ['auth']], function () {
+        Route::resource('borrow', 'BorrowDetailController');
+    });
 });

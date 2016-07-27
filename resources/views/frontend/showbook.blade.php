@@ -11,7 +11,7 @@
     <div class="col col-md-12 ">
             <hr>
             <div class="col col-md-4">
-                <img id="bookdetail" src="{{ url(config('path.upload_book').$book->image) }}" alt="{{ $book->name }}">
+                <img id="bookdetail" class="thumbnail" src="{{ url(config('path.upload_book').$book->image) }}" alt="{{ $book->name }}">
             </div>
             <div class="col col-md-8" id="infor">
                         <h2>{{$book->name}}</h2><br>

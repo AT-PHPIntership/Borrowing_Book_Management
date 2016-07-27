@@ -16,5 +16,6 @@ return [
     'images' => 'backend/images/',
     'img_default' => 'images/',
     'formatdate_index' => 'M j, Y',
+    'pathjsonsearch' => '/search/book',
 
 ];

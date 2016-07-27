@@ -54,6 +54,7 @@
                 <div class="thumbnail">
                     <img id="img-book" src="{{ url(config('path.upload_book').$book->image) }}" alt="{{ $book->name }}">
                     <div class="caption">
+                        <h4 class="pull-right">{{ $book->quantity }}</h4>
                         <h4><a href="{{route('show.book', $book->id)}}">{{$book->name}}</a></h4>
                         <p><label>{{trans('front_end.author')}}</label> {{$book->author}}</p>
                         <p><label>{{trans('front_end.category')}}</label> {{$book->category->name}}</p>

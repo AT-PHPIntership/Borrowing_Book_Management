@@ -10,6 +10,7 @@
         </div>
         <!-- Page Content -->
         <div class="container container-main main-center">
+            @include('admin.layouts.partials._message')
             @yield('content')
         </div>
         <!-- /.container -->
