@@ -13,5 +13,13 @@ return [
     |
     */
     'noid' => 'No find ID',
-    'noimage' => 'No '
+    'noimage' => 'No Image',
+    'profile' => 'Profile',
+    'fullname' => 'Fullname:',
+    'gender' => 'Gender:',
+    'birthday' => 'Birthday:',
+    'phone_number' => 'Phone number:',
+    'address' => 'Address:',
+    'expiretime' => 'Expiretime:',
+    'edit' => 'Edit information',
 ];

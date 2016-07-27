@@ -56,7 +56,7 @@ class ProfileController extends Controller
             return view('frontend.profile.show',compact('user'));
         }      
         catch (Exception $ex) {
-            Session::flash('danger', trans('profile.noid'));
+            Session::flash('danger', trans('front_end.noid'));
             return redirect()->route('/');
         }
     }
