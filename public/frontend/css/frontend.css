@@ -311,6 +311,12 @@ social {
     font-size:30px;
     color:#2ecc71;
 }
+span.danger {
+    color: #d43f3a;
+}
+.title {
+    text-transform: uppercase;
+}
 /*Result Search*/
 .thumbnail img {
     width: 200px;

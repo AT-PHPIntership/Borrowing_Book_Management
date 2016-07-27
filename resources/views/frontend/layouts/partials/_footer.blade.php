@@ -8,7 +8,7 @@
                 </li>
                 @if(Auth::check())
                 <li>
-                    <a href="#" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
+                    <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
                 </li>
                 <li>
                     <a href="#" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
