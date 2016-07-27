@@ -102,7 +102,7 @@ class BorrowDetailController extends Controller
                 $result = $borrowdetail -> update(['status' => 1 ]);
                 if ($result) {
                     $borrow = Borrow::findOrFail($borrowdetail['borrow_id']);
-                    $a= $borrow -> update(['quantity' => ($borrow['quantity'] - 1) ]);
+                    $borrow -> update(['quantity' => ($borrow['quantity'] - 1) ]);
                     $count++;
                 }
             } catch (ModelNotFoundException $ex) {
