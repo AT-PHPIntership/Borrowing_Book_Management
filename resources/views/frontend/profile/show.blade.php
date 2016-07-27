@@ -11,7 +11,7 @@
 	<div class="col-md-12">
             <hr class="featurette-divider">
             <div class="col-md-4">
-                <img class="img-circle img-responsive pull-left" src="{{config('path.upload_book').$user->image}}" alt="{{ trans('front_end.noimage') }}"></img>
+                <img class="img-circle img-responsive pull-left" src="{{ url(config('path.upload_user').$user->image )}}" alt="{{ trans('front_end.noimage') }}"></img>
             </div>
             <h2 class="featurette-heading">{{ $user->username }}</h2>
             <div class="col-md-8" style="line-height:2.0">
