@@ -11,7 +11,7 @@ return [
     'view' => 'View',
     'detail' => 'Borrow Detail',
     'book_item_id' => 'BookID',
-    'book_name' => 'Name',
+    'book_name' => 'Book Name',
     'expiretime' => 'ExpireTime',
     'return' => 'Return Book',
     'success' => 'success',
@@ -23,6 +23,16 @@ return [
     'start_at' => 'Start At',
     'status' => 'Status',
     'incomplete' => 'Incomplete',
-    'complete' => 'Complete'
+    'complete' => 'Complete',
+    'title_back' => 'Give Back',
+    'header' => 'Give Back Book',
+    'give_back' => 'Give Back',
+    'form' => 'FORM',
+    'borrow_id' => 'Borrow ID',
+    'fullname' => 'Full Name',
+    'remove' => 'Remove',
+    'enter' => 'Enter Books ID :',
+    'submit' => 'Submit',
+
 
 ];
