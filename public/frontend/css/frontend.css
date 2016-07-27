@@ -317,3 +317,9 @@ span.danger {
 .title {
     text-transform: uppercase;
 }
+/*Result Search*/
+.thumbnail img {
+    width: 200px;
+    height: 180px;
+}
+
