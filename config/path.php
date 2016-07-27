@@ -15,6 +15,6 @@ return [
     'formatdate' => 'Y-m-d',
     'images' => 'backend/images/',
     'img_default' => 'images/',
-    'pathjsongiveback' => 'api/borrows',
+    'pathjsongiveback' => 'data/borrows',
     'pathjsonsearch' => '/search/book',
 ];
