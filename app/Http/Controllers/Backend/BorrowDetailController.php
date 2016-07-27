@@ -11,6 +11,8 @@ use App\BookItem;
 use App\Borrow;
 use App\User;
 use Response;
+use Session;
+use DB;
 
 class BorrowDetailController extends Controller
 {
@@ -37,10 +39,9 @@ class BorrowDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -48,10 +49,9 @@ class BorrowDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -59,10 +59,9 @@ class BorrowDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -70,11 +69,9 @@ class BorrowDetailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
         //
     }
@@ -82,20 +79,59 @@ class BorrowDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
     }
-	    // public function getDetail()
-	    // {
-	    // 	$a = BorrowDetail::select()->3borrow->user->get();
-	    // // 	foreach($a as $key){
-	    // // 	dd($key->borrow->user->fullname);
-	    // // }
-	    // 	// return Response::json($a);
-	    // 	dd($a);
-	    // }
+    /**
+     * User give back book.
+     *
+     * @param \Illuminate\Http\UserRequest $request request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function giveBack(Request $request)
+    {
+        $item = $request->item;
+        $count = 0;
+        for ($i = 1; $i < count($item); $i++) {
+            try {
+                $borrowdetail = BorrowDetail::findOrFail($item[$i]);
+                $result = $borrowdetail -> update(['status' => 1 ]);
+                if ($result) {
+                    $borrow = Borrow::findOrFail($borrowdetail['borrow_id']);
+                    $a= $borrow -> update(['quantity' => ($borrow['quantity'] - 1) ]);
+                    $count++;
+                }
+            } catch (ModelNotFoundException $ex) {
+                Session::flash(trans('borrow.danger'), trans('borrow.notfind'));
+                return redirect()->route('admin.borrowdetail.index');
+            }
+        }
+        if ($count == (count($item)-1)) {
+            Session::flash(trans('borrow.success'), trans('borrow.successfully'));
+        } else {
+            Session::flash(trans('borrow.danger'), trans('borrow.fail'));
+        }
+        return redirect()->route('admin.borrowdetail.index');
+    }
+    /**
+     * Get data json.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBorrow()
+    {
+        $data = DB::table('borrow_details', 'book_items')
+                        ->join('borrows', 'borrow_details.borrow_id', '=', 'borrows.id')
+                        ->join('users', 'borrows.user_id', '=', 'users.id')
+                        ->join('book_items', 'borrow_details.book_item_id', '=', 'book_items.id')
+                        ->join('books', 'book_items.book_id', '=', 'books.id')
+                        ->select('borrow_details.id', 'borrow_details.borrow_id', 'borrow_details.book_item_id', 'borrows.user_id', 'users.fullname', 'books.name')
+                        ->where('borrow_details.status', '=', '0')
+                        ->get();
+        return Response::json($data);
+    }
 }

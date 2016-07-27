@@ -46,32 +46,52 @@ $("#image").on('change', function(){
     readURL(this);
 
 });
-    $(document).ready(function() {
-    var t = $('#example').DataTable();
-    var counter = 1;
- 
-    $(document).on( 'click', '#addRow', function () {
-        t.row.add( [
-            '<input type="text" class="form-control" name ="txt'+counter+'" value = "" >'
-        ] ).draw( false );
+
+$('#rowBook').hide();
+
+$(document).ready(function() {
+
+    $.getJSON( pathjsongiveback, function(data) {
+        borrows = data;
     });
-    // Automatically add a first row of data
-    $('#addRow').click();
-} );
-    $(document).ready(function() {
-    var table = $('#example').DataTable();
- 
-    $('#example tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
+
+    $(add_button).on('click', function(e) {
+        e.preventDefault();
+        var request = $('#bookid').val();
+        var array = $('tr');
+        var error = "";
+        var flag = 0;
+        if (request == "") {
+          error = error_null;
         }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
+        array.each(function(){
+        if ($(this).attr('id') == request) {
+          error = error_exist;
+          }
+        });
+
+        if (error == "") {
+        for(i=0; i < borrows.length; i++){
+           if ((request == borrows[i].book_item_id)) { 
+            var newRow = $('#rowBook').clone(true).attr({'id': borrows[i].book_item_id,'style': 'display: '}).appendTo('#list-add');
+            newRow.find('td:nth-child(1)').html(borrows[i].borrow_id);
+            newRow.find('td:nth-child(2)').html(borrows[i].fullname);
+            newRow.find('td:nth-child(3)').html(borrows[i].name);
+            newRow.find('input').attr('value', borrows[i].id);
+            break; 
+            } else {
+              flag++;
+            }
+          }
         }
-    } );
- 
-    $('#deleteRow').click( function () {
-        table.row('.selected').remove().draw( false );
-    } );
-} );
+        if (flag == borrows.length) {
+          error = error_notexist;
+        }
+        $('#error').html(error);      
+    });
+    
+    $(btn_remove).on("click", function(e) {
+        e.preventDefault(); 
+        $(this).parent().parent().remove();
+    })
+});

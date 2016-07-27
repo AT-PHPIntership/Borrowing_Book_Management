@@ -30,7 +30,7 @@
                                 <a href="#">{!! trans('labels.create') !!}</a>
                             </li>
                             <li >
-                                <a href="#">{!! trans('labels.turn_back') !!}</a>
+                                <a href="{!! route('admin.borrowdetail.index') !!}">{!! trans('labels.turn_back') !!}</a>
                             </li>
                         </ul>
                     </li>
