@@ -48,6 +48,4 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/show/{show}', ['as' => 'show.book', 'uses' => 'IndexController@show']);
     // list book via category
     Route::get('/category/{category}', ['as' => 'list.category', 'uses' => 'IndexController@filter']);
-
 });
-
