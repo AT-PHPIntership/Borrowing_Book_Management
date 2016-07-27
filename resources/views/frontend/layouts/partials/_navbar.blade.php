@@ -19,7 +19,7 @@
                     </li>
                     @if(Auth::check())
                     <li>
-                        <a href="#" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
+                        <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
                     </li>
                     <li>
                         <a href="#" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
@@ -29,9 +29,9 @@
                         <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
-                        <form class="navbar-form navbar-left"  role="search">
+                        <form class="navbar-form navbar-left" acction="{!! route('/') !!}" role="search" >
                         <div class="form-group">
-                            <input id="search-input" type="text" class="form-control" placeholder="{!! trans('labels.search') !!}" >
+                            <input id="search-input" type="text" class="form-control" name="valuesearch" placeholder="{!! trans('labels.search') !!}" >
                         </div>
                             <button type="submit" class="btn btn-success" title="{!! trans('labels.search') !!}">{!! trans('labels.search') !!}</button>
                         </form>

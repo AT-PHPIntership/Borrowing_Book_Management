@@ -10,6 +10,7 @@ use App\User;
 use Auth;
 use Session;
 use Exception;
+
 class ProfileController extends Controller
 {
     /**
@@ -35,7 +36,6 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -46,16 +46,16 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id id
+     * @param int $id id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        try{
+        try {
             $user = User::findOrFail($id);
-            return view('frontend.profile.show',compact('user'));
-        }      
-        catch (Exception $ex) {
+            return view('frontend.profile.show', compact('user'));
+        } catch (Exception $ex) {
             Session::flash('danger', trans('front_end.noid'));
             return redirect()->route('/');
         }

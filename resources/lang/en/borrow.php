@@ -13,6 +13,11 @@ return [
     'book_item_id' => 'BookID',
     'book_name' => 'Name',
     'expiretime' => 'ExpireTime',
-    'return' => 'Return Book'
+    'return' => 'Return Book',
+    'borrow_list' => 'Borrow List',
+    'start_at' => 'Start At',
+    'status' => 'Status',
+    'incomplete' => 'Incomplete',
+    'complete' => 'Complete'
 
 ];
