@@ -4,8 +4,6 @@ $(document).ready(function(){
   $('#list_books').DataTable();
   $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
-  $('#example').DataTable();
-  $('#example #example_length').attr('style','none');
   //Confirm delete
   $('#confirmDelete').on('show.bs.modal', function (e) {
   	  // set message

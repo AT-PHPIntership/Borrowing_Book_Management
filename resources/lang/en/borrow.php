@@ -33,6 +33,7 @@ return [
     'remove' => 'Remove',
     'enter' => 'Enter Books ID :',
     'submit' => 'Submit',
+    'dashboard' => 'Dashboard',
 
 
 ];
