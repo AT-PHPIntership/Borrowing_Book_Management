@@ -33,13 +33,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('addbook', 'AddBookController');
     });
 });
-Route::get('/', ['as' => '/', function () {
-    return view('frontend.index');
-}]);
+
+
+
 Route::group(['namespace' => 'Frontend'], function () {
+    // show index
+    Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
     //User login
     Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getlogin']);
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    // show book detail
+    Route::get('/show/{show}', ['as' => 'show.book', 'uses' => 'IndexController@show']);
+    // list book via category
+    Route::get('/category/{category}', ['as' => 'list.category', 'uses' => 'IndexController@filter']);
+
 });
+
