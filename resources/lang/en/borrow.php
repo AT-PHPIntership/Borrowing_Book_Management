@@ -19,6 +19,10 @@ return [
     'successfully' => 'Successfully',
     'fail' => 'Failed',
     'notfind' => 'Not Found',
-
+    'borrow_list' => 'Borrow List',
+    'start_at' => 'Start At',
+    'status' => 'Status',
+    'incomplete' => 'Incomplete',
+    'complete' => 'Complete'
 
 ];

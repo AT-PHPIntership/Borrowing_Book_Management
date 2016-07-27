@@ -16,5 +16,5 @@ return [
     'images' => 'backend/images/',
     'img_default' => 'images/',
     'pathjsongiveback' => 'api/borrows',
-
+    'pathjsonsearch' => '/search/book',
 ];

@@ -36,3 +36,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::get('api/borrows', 'BorrowDetailController@getBorrow');
     });
 });
+Route::group(['namespace' => 'Frontend'], function () {
+    //User login
+    Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getlogin']);
+    Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
+    //User logout
+    Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+    Route::resource('profile', 'ProfileController');
+    //Search
+    Route::get('/', ['as' => '/','uses' => 'SearchController@getsearch']);
+    Route::get('/search/book', ['uses' => 'SearchController@getjson']);
+    //borrow
+    Route::group(['middleware' => ['auth']], function () {
+        Route::resource('borrow', 'BorrowDetailController');
+    });
+});
