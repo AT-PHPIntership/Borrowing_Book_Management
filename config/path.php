@@ -15,5 +15,5 @@ return [
     'formatdate' => 'Y-m-d',
     'images' => 'backend/images/',
     'img_default' => 'images/',
-    'pathjsonsearch' => 'http://homestead.app/search/book',
+    'pathjsonsearch' => '/search/book',
 ];

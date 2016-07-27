@@ -39,12 +39,12 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
-
-    Route::group(['middleware' => ['auth']], function () {
-        //borrow
-        Route::resource('borrow', 'BorrowDetailController');
-    });
+    Route::resource('profile', 'ProfileController');
     //Search
     Route::get('/', ['as' => '/','uses' => 'SearchController@getsearch']);
     Route::get('/search/book', ['uses' => 'SearchController@getjson']);
+    //borrow
+    Route::group(['middleware' => ['auth']], function () {
+        Route::resource('borrow', 'BorrowDetailController');
+    });
 });

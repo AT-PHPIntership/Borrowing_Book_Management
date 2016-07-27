@@ -322,4 +322,6 @@ span.danger {
     width: 200px;
     height: 180px;
 }
-
+#ui-id-1 {
+    z-index: 9999;
+}
