@@ -41,9 +41,17 @@
                     @if(Auth::check())
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::guard('web')->user()->username }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                @if(Auth::user()->image == null)
+                                <img class="user-image" src="{{ url(config('path.img_default').'profile_default.png') }}">
+                                @else
+                                <img class="user-image" src="{{ url(config('path.upload_user').Auth::user()->image) }}">
+                                @endif
+                                {{ Auth::guard('web')->user()->username }} <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('profile.show',Auth::guard('web')->user()->id) }}">{!! trans('user.profile') !!}</a></li>
+                                <li><a href="#">{!! trans('user.change_password') !!}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('logout') }}" title="{!! trans('labels.logout') !!}">{!! trans('labels.logout') !!}</a></li>
                             </ul>

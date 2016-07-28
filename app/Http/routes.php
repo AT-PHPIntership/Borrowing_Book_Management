@@ -42,6 +42,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
+
     // show book detail
     Route::get('/show/{show}', ['as' => 'show.book', 'uses' => 'IndexController@show']);
     // list book via category
