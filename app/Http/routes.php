@@ -49,6 +49,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     //Search
     Route::get('/search', ['as' => 'search','uses' => 'SearchController@getsearch']);
     Route::get('/search/book', ['uses' => 'SearchController@getjson']);
+    //Contact
+    Route::get('/contact', [ 'as' => 'contact', 'uses' => 'ContactController@getContact']);
+    Route::post('/contact', ['as' => 'contact.send', 'uses' => 'ContactController@postContact']);
     
     Route::group(['middleware' => ['auth']], function () {
         //list borrow
