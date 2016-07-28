@@ -20,8 +20,8 @@
             </ul>
 
             <div class="social">
-                <a href=""><img src="{{ url('frontend/images/face.jpg') }}" width="20px" height="20px"></a>
-                <a href=""><img src="{{ url('frontend/images/gg.jpg') }}" width="20px" height="20px"></a>
+                <a href="#"><img src="{{ url('frontend/images/face.jpg') }}" width="20px" height="20px"></a>
+                <a href="#"><img src="{{ url('frontend/images/gg.jpg') }}" width="20px" height="20px"></a>
             </div>
             <div class="copyright" align="right">{!! trans('labels.footer') !!}</div>
         </div>

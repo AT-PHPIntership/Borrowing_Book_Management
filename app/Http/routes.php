@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
-        //user
+        Route::get('/api','HomeController@getapi');
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');
