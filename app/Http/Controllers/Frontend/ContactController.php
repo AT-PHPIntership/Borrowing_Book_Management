@@ -41,7 +41,7 @@ class ContactController extends Controller
 
         $result = Mail::send('frontend.emails.email', $data, function ($message) use ($data) {
             $message->from($data['email']);
-            $message->to('vddongbk@gmail.com');
+            $message->to(config('define.mail'));
             $message->subject($data['subject']);
         });
         if ($result) {
