@@ -17,7 +17,8 @@ elixir(function(mix) {
   mix.scripts([ 
       'gentelella/vendors/jquery/dist/jquery.min.js',
       'gentelella/vendors/bootstrap/dist/js/bootstrap.min.js',
-      'datatables.net/js/jquery.dataTables.min.js'
+      'datatables.net/js/jquery.dataTables.min.js',
+      'jquery-ui/jquery-ui.min.js'
     ],
     'public/backend/js/vendor.js',
     'vendor/bower_dl'
@@ -28,7 +29,8 @@ elixir(function(mix) {
   	  'gentelella/vendors/bootstrap/dist/css/bootstrap.min.css',
   	  'gentelella/vendors/font-awesome/css/font-awesome.min.css',
       'datatables.net-dt/css/jquery.dataTables.min.css',
-      'datatables.net-responsive-dt/css/responsive.dataTables.min.css'  
+      'datatables.net-responsive-dt/css/responsive.dataTables.min.css',
+      'jquery-ui/themes/base/jquery-ui.min.css'  
   ], 
     'public/backend/css/vendor.css',
     'vendor/bower_dl'
