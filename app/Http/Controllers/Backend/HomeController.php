@@ -54,8 +54,8 @@ class HomeController extends Controller
             }
             for ($i=0; $i<count($result); $i++) {
                 $date=$result[$i]['created'];
-                $a=substr($date, 0, 4);
-                if ($a==$data['year']) {
+                $years=substr($date, 0, 4);
+                if ($years==$data['year']) {
                     $list[]=['userid'=>  $result[$i]['userid'],
                               'created'=> substr($result[$i]['created'], 5, 2)
                             ];
