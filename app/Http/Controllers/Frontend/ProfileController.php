@@ -90,6 +90,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Update password for user.
+     *
      * @param \Illuminate\Http\Request $request PasswordRequest
      * @param int                      $id      userId
      *
