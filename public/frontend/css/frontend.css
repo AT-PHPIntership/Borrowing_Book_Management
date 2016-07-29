@@ -466,3 +466,10 @@ margin: 10px 20px 0 20px;
 .profile-content .form-group {
     margin: 10px 0;
 }
+/*End edit profile*/
+
+/*Change passord*/
+.panel-heading h3{
+    margin: 0;
+    text-align: center;
+}

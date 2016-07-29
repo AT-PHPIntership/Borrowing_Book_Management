@@ -58,6 +58,9 @@ Route::group(['namespace' => 'Frontend'], function () {
         //list borrow
         Route::resource('borrow', 'BorrowDetailController');
         //profile
-        Route::resource('profile', 'ProfileController');
+        Route::resource('profile', 'ProfileController', ['except' => ['index', 'create', 'store', 'destroy']]);
+        //Change password
+        Route::get('/change-password', ['as' => 'getChangePassword', 'uses' => 'ProfileController@getChangePassword']);
+        Route::patch('/user/{id}/change-password', ['as' => 'changePassword', 'uses' => 'ProfileController@changePassword']);
     });
 });
