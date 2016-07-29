@@ -51,7 +51,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('profile.show',Auth::guard('web')->user()->id) }}">{!! trans('user.profile') !!}</a></li>
-                                <li><a href="#">{!! trans('user.change_password') !!}</a></li>
+                                <li><a href="{{ route('getChangePassword') }}">{!! trans('user.change_password') !!}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('logout') }}" title="{!! trans('labels.logout') !!}">{!! trans('labels.logout') !!}</a></li>
                             </ul>

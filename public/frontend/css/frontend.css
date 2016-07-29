@@ -370,3 +370,10 @@ span.danger {
 .profile-content .form-group {
     margin: 10px 0;
 }
+/*End edit profile*/
+
+/*Change passord*/
+.panel-heading h3{
+    margin: 0;
+    text-align: center;
+}
