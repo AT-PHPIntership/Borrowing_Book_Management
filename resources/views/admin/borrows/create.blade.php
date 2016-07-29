@@ -1,11 +1,13 @@
-@section('title', trans('book_manage_lang.title'))
+@extends('admin.layouts.master')
+
+@section('title', trans('borrow.addborrow'))
 
 @section('content')
 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            {!!trans('book_manage_lang.manage_book')!!}
+                            {!!trans('borrow.add_borrow')!!}
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -13,7 +15,7 @@
                                 <a href="{{ route('home.admin') }}">{!!trans('book_manage_lang.dashboard' )!!} </a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> {!!trans('book_manage_lang.manage_book' )!!} 
+                                <i class="fa fa-table"></i> {!!trans('borrow.add_borrow' )!!} 
                             </li>
                         </ol>
                     </div>
@@ -21,34 +23,43 @@
                 <!-- /.row -->
                 
                 <div class="row">
-                    <div class="col col-md-12">
-                        <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2>
-                        <div class="row"> 
+                    <div class="col-lg-offset-2 col-lg-8" id="maincontent">
+                        {{-- <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2> --}}
+                        {{-- <div class="row">  --}}
+                        <h3>Enter username</h3>
                         <form id="frmTasks" name="frmTasks" class="form-horizontal" novalidate="">   
                             <input type="text" name="username" id="username" >
                             <p class="btn btn-md btn-primary" id="check">Check</p>
                         </form>
-                            <p class="btn btn-md btn-primary" id="list">List</p>
+                        {{-- </div> --}}
+                        <div class="alert" id="user_notice" style="display:none">
+                            <input type="hidden" id="user_name" name="user_name" value="">
+                            <div class="" id="message">
+                            </div>
+                            <div id="quantity">
+                                <label>Quantity : </label>
+                                <span id="quantitybook" ></span>
+                            </div>
+
                         </div>
-                        <div class="row">
-                            
-                        </div>
-                        <br>
-                        <div class="row" id="data"></data>
-                        <div class="row" id="inbook" style="display:none">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <input type="hidden" id="id_user" name="userID" value="">
+                        <hr>
+                        
+                        {{-- <div class="row" id="data"></div> --}}
+                        {{-- <div class="row" id="inbook" style="display:none"> --}}
+                            {{-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <input type="hidden" id="user_name" name="user_name" value="">
                                 <div class="" id="message">
                                 </div>
                                 <label>Quantity</label>
                                 <span id="quantitybook" ></span>
 
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="enterBook">
+                            </div> --}}
+                            <div class="" id="enterBook" style="display:none">
+                                <h3>Enter book ID</h3>
                                 <form id="addbook" name="addbook" class="form-horizontal col-lg-12" novalidate="">   
                                 <input type="text" name="bookID" id="bookid" >
                                 <button type="submit" class="btn btn-md btn-primary" id="add">Add</button>
-                                <p id="error"></p>
+                                <p id="error" class="alert"></p>
                                 
                                 </form>
                                 {{-- <form method="POST" action="http://homestead.app/admin/testajax/add">
@@ -73,7 +84,7 @@
                                         <input type="hidden" name="_token" value="<php echo csrf_token(); ?>"> --}}
                                     
                                     <tbody id="list-add">
-                                        <tr id="rowDemo">
+                                        <tr id="rowZero">
                                             <td></td>
                                             <td></td>
                                             <td><button class="btn btn-danger btn-xs btn-delete delete-task" value="">Delete</button></td>
@@ -100,4 +111,12 @@
                     </ul>
                 </div>
     <meta name="_token" content="{!! csrf_token() !!}" />
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    var path_check_user={!! json_encode(config('path.path_check_user'))!!};
+    var path_add_book={!!json_encode(config('path.path_add_book'))!!};
+    var path_save_borrow={!!json_encode(config('path.path_save_borrow'))!!};
+</script>
 @endsection

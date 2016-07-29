@@ -27,7 +27,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#borrow"><i class="fa fa-fw fa-arrows-v"></i> {!! trans('labels.borrowing') !!} <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="borrow" class="collapse">
                             <li >
-                                <a href="#">{!! trans('labels.create') !!}</a>
+                                <a href="{!!route('admin.addborrow.index')!!}">{!! trans('labels.create') !!}</a>
                             </li>
                             <li >
                                 <a href="#">{!! trans('labels.turn_back') !!}</a>

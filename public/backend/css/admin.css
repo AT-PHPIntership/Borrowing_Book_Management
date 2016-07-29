@@ -317,3 +317,26 @@ ul.alert-dropdown {
 #formaddbook{
     margin-top: 70px;
 }
+#maincontent{
+    border: 2px #f5f5f5 solid;
+    border-radius: 3px;
+    padding: 15px 15px;
+
+}
+#user_notice{
+    margin: 10px 0px;
+    height: 60px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#user_notice #message{
+    font-size: 16px;
+}
+#enterBook #error{
+    font-size: 16px;
+    margin: 10px 0px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}

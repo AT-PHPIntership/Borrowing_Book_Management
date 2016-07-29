@@ -1,61 +1,12 @@
-$(document).ready(function(){
-  //datatables
-  $('#list_users').DataTable();
-  $('#list_books').DataTable();
-  $('#list_bookitems').DataTable();
-  $('#list_categories').DataTable();
-
-  //Confirm delete
-  $('#confirmDelete').on('show.bs.modal', function (e) {
-  	  // set message
-      $message = $(e.relatedTarget).attr('data-message');
-      $('.modal-body p').text($message);
-      // set title for model
-      $title = $(e.relatedTarget).attr('data-title');
-      $('.modal-title').text($title);
-
-      // Pass form reference to modal for submission on yes/ok
-      var form = $(e.relatedTarget).closest('form');
-      $('.modal-footer #confirm').data('form', form);
-  });
- 
-      //Form confirm (yes/ok) handler, submits form
-  $('#confirmDelete .modal-footer #confirm').on('click', function(){
-      $(this).data('form').submit();
-  });
-
-  //countdown shutdown alert
-  $("div.alert").delay(timeout).slideUp();
-});
-
-$('.img_upload').hide();
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#image_no').show();
-            $('#image_no').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#image").on('change', function(){
-    readURL(this);
-
-});
-
 //Borrow book 
 $(document).ready(function () {
-    $('#rowZero').hide();
+    $('#rowDemo').hide();
 
     //check user by id
     $('#check').on('click',function(e){
       e.preventDefault();
       $('#error').html("");
-      $('#error').removeClass('alert-danger');
-      if ($('#rowZero').next().length > 0) {
+      if ($('#rowDemo').next().length > 0) {
         $('.clone').each(function(index){
           $(this).remove();
         });
@@ -65,7 +16,7 @@ $(document).ready(function () {
       $('#bookid').attr('disabled',false);
       $('#savelist').attr('disabled',false);
       $('#user_name').attr('value',$('form #username').val());
-      $('#rowZero input').attr('value',$('form #username').val());
+      $('#rowDemo input').attr('value',$('form #username').val());
       $.ajax({
         type: 'GET',
         url: path_check_user+$('form #username').val(),
@@ -73,29 +24,16 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             console.log(data);
-            $('#user_notice').show();
-
             if(data.allow=='true'){
-                $('#user_notice').attr('class','alert-info');
                 $('#message').html(data.mes);
-                $('#quantity').show();
                 $('#quantitybook').html(data.quantity);
-                // $('#inbook').show();
+                $('#inbook').show();
                 $('#enterBook').show();
             } else if(data.allow=='false'){
-                $('#user_notice').attr('class','alert-warning');
                 $('#message').html(data.mes);
                 $('#quantitybook').html("0");
-                // $('#inbook').show();
+                $('#inbook').show();
                 $('#enterBook').hide();
-            } else{
-                // $('#inbook').show();
-                $('#user_notice').attr('class','alert-danger');
-                $('#enterBook').hide();
-                $('#message').html(data.mes);
-                // $('label').hide();
-                // $('#quantitybook').hide();
-                $('#quantity').hide();
             }
         }
         });   
@@ -123,7 +61,6 @@ $(document).ready(function () {
           list.each(function(){
               if ($(this).attr('id')==data1){
                   error="Book has exist";
-                  $('#error').attr('class','alert-danger');
                   $('#error').html(error);
               }
           });
@@ -137,18 +74,14 @@ $(document).ready(function () {
                 success: function (data) {
                     console.log(data);
                     if(data.mes==null){
-                        $('#error').removeClass('alert-danger');
-                        var newRow=$('#rowZero').clone(true).attr({'class':'clone' ,'id': data.id,'style': 'display: '}).appendTo('#list-add');
+                        var newRow=$('#rowDemo').clone(true).attr({'class':'clone' ,'id': data.id,'style': 'display: '}).appendTo('#list-add');
                         newRow.find('td:nth-child(1)').html(data.bookname);
                         newRow.find('td:nth-child(2)').html(data.id);
                         newRow.find('button').attr('value',data.id);
                         newRow.find('input').attr('value', data.id);
                         newRow.find('input').attr('name',"lists_book_item[]");
-                    } else{
-                        $('#error').attr('class','alert-danger');
-                        $('#error').html(data.mes);
                     }
-                    
+                    $('#error').html(data.mes);
                 },
                 error: function (data) {
                     console.log('Error:',data);
@@ -157,7 +90,6 @@ $(document).ready(function () {
           }
         } else{
             var notice="Max book ";
-            $('#error').attr('class','alert-danger');
             $('#error').html(notice);
         }          
     });
@@ -202,7 +134,7 @@ $(document).ready(function () {
                     $('#bookid').attr('disabled',true);
                     $('#savelist').attr('disabled',true);
                 } else {
-                    if ($('#rowZero').next().length > 0) {
+                    if ($('#rowDemo').next().length > 0) {
                         $('.clone').each(function(index){
                             $(this).remove();
                         });
