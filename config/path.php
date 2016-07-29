@@ -16,4 +16,6 @@ return [
     'images' => 'backend/images/',
     'img_default' => 'images/',
     'pathjsonsearch' => '/search/book',
+    'pathchartuser' => 'admin/apiuser',
+    'pathchartborrow' => 'admin/apiborrow'
 ];

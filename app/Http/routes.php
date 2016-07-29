@@ -19,7 +19,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
-        Route::get('/api','HomeController@getapi');
+        Route::get('/apiborrow', 'HomeController@getapi');
+        Route::get('/apiuser', 'HomeController@getapiuser');
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');

@@ -1,44 +1,26 @@
 @extends('admin.layouts.master')
 
 @section('content')
-
-<div id="chart" style="height: 500px;"></div>
-<script>
-    Morris.Bar({
-      element: 'chart',
-      data: [
-        { date: '1', value: 3 },
-        { date: '2', value: 1 },
-        { date: '3', value: 5 },
-        { date: '4', value: 1 },
-        { date: '5', value: 2 },
-        { date: '6', value: 3 },
-        { date: '7', value: 2 },
-        { date: '8', value: 2 },
-        { date: '9', value: 5 },
-        { date: '10', value: 2 },
-        { date: '11', value: 5 },
-        { date: '12', value: 1 },
-        { date: '13', value: 2 },
-        { date: '14', value: 4 },
-        { date: '15', value: 2 },
-        { date: '16', value: 2 },
-        { date: '17', value: 3 },
-        { date: '18', value: 2 },
-        { date: '19', value: 4 },
-        { date: '20', value: 2 },
-        { date: '21', value: 4 },
-        { date: '22', value: 1 },
-        { date: '23', value: 2 },
-        { date: '24', value: 3 },
-        { date: '25', value: 2 },
-        { date: '26', value: 4 },
-        { date: '27', value: 2 },
-        { date: '28', value: 5 },
-      ],
-      xkey: 'date',
-      ykeys: ['value'],
-      labels: ['Borrows']
-    });
-</script>
+    <div class="panel panel-default">
+        <div class="panel panel-heading"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('labels.chart_borrow')}}</div>
+        <div id="chart" class="charts"></div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel panel-heading"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('labels.chart_user')}}</div>
+        <div align="center" class="form-group">
+            {{Form::selectYear('year', config('define.year_begin'), config('define.year_end'),null,['id'=>'year','class'=>'input input-sm'])}}
+            <button type="button" id="show" class="btn btn-sm btn-info">{{trans('labels.btnchart')}}</button>
+        </div>
+        <div id="user" class="charts"></div>
+    </div>
+@endsection
+@section('script')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script> 
+    <script src="{{ url('backend/css/chart.js')}}"></script>
+    <script type="text/javascript">
+        var path_chart_user = {!! json_encode(config('path.pathchartuser')) !!};
+        var path_chart_borrow = {!! json_encode(config('path.pathchartborrow')) !!};
+    </script> 
 @endsection

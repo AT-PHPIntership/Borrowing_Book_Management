@@ -317,3 +317,9 @@ ul.alert-dropdown {
 #formaddbook{
     margin-top: 70px;
 }
+.charts{
+    height: 400px;
+}
+.panel-default > .panel-heading{
+    background-color:#3498db;
+}

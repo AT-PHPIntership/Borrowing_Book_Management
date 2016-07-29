@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Borrow;
+use App\User;
 use DB;
+use Session;
 
 class HomeController extends Controller
 {
@@ -18,14 +20,48 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $borrow = Borrow::select('quantity','created_at')->get(); 
         return view('admin.chart');
     }
-
-    public function getapi(){
-    	
-	     $stats = Borrow::select('quantity','created_at')->get();
-
-	    return response()->json($stats, 200);
+    /**
+     * Get API for chart.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getapi()
+    {
+        $result = Borrow::selectRaw('count(id) as "soluong", Date(created_at) as "ngaytao", sum(quantity) as sl')->groupBy('ngaytao')->orderBy('created_at', 'ASC')->get();
+        if (!$result) {
+            Session::flash('danger', trans('labels.danger'));
+        }
+        return response()->json($result, 200);
+    }
+    /**
+     * Get API for chart.
+     *
+     * @param \Illuminate\Http\Request $request request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getapiuser(Request $request)
+    {
+        $data=$request->all();
+        if (!$data) {
+            Session::flash('danger', trans('labels.danger'));
+        } else {
+            $result = User::selectRaw('count(id) as "userid", Date(created_at) as "created"')->groupBy('created')->orderBy('created', 'ASC')->get();
+            if (!$result) {
+                Session::flash('danger', trans('labels.danger'));
+            }
+            for ($i=0; $i<count($result); $i++) {
+                $date=$result[$i]['created'];
+                $a=substr($date, 0, 4);
+                if ($a==$data['year']) {
+                    $list[]=['userid'=>  $result[$i]['userid'],
+                              'created'=> substr($result[$i]['created'], 5, 2)
+                            ];
+                }
+            }
+            return response()->json($list, 200);
+        }
     }
 }
