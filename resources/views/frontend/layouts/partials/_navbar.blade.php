@@ -22,19 +22,19 @@
                         <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
                     </li>
                     <li>
-                        <a href="#" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
+                        <a href="{!! route('profile.show',Auth::guard('web')->user()->id) !!}" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
                     </li>
                     @endif
                     <li>
                         <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
-                        <form class="navbar-form navbar-left" acction="{!! route('/') !!}" role="search" >
+                        {!! Form::open(['class' => 'navbar-form navbar-left', 'role' => 'search', 'route' => 'search', 'method' => 'GET']) !!}
                         <div class="form-group">
-                            <input id="search-input" type="text" class="form-control" name="valuesearch" placeholder="{!! trans('labels.search') !!}" >
+                            {!! Form::text('valuesearch',null, ['class' => 'form-control', 'id' => 'search-input', 'placeholder' => trans('labels.search')]) !!}
                         </div>
-                            <button type="submit" class="btn btn-success" title="{!! trans('labels.search') !!}">{!! trans('labels.search') !!}</button>
-                        </form>
+                        {{ Form::submit(trans('labels.search'),['class' => 'btn btn-success']) }}
+                        {!!Form::close() !!}
                     </li>
                 </ul>
                 @if (route('login') != Request::url())
