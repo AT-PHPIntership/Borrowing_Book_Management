@@ -27,9 +27,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getapi()
+    public function getApiBorrow()
     {
-        $result = Borrow::selectRaw('count(id) as "soluong", Date(created_at) as "ngaytao", sum(quantity) as sl')->groupBy('ngaytao')->orderBy('created_at', 'ASC')->get();
+        $result = Borrow::selectRaw('count(id) as "total", Date(created_at) as "datecreate", sum(quantity) as quantitys')->groupBy('datecreate')->orderBy('created_at', 'ASC')->get();
         if (!$result) {
             Session::flash('danger', trans('labels.danger'));
         }
@@ -42,7 +42,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getapiuser(Request $request)
+    public function getApiUser(Request $request)
     {
         $data=$request->all();
         if (!$data) {

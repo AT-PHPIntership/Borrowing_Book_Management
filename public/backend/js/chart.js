@@ -5,8 +5,8 @@ $(document).ready(function(){
             Morris.Bar({
                 element: 'chart',
                 data: data,
-                xkey: 'ngaytao',
-                ykeys: ['soluong','sl'],
+                xkey: 'datecreate',
+                ykeys: ['total','quantitys'],
                 labels: ['Borrow','Quantity'],
                 hideHover: 'auto',
                 resize: true
