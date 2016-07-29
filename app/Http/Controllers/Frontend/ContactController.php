@@ -31,25 +31,25 @@ class ContactController extends Controller
      */
     public function postContact(ContactRequest $request)
     {
-		$data = array(
-			'yourname' => $request->yourname,
-			'email' => $request->email,
-			'company' => $request->company,
-			'subject' => $request->subject,
-			'bodyMessage' => $request->message
-			);
+        $data = array(
+            'yourname' => $request->yourname,
+            'email' => $request->email,
+            'company' => $request->company,
+            'subject' => $request->subject,
+            'bodyMessage' => $request->message
+            );
 
-		$result = Mail::send('frontend.emails.email', $data, function($message) use ($data){
-			$message->from($data['email']);
-			$message->to('vddongbk@gmail.com');
-			$message->subject($data['subject']);
-		});
-		if($result){
-			Session::flash('success', trans('front_end.send_success'));
-		    return redirect()->route('contact');
-	    } else {
-		    Session::flash('danger', trans('front_end.send_unsuccess'));
-		    return redirect()->route('contact');
-	    }
+        $result = Mail::send('frontend.emails.email', $data, function ($message) use ($data) {
+            $message->from($data['email']);
+            $message->to('vddongbk@gmail.com');
+            $message->subject($data['subject']);
+        });
+        if ($result) {
+            Session::flash('success', trans('front_end.send_success'));
+            return redirect()->route('contact');
+        } else {
+            Session::flash('danger', trans('front_end.send_unsuccess'));
+            return redirect()->route('contact');
+        }
     }
 }
