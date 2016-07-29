@@ -26,7 +26,7 @@
                     </li>
                     @endif
                     <li>
-                        <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
+                        <a href="{{route('contact')}}" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
                         {!! Form::open(['class' => 'navbar-form navbar-left', 'role' => 'search', 'route' => 'search', 'method' => 'GET']) !!}
