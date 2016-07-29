@@ -43,7 +43,7 @@ return [
     'search' => 'Search',
     'footer' => 'Copyright &copy; Your Website 2016',
     'tog_nav' => 'Toggle navigation',
-    'chart_borrow' => 'Statistics table Borrows by day',
+    'chart_borrow' => 'Statistics table Borrows',
     'chart_user' => 'Statistics table Users',
     'btnchart' =>'Show statistic',
     'danger' => 'No result',

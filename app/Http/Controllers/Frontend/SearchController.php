@@ -24,10 +24,15 @@ class SearchController extends Controller
         $search = $request->input('valuesearch');
       
         if (!$search) {
-            return view('frontend.index');
+            $categories = Book::select('category_id')->distinct()->get();
+            $books = Book::paginate(9);
+            $images = Book::select('image')->take(3)->get();
+            $imagedefault = Book::select('image')->take(1)->get();
+
+            return view('frontend.index', compact('categories', 'books', 'images', 'imagedefault'));
         }
 
-        $book = Book::select('id', 'name', 'author', 'quantity', 'image', 'publish_year', 'number_of_page')->where('name', 'like', "%$search%")->orwhere('author', 'like', "%$search%")->get();
+        $book = Book::select('id', 'name', 'author', 'category_id', 'quantity', 'image', 'publish_year', 'number_of_page')->where('name', 'like', "%$search%")->orwhere('author', 'like', "%$search%")->get();
 
         return view('frontend.searchs.results', compact('book'));
     }

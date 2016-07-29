@@ -22,28 +22,36 @@
                         <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
                     </li>
                     <li>
-                        <a href="#" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
+                        <a href="{!! route('profile.show',Auth::guard('web')->user()->id) !!}" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
                     </li>
                     @endif
                     <li>
-                        <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
+                        <a href="{{route('contact')}}" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
-                        <form class="navbar-form navbar-left" acction="{!! route('/') !!}" role="search" >
+                        {!! Form::open(['class' => 'navbar-form navbar-left', 'role' => 'search', 'route' => 'search', 'method' => 'GET']) !!}
                         <div class="form-group">
-                            <input id="search-input" type="text" class="form-control" name="valuesearch" placeholder="{!! trans('labels.search') !!}" >
+                            {!! Form::text('valuesearch',null, ['class' => 'form-control', 'id' => 'search-input', 'placeholder' => trans('labels.search')]) !!}
                         </div>
-                            <button type="submit" class="btn btn-success" title="{!! trans('labels.search') !!}">{!! trans('labels.search') !!}</button>
-                        </form>
+                        {{ Form::submit(trans('labels.search'),['class' => 'btn btn-success']) }}
+                        {!!Form::close() !!}
                     </li>
                 </ul>
                 @if (route('login') != Request::url())
                     @if(Auth::check())
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::guard('web')->user()->username }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                @if(Auth::user()->image == null)
+                                <img class="user-image" src="{{ url(config('path.img_default').'profile_default.png') }}">
+                                @else
+                                <img class="user-image" src="{{ url(config('path.upload_user').Auth::user()->image) }}">
+                                @endif
+                                {{ Auth::guard('web')->user()->username }} <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('profile.show',Auth::guard('web')->user()->id) }}">{!! trans('user.profile') !!}</a></li>
+                                <li><a href="{{ route('getChangePassword') }}">{!! trans('user.change_password') !!}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('logout') }}" title="{!! trans('labels.logout') !!}">{!! trans('labels.logout') !!}</a></li>
                             </ul>
