@@ -51,5 +51,7 @@ return [
     'title_profile' => '- User Profile',
     'create_at' => 'Create At',
     'fail' => 'Not found!',
+    'change_password' => 'Change Password',
+    'edit_profile' => 'Edit Profile'
 
 ];

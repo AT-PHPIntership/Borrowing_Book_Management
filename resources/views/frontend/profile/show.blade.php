@@ -27,7 +27,9 @@
                     <br>
                     <label>{{ trans('front_end.expiretime') }} {{ $user->expiretime }}</label><br>  
                     <div class="text-right">
-                    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">{{ trans('front_end.edit') }}</button>
+                        <a href="{{ route('profile.edit',$user ->id)}}">
+                    	<button type="button" class="btn btn-primary">{{ trans('front_end.edit') }}</button>
+                        </a>
                     </div>  
 			</div>
 	</div>
