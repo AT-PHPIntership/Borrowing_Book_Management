@@ -43,7 +43,7 @@ class AddBorrowController extends Controller
             $book=Book::findOrfail($bookitem['book_id']);
             try {
                 $borrowDetailItem=BorrowDetail::where('book_item_id', $bookitem['id'])->first();
-                if ($borrowDetailItem['status']== config('define.not_paid')) {
+                if ($borrowDetailItem['status']== config('define.not_give_back')) {
                     return response()->json(['mes'=> trans('borrow.book_borrowed')]);
                 } else {
                     $bookitem['bookname']=$book['name'];
@@ -82,7 +82,7 @@ class AddBorrowController extends Controller
             array_push($borrowDetail, [
                 'borrow_id' => $borrow['id'],
                 'book_item_id' => $data['listBook'][$i],
-                'status' => config('define.not_paid'),
+                'status' => config('define.not_give_back'),
                 'expiretime' => $expireTime ,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

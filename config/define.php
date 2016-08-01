@@ -8,6 +8,6 @@ return [
 	'number_images_slide' => 3,
 	'mail' => 'vddongbk@gmail.com',
 	'limit_day' => 30,
-	'not_paid' => '0',
+	'not_give_back' => '0',
 	'max_borrow' => 5
 ];
