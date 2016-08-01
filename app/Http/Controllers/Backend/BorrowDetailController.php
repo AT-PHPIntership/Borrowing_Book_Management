@@ -100,7 +100,7 @@ class BorrowDetailController extends Controller
             $borrowId = $request->borrowid;
             BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
             Borrow::whereIn('id', $borrowId)->increment('quantity', config('define.quantity_decrement'));
-            Session::flash(trans('borrow.success'), trans('borrow.successfully'));
+            Session::flash('success', trans('borrow.successfully'));
             return redirect()->route('admin.borrowdetail.index');
         } catch (ModelNotFoundException $ex) {
             Session::flash(trans('borrow.danger'), trans('borrow.error'));

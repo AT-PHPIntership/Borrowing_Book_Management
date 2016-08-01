@@ -4,15 +4,12 @@ $(document).ready(function(){
   $('#list_books').DataTable();
   $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
-<<<<<<< HEAD
-=======
   $('#list_borrows').DataTable();
   $('#list_bookborrow').DataTable( {
     "paging": false,
     "bFilter": false
   });
 
->>>>>>> fe876d050183e1767dc3c507c48a1020099c1c6a
   //Confirm delete
   $('#confirmDelete').on('show.bs.modal', function (e) {
   	  // set message
@@ -54,7 +51,7 @@ $("#image").on('change', function(){
 
 });
 
-<<<<<<< HEAD
+
 $('#rowBook').hide();
 
 $(document).ready(function() {
@@ -62,7 +59,7 @@ $(document).ready(function() {
     $.getJSON( pathjsongiveback, function(data) {
         borrows = data;
     });
-    $(add_button).on('click', function(e) {
+    $('#add_button').on('click', function(e) {
         e.preventDefault();
         var request = $('#bookid').val();
         var array = $('tr');
@@ -94,7 +91,7 @@ $(document).ready(function() {
         if (flag == borrows.length) {
           error = error_notexist;
         }
-        $('#error').html(error);      
+        $('#errors').html(error);      
     });
     
     $(btn_remove).on("click", function(e) {
@@ -120,7 +117,7 @@ $(document).ready(function() {
       data1.push(borrows[i].borrow_id);
     }
     for(i=0; i < array.length; i++) {
-      if( (data.indexOf(parseInt(array[i])) == -1) || (data1.indexOf(parseInt(array1[i])) == -1) ){
+      if( (data.indexOf(parseInt(array[i])) == -1) || (data1.indexOf(parseInt(array1[i])) == -1) ) {
         break;
       } else {
         count++;
@@ -131,6 +128,8 @@ $(document).ready(function() {
     } else {
       $('#error_submit').html(error_notexist);
     }
+  });
+});
 //Borrow book 
 $(document).ready(function () {
     $('#rowZero').hide();
@@ -277,5 +276,5 @@ $(document).ready(function () {
                 alert('Error:',data);
             }
         });
-    });
+    });  
 });

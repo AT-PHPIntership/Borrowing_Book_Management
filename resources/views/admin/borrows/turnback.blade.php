@@ -28,7 +28,7 @@
         <button class="add_row_button btn btn-info" id="add_button"> + </button>
     <div>
         <input type="text" name="addbook" class="form-control" id="bookid"><br>
-        <span id="error" class="error"></span>
+        <span id="errors" class="error"></span>
     </div>
     <div>
         <form action="{{ route('admin.back')}}" method="POST">
