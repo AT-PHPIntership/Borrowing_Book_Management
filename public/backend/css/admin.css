@@ -317,3 +317,6 @@ ul.alert-dropdown {
 #formaddbook{
     margin-top: 70px;
 }
+span.danger {
+    color: #d43f3a;
+}
