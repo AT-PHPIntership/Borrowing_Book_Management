@@ -19,7 +19,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
-        //user
+        Route::get('/apiborrow', 'HomeController@getApiBorrow');
+        Route::get('/apiuser', 'HomeController@getApiUser');
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');
@@ -58,6 +59,9 @@ Route::group(['namespace' => 'Frontend'], function () {
         //list borrow
         Route::resource('borrow', 'BorrowDetailController');
         //profile
-        Route::resource('profile', 'ProfileController');
+        Route::resource('profile', 'ProfileController', ['except' => ['index', 'create', 'store', 'destroy']]);
+        //Change password
+        Route::get('/change-password', ['as' => 'getChangePassword', 'uses' => 'ProfileController@getChangePassword']);
+        Route::patch('/user/{id}/change-password', ['as' => 'changePassword', 'uses' => 'ProfileController@changePassword']);
     });
 });

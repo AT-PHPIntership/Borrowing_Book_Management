@@ -17,5 +17,6 @@ return [
     'img_default' => 'images/',
     'formatdate_index' => 'M j, Y',
     'pathjsonsearch' => '/search/book',
-
+    'path_chart_user' => 'admin/apiuser',
+    'path_chart_borrow' => 'admin/apiborrow'
 ];

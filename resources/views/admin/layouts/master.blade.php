@@ -12,7 +12,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 @include('admin.layouts.partials._message')
-                @yield('content')
+                @yield('content')                
             </div>
             <!-- /.container-fluid -->
         </div>
