@@ -9,8 +9,12 @@
 
 @section('content')
 	<div class="col-md-12 profile">
-            <div class="col-md-4 img-thumbnail" >
-                <img id="avatar" class="img-rectangcle img-responsive pull-left" src="{{ url(config('path.upload_user').$user->image )}}" alt="{{ trans('front_end.noimage') }}"></img>
+            <div class="col-md-4 " >
+                @if($user->image == null) 
+                    {!! Form::image(config('path.img_default').'profile_default.png', null,['class' => 'avatar2 ','id' => 'image_no']) !!}
+                @else
+                    {!! Form::image(config('path.upload_user').$user->image, null,['class' => 'img-thumbnail avatar2','id' => 'image_no']) !!}
+                @endif
             </div>            
             <div class="col-lg-offset-2 col-md-6" style="line-height:2.0">
                     <h2 class="featurette-heading">{{ $user->username }}</h2>

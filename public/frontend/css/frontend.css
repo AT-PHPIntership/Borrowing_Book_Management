@@ -342,10 +342,7 @@ span.danger {
 #ui-id-1 {
     z-index: 9999;
 }
-#avatar {
-    width: 100px;
-    height: 350px;
-}
+
 .profile{
     border-radius: 25px;
     border: 2px solid #73AD21;
@@ -452,6 +449,12 @@ margin: 10px 20px 0 20px;
     border-radius: 3px;
     max-width: 90px;
     height: 80px;
+}
+
+.avatar2 {
+    border-radius: 3px;
+    max-width: 350px;
+    height: 300px;
 }
 .profile {
     padding: 15px 10px;
