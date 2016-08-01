@@ -146,7 +146,7 @@ $(document).ready(function () {
                     
                 },
                 error: function (data) {
-                    console.log('Error:',data);
+                    alert('Error:',data);
                 }
             });
           }
@@ -194,7 +194,7 @@ $(document).ready(function () {
                 }
             },
             error: function (data) {
-                console.log('Error:',data);
+                alert('Error:',data);
             }
         });
     });
