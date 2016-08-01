@@ -4,6 +4,11 @@ $(document).ready(function(){
   $('#list_books').DataTable();
   $('#list_bookitems').DataTable();
   $('#list_categories').DataTable();
+  $('#list_borrows').DataTable();
+  $('#list_bookborrow').DataTable( {
+    "paging": false,
+    "bFilter": false
+  });
 
   //Confirm delete
   $('#confirmDelete').on('show.bs.modal', function (e) {

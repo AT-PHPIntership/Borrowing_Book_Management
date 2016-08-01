@@ -18,6 +18,7 @@ return [
     'start_at' => 'Start At',
     'status' => 'Status',
     'incomplete' => 'Incomplete',
-    'complete' => 'Complete'
+    'complete' => 'Complete',
+    'borrow_id' => 'BorrowID'
 
 ];
