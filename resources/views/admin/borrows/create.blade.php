@@ -24,14 +24,11 @@
                 
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8" id="maincontent">
-                        {{-- <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2> --}}
-                        {{-- <div class="row">  --}}
                         <h3>{!!trans('borrow.enter_user' )!!}</h3>
                         <form id="frmTasks" name="frmTasks" class="form-horizontal" novalidate="">   
                             <input type="text" name="username" id="username" >
                             <p class="btn btn-md btn-primary" id="check">{!!trans('borrow.check' )!!}</p>
                         </form>
-                        {{-- </div> --}}
                         <div class="alert" id="user_notice" style="display:none">
                             <input type="hidden" id="user_name" name="user_name" value="">
                             <div class="" id="message">
@@ -43,35 +40,15 @@
 
                         </div>
                         <hr>
-                        
-                        {{-- <div class="row" id="data"></div> --}}
-                        {{-- <div class="row" id="inbook" style="display:none"> --}}
-                            {{-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <input type="hidden" id="user_name" name="user_name" value="">
-                                <div class="" id="message">
-                                </div>
-                                <label>Quantity</label>
-                                <span id="quantitybook" ></span>
-
-                            </div> --}}
                             <div class="" id="enterBook" style="display:none">
                                 <h3>{!!trans('borrow.enter_book' )!!}</h3>
                                 <form id="addbook" name="addbook" class="form-horizontal col-lg-12" novalidate="">   
                                 <input type="text" name="bookID" id="bookid" >
                                 <button type="submit" class="btn btn-md btn-primary" id="add">{!!trans('borrow.add' )!!}</button>
                                 <p id="error" class="alert"></p>
-                                
                                 </form>
-                                {{-- <form method="POST" action="http://homestead.app/admin/testajax/add">
-                                    <input type="hidden" name="_token" value="<php echo csrf_token(); ?>">
-                                    <input id="" name="bookID">
-                                    <button type="submit">add</button>
-                                </form> --}}
-                                
                                 <div class="col-lg-12" id="">
                                     
-                                {{-- <form id="ok" method="POST" action="http://homestead.app/admin/addborrow/">
-                                <input type="hidden" name="_token" value="<php echo csrf_token(); ?>">     --}}
                                 <table id="list_books_add" class="display text-center table table-bordered table-hover">
                                     <thead>
                                         <tr>
@@ -80,9 +57,6 @@
                                             <th class="text-center">{!!trans('borrow.action' )!!}</th>
                                         </tr>
                                     </thead>
-                                    {{-- <form method="POST" action="http://homestead.app/admin/testajax/delete/0">
-                                        <input type="hidden" name="_token" value="<php echo csrf_token(); ?>"> --}}
-                                    
                                     <tbody id="list-add">
                                         <tr id="rowZero">
                                             <td></td>
@@ -97,8 +71,6 @@
                                     <button type="submit" id="savelist">{!!trans('borrow.submit' )!!}</button>
                                 </div>
                                 <div class="alert" id="notice"></div>
-                                {{-- </form> --}}
-                                
                                 </div>
                             </div>
                         </div>    

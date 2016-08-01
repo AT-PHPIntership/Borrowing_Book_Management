@@ -31,6 +31,8 @@ class AddBorrowController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     *@param \Illuminate\Http\Request\Request $request input value
+     *
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -39,9 +41,9 @@ class AddBorrowController extends Controller
         try {
             $bookitem=BookItem::findOrfail($data['bookID']);
             $book=Book::findOrfail($bookitem['book_id']);
-            try{
+            try {
                 $borrowDetailItem=BorrowDetail::where('book_item_id',$bookitem['id'])->first();
-                if($borrowDetailItem['status']=='0'){
+                if ($borrowDetailItem['status']=='0') {
                     return response()->json(['mes'=> trans('borrow.book_borrowed')]);
                 } else {
                     $bookitem['bookname']=$book['name'];
@@ -90,7 +92,7 @@ class AddBorrowController extends Controller
             ]);
         }
         $list=BorrowDetail::insert($borrowDetail);
-        if($list){
+        if ($list) {
             return response()->json(['mes'=>trans('borrow.success')]);
         } else {
             return response()->json(['mes'=>trans('borrow.fail')]);
@@ -106,25 +108,25 @@ class AddBorrowController extends Controller
      */
     public function show($id)
     {
-        try{
+        try {
             $user=User::findOrfail($id);
             $a=Borrow::where('user_id',$user['id'])->get();
             $total=0;
             foreach ($a as $item) {
                 $total+=$item['quantity'];
             }
-            if($total< 5){
+            if ($total< 5) {
                 return response()->json(['mes' => trans('borrow.user_allow'),
                                          'allow' => trans('borrow.true'),
                                          'quantity' => (5-$total)
                                     ]);
-            }else{
+            } else {
                 return response()->json(['mes'=> trans('borrow.max_borrow'),
                                          'allow'=> trans('borrow.false')
                     ]);
             }
             
-        }catch(ModelNotFoundException $ex){
+        } catch (ModelNotFoundException $ex){
             return response()->json(['mes'=> trans('borrow.no_user')]);
     
         }
