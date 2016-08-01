@@ -43,7 +43,7 @@ class AddBorrowController extends Controller
             $book=Book::findOrfail($bookitem['book_id']);
             try {
                 $borrowDetailItem=BorrowDetail::where('book_item_id', $bookitem['id'])->first();
-                if ($borrowDetailItem['status']=='0') {
+                if ($borrowDetailItem['status']== config('define.not_paid')) {
                     return response()->json(['mes'=> trans('borrow.book_borrowed')]);
                 } else {
                     $bookitem['bookname']=$book['name'];
@@ -78,11 +78,11 @@ class AddBorrowController extends Controller
        
         for ($i=1; $i < count($data['listBook']); $i++) {
             $current = Carbon::now();
-            $expireTime = $current->addDays(30);
+            $expireTime = $current->addDays(config('define.limit_day'));
             array_push($borrowDetail, [
                 'borrow_id' => $borrow['id'],
                 'book_item_id' => $data['listBook'][$i],
-                'status' => '0',
+                'status' => config('define.not_paid'),
                 'expiretime' => $expireTime ,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -112,10 +112,10 @@ class AddBorrowController extends Controller
             foreach ($borrow as $item) {
                 $total+=$item['quantity'];
             }
-            if ($total< 5) {
+            if ($total< config('define.max_borrow')) {
                 return response()->json(['mes' => trans('borrow.user_allow'),
                                          'allow' => trans('borrow.true'),
-                                         'quantity' => (5-$total)
+                                         'quantity' => (config('define.max_borrow')-$total)
                                     ]);
             } else {
                 return response()->json(['mes'=> trans('borrow.max_borrow'),

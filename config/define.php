@@ -7,4 +7,7 @@ return [
 	'number_image_default' => 1,
 	'number_images_slide' => 3,
 	'mail' => 'vddongbk@gmail.com',
+	'limit_day' => 30,
+	'not_paid' => '0',
+	'max_borrow' => 5
 ];

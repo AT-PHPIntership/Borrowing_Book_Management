@@ -77,7 +77,6 @@ $(document).ready(function () {
         data: {username: $('form #username').val()},
         dataType: "json",
         success: function (data) {
-            console.log(data);
             $('#user_notice').show();
 
             if(data.allow=='true'){
@@ -111,12 +110,10 @@ $(document).ready(function () {
             }
         });
         var data1=$('form #bookid').val();
-        console.log($('form #bookid').val());
         var list=$('#list-add tr');
         var error="";
         var maxBook=$('#quantitybook').text();
         var numBook=list.length;
-        console.log(maxBook, numBook);
         //check maximum book to add
         if(numBook<=maxBook){
           list.each(function(){
@@ -134,7 +131,6 @@ $(document).ready(function () {
                 data: {bookID: $('form #bookid').val()},
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
                     if(data.mes==null){
                         $('#error').removeClass('alert-danger');
                         var newRow=$('#rowZero').clone(true).attr({'class':'clone' ,'id': data.id,'style': 'display: '}).appendTo('#list-add');
@@ -172,7 +168,6 @@ $(document).ready(function () {
         listdata.each(function(){
             list.push($(this).attr('value'));
         });
-        console.log(list);
         e.preventDefault();
         $.ajaxSetup({
 
@@ -186,7 +181,6 @@ $(document).ready(function () {
             data: {listBook: list},
             dataType: "json",
             success: function (data) {
-                console.log(data);
                 $('#notice').show();
                 if(data.mes=="Succesful"){
                     $('#notice').html(data.mes);
