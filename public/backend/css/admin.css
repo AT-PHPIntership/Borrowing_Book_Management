@@ -347,3 +347,13 @@ ul.alert-dropdown {
     border-radius: 5px;
     padding: 10px;
 }
+span.danger {
+    color: #d43f3a;
+}
+.charts{
+    height: 400px;
+}
+.panel-default > .panel-heading{
+    background-color:#3498db;
+}
+

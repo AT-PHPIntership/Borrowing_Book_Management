@@ -51,5 +51,11 @@ return [
     'title_profile' => '- User Profile',
     'create_at' => 'Create At',
     'fail' => 'Not found!',
+    'edit_profile' => 'Edit Profile',
+    'change_password' => 'Change Password',
+    'error_password_incorrect' => 'Your password is incorrect, please try again!',
+    'current_password' => 'Current Password',
+    'new_password' => 'New Password',
+    'confirm_new_password' => 'Confirm New Password'
 
 ];

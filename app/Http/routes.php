@@ -19,7 +19,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
-        //user
+        Route::get('/apiborrow', 'HomeController@getApiBorrow');
+        Route::get('/apiuser', 'HomeController@getApiUser');
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');
@@ -35,18 +36,34 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('addborrow', 'AddBorrowController');
     });
 });
+
 Route::group(['namespace' => 'Frontend'], function () {
+    // show index
+    Route::get('/', ['as' => '/', 'uses' => 'IndexController@index']);
     //User login
     Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getlogin']);
     Route::post('/login', ['as' => 'login', 'uses' => 'AuthController@postlogin']);
     //User logout
     Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
-    Route::resource('profile', 'ProfileController');
+
+    // show book detail
+    Route::get('/show/{show}', ['as' => 'show.book', 'uses' => 'IndexController@show']);
+    // list book via category
+    Route::get('/category/{category}', ['as' => 'list.category', 'uses' => 'IndexController@filter']);
     //Search
-    Route::get('/', ['as' => '/','uses' => 'SearchController@getsearch']);
+    Route::get('/search', ['as' => 'search','uses' => 'SearchController@getsearch']);
     Route::get('/search/book', ['uses' => 'SearchController@getjson']);
-    //borrow
+    //Contact
+    Route::get('/contact', [ 'as' => 'contact', 'uses' => 'ContactController@getContact']);
+    Route::post('/contact', ['as' => 'contact.send', 'uses' => 'ContactController@postContact']);
+    
     Route::group(['middleware' => ['auth']], function () {
+        //list borrow
         Route::resource('borrow', 'BorrowDetailController');
+        //profile
+        Route::resource('profile', 'ProfileController', ['except' => ['index', 'create', 'store', 'destroy']]);
+        //Change password
+        Route::get('/change-password', ['as' => 'getChangePassword', 'uses' => 'ProfileController@getChangePassword']);
+        Route::patch('/user/{id}/change-password', ['as' => 'changePassword', 'uses' => 'ProfileController@changePassword']);
     });
 });

@@ -37,5 +37,6 @@ return [
     'enter_book' => 'Enter book ID',
     'delete' => 'Delete',
     'submit' => 'Submit'
+    'borrow_id' => 'BorrowID'
 
 ];
