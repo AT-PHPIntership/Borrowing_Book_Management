@@ -31,7 +31,7 @@ class AddBorrowController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     *@param \Illuminate\Http\Request\Request $request input value
+     * @param \Illuminate\Http\Request\Request $request input value
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,20 +42,17 @@ class AddBorrowController extends Controller
             $bookitem=BookItem::findOrfail($data['bookID']);
             $book=Book::findOrfail($bookitem['book_id']);
             try {
-                $borrowDetailItem=BorrowDetail::where('book_item_id',$bookitem['id'])->first();
+                $borrowDetailItem=BorrowDetail::where('book_item_id', $bookitem['id'])->first();
                 if ($borrowDetailItem['status']=='0') {
                     return response()->json(['mes'=> trans('borrow.book_borrowed')]);
                 } else {
                     $bookitem['bookname']=$book['name'];
                     return response()->json($bookitem);
                 }
-                
-            } catch (ModelNotFoundException $ex){
+            } catch (ModelNotFoundException $ex) {
                 $bookitem['bookname']=$book['name'];
                 return response()->json($bookitem);
-
             }
-           
         } catch (ModelNotFoundException $ex) {
             return response()->json(['mes'=> trans('borrow.book_not_exist')]);
         }
@@ -110,9 +107,9 @@ class AddBorrowController extends Controller
     {
         try {
             $user=User::findOrfail($id);
-            $a=Borrow::where('user_id',$user['id'])->get();
+            $borrow=Borrow::where('user_id', $user['id'])->get();
             $total=0;
-            foreach ($a as $item) {
+            foreach ($borrow as $item) {
                 $total+=$item['quantity'];
             }
             if ($total< 5) {
@@ -125,33 +122,27 @@ class AddBorrowController extends Controller
                                          'allow'=> trans('borrow.false')
                     ]);
             }
-            
-        } catch (ModelNotFoundException $ex){
+        } catch (ModelNotFoundException $ex) {
             return response()->json(['mes'=> trans('borrow.no_user')]);
-    
         }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     *
      * @return \Illuminate\Http\Response
      */
     public function edit()
     {
-        
     }
 
     /**
      * Update the specified resource in storage.
      *
-     *
      * @return \Illuminate\Http\Response
      */
     public function update()
     {
-        
     }
 
     /**

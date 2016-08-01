@@ -22,7 +22,7 @@ return [
     'add_borrow' => 'Add Borrow',
     'book_borrowed' => 'This book has been borrowed by another user !',
     'book_not_exist' => 'Book not exist .please check again!',
-    'success' => 'Succesful !',
+    'success' => 'Succesful',
     'fail' => 'Fail ! Try again.',
     'user_allow' => 'User allow to borrow book',
     'max_borrow' => 'User has max borrow',
@@ -36,7 +36,7 @@ return [
     'check' => 'Check',
     'enter_book' => 'Enter book ID',
     'delete' => 'Delete',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
     'borrow_id' => 'BorrowID'
 
 ];
