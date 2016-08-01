@@ -320,3 +320,10 @@ ul.alert-dropdown {
 span.danger {
     color: #d43f3a;
 }
+.charts{
+    height: 400px;
+}
+.panel-default > .panel-heading{
+    background-color:#3498db;
+}
+

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class BooksTableSeeder extends Seeder
 {
     /**
@@ -13,7 +14,7 @@ class BooksTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $quantity = 5;
+        $quantity = 3;
 
         for($i = 0; $i < 10; $i++){
             DB::table('books')->insert([
