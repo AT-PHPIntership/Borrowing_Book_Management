@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand " href="index.html" id="colorlogo">{!! trans('labels.title_admin') !!}</a>
+                <a class="navbar-brand " href="{{route('home.admin')}}" id="colorlogo">{!! trans('labels.title_admin') !!}</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">

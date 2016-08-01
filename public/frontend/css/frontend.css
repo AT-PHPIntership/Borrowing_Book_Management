@@ -343,6 +343,89 @@ span.danger {
     z-index: 9999;
 }
 
+.profile{
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+}
+
+/* Contact page */
+#map {
+max-height: 380px;
+height: 360px;
+width: 100%;
+}
+.dividerHeading h4, .widget_title h4 {
+border-bottom: 1px solid #D6D4D4;
+font-size: 21px;
+font-weight: normal;
+margin: 0 0 25px 0;
+padding: 0 0 10px;
+position: relative;
+}
+.sub_content {
+padding: 30px 0;
+}
+.dividerHeading h4::before, .widget_title h4::before {
+background: rgba(52, 152, 219,0.9);;
+border-radius: 0 5px 5px 0;
+bottom: -1px;
+content: "";
+height: 3px;
+left: 0;
+position: absolute;
+width: 100px;
+}
+#contactForm {
+margin-top: 30px;
+}
+.contact .form-control {
+border-radius: 4px;
+margin-bottom: 22px;
+height: 46px;
+padding: 12px;
+}
+.contact textarea.form-control {
+border-radius: 4px;
+height: 150px;
+}
+.btn-default {
+background: rgba(52, 152, 219,0.9);
+color: #fff;
+font-size: 13px;
+line-height: 20px;
+}
+.btn-default:hover {
+background: #457e9a;
+color: #fff;
+}
+.widget_info_contact {
+padding: 0;
+margin-top: 20px;
+list-style: none;
+}
+.contact .widget_info_contact li i {
+color: #647382;
+float: left;
+font-size: 24px;
+height: 80px;
+width: 45px;
+}
+.contact .widget_info_contact li {
+display: inline-block;
+margin-bottom: 20px;
+width: 100%;
+}
+.contact strong {
+color: #647382;
+font-size: 16px;
+font-weight: 600;
+text-transform: uppercase;
+}
+.contact .widget_info_contact p {
+line-height: 22px;
+margin: 10px 20px 0 20px;
+}
+
 /*Edit profile*/
 .form-group .form-control {
     background-color: #fafafa;
@@ -367,6 +450,12 @@ span.danger {
     max-width: 90px;
     height: 80px;
 }
+
+.avatar2 {
+    border-radius: 3px;
+    max-width: 350px;
+    height: 300px;
+}
 .profile {
     padding: 15px 10px;
     line-height: 17px;
@@ -387,4 +476,11 @@ span.danger {
 }
 .profile-content .form-group {
     margin: 10px 0;
+}
+/*End edit profile*/
+
+/*Change passord*/
+.panel-heading h3{
+    margin: 0;
+    text-align: center;
 }

@@ -19,7 +19,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
     
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/', ['as' => 'home.admin', 'uses' => 'HomeController@index']);
-        //user
+        Route::get('/apiborrow', 'HomeController@getApiBorrow');
+        Route::get('/apiuser', 'HomeController@getApiUser');
         Route::resource('user', 'UserController');
         //book
         Route::resource('book', 'BookController');
@@ -34,6 +35,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('borrowdetail', 'BorrowDetailController');
         Route::post('/back', ['as' => 'admin.back','uses' =>'BorrowDetailController@giveBack']);
         Route::get('data/borrows', 'BorrowDetailController@getBorrow');
+        //add new borrow
+        Route::resource('addborrow', 'AddBorrowController');
     });
 });
 
@@ -53,11 +56,17 @@ Route::group(['namespace' => 'Frontend'], function () {
     //Search
     Route::get('/search', ['as' => 'search','uses' => 'SearchController@getsearch']);
     Route::get('/search/book', ['uses' => 'SearchController@getjson']);
+    //Contact
+    Route::get('/contact', [ 'as' => 'contact', 'uses' => 'ContactController@getContact']);
+    Route::post('/contact', ['as' => 'contact.send', 'uses' => 'ContactController@postContact']);
     
     Route::group(['middleware' => ['auth']], function () {
         //list borrow
         Route::resource('borrow', 'BorrowDetailController');
         //profile
-        Route::resource('profile', 'ProfileController');
+        Route::resource('profile', 'ProfileController', ['except' => ['index', 'create', 'store', 'destroy']]);
+        //Change password
+        Route::get('/change-password', ['as' => 'getChangePassword', 'uses' => 'ProfileController@getChangePassword']);
+        Route::patch('/user/{id}/change-password', ['as' => 'changePassword', 'uses' => 'ProfileController@changePassword']);
     });
 });

@@ -14,9 +14,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="menu">
-                    <li>
-                        <a href="{!! route('/') !!}" title="{!! trans('labels.home') !!}">{!! trans('labels.home') !!}</a>
-                    </li>
                     @if(Auth::check())
                     <li>
                         <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
@@ -26,7 +23,7 @@
                     </li>
                     @endif
                     <li>
-                        <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
+                        <a href="{{route('contact')}}" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                     </li>
                     <li id="search">
                         {!! Form::open(['class' => 'navbar-form navbar-left', 'role' => 'search', 'route' => 'search', 'method' => 'GET']) !!}
@@ -51,7 +48,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('profile.show',Auth::guard('web')->user()->id) }}">{!! trans('user.profile') !!}</a></li>
-                                <li><a href="#">{!! trans('user.change_password') !!}</a></li>
+                                <li><a href="{{ route('getChangePassword') }}">{!! trans('user.change_password') !!}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ route('logout') }}" title="{!! trans('labels.logout') !!}">{!! trans('labels.logout') !!}</a></li>
                             </ul>
