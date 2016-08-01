@@ -66,6 +66,7 @@ class ProfileController extends Controller
         $data = $request->all();
         if ($request -> hasFile('image')) {
             $img = time() . '_' . $request->file('image')->getClientOriginalName();
+            $data['image'] = $img;
             $request->file('image') -> move(config('path.upload_user'), $img);
         }
         try {
