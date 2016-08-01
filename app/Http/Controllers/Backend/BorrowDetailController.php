@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\GiveBackRequest;
 use App\Http\Controllers\Controller;
 use App\BorrowDetail;
 use App\BookItem;
@@ -92,30 +93,19 @@ class BorrowDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function giveBack(Request $request)
+    public function giveBack(GiveBackRequest $request)
     {
-        $item = $request->item;
-        $count = 0;
-        for ($i = 1; $i < count($item); $i++) {
-            try {
-                $borrowdetail = BorrowDetail::findOrFail($item[$i]);
-                $result = $borrowdetail -> update(['status' => 1 ]);
-                if ($result) {
-                    $borrow = Borrow::findOrFail($borrowdetail['borrow_id']);
-                    $borrow -> update(['quantity' => ($borrow['quantity'] - 1) ]);
-                    $count++;
-                }
-            } catch (ModelNotFoundException $ex) {
-                Session::flash(trans('borrow.danger'), trans('borrow.notfind'));
-                return redirect()->route('admin.borrowdetail.index');
-            }
-        }
-        if ($count == (count($item)-1)) {
+        try {
+            $id = $request->item;
+            $borrowId = $request->borrowid;
+            BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
+            Borrow::whereIn('id', $borrowId)->increment('quantity', config('define.quantity_decrement'));
             Session::flash(trans('borrow.success'), trans('borrow.successfully'));
-        } else {
-            Session::flash(trans('borrow.danger'), trans('borrow.fail'));
+            return redirect()->route('admin.borrowdetail.index');
+        } catch (ModelNotFoundException $ex) {
+            Session::flash(trans('borrow.danger'), trans('borrow.error'));
+            return redirect()->route('admin.borrowdetail.index');
         }
-        return redirect()->route('admin.borrowdetail.index');
     }
     /**
      * Get data json.

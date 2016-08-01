@@ -34,6 +34,7 @@ return [
     'enter' => 'Enter Books ID :',
     'submit' => 'Submit',
     'dashboard' => 'Dashboard',
+    'error' => 'Error!',
 
 
 ];

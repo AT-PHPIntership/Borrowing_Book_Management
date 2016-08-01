@@ -28,7 +28,7 @@
         <button class="add_row_button btn btn-info" id="add_button"> + </button>
     <div>
         <input type="text" name="addbook" class="form-control" id="bookid"><br>
-         <span id="error" class="error"></span>
+        <span id="error" class="error"></span>
     </div>
     <div>
         <form action="{{ route('admin.back')}}" method="POST">
@@ -50,14 +50,21 @@
             <td>
                 <button class="btn btn-danger glyphicon glyphicon-remove btn-xs btn-delete delete-task" id="btn_remove"></button>
             </td>
-                <input type="hidden" name="item[]" value="">
+                <input type="hidden" id="borrowdetail_id" name="item[]" value="">
+                <input type="hidden" id="borrow_id" name="borrowid[]" value="">
             </tr>
             </tbody>
         </table>
     </div>
     </div>
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
-        <button class="form-control btn btn-info"> {!! trans('borrow.submit') !!}  </button>
+        <button class="form-control btn btn-info" id="btn_submit"> {!! trans('borrow.submit') !!}  </button>
+         <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <span id="error_submit" class="error"></span>
     </form>
     </div>        
         </div>

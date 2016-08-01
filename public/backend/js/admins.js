@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
   //datatables
   $('#list_users').DataTable();
   $('#list_books').DataTable();
@@ -52,7 +52,6 @@ $(document).ready(function() {
     $.getJSON( pathjsongiveback, function(data) {
         borrows = data;
     });
-
     $(add_button).on('click', function(e) {
         e.preventDefault();
         var request = $('#bookid').val();
@@ -67,15 +66,15 @@ $(document).ready(function() {
           error = error_exist;
           }
         });
-
         if (error == "") {
         for(i=0; i < borrows.length; i++){
            if ((request == borrows[i].book_item_id)) { 
-            var newRow = $('#rowBook').clone(true).attr({'id': borrows[i].book_item_id,'style': 'display: '}).appendTo('#list-add');
+            var newRow = $('#rowBook').clone(true).attr({'id': borrows[i].book_item_id, 'style': 'display: '}).appendTo('#list-add');
             newRow.find('td:nth-child(1)').html(borrows[i].borrow_id);
             newRow.find('td:nth-child(2)').html(borrows[i].fullname);
             newRow.find('td:nth-child(3)').html(borrows[i].name);
-            newRow.find('input').attr('value', borrows[i].id);
+            newRow.find('#borrowdetail_id').attr('value', borrows[i].id);
+            newRow.find('#borrow_id').attr('value', borrows[i].borrow_id);
             break; 
             } else {
               flag++;
@@ -91,5 +90,36 @@ $(document).ready(function() {
     $(btn_remove).on("click", function(e) {
         e.preventDefault(); 
         $(this).parent().parent().remove();
-    })
+    });
+    $('#btn_submit').on("click", function(e){
+      e.preventDefault();
+      var count = 0;
+      var data = [];
+      var data1 = [];
+      var array = [];
+      var array1 = [];
+    $('#rowBook').remove();
+    $("input:hidden[name*='item']").each(function() {
+      array.push($(this).val());
+    });
+    $("input:hidden[name*='borrowid']").each(function() {
+      array1.push($(this).val());
+    }); 
+    for(i=0; i < borrows.length; i++) {
+      data.push(borrows[i].id);
+      data1.push(borrows[i].borrow_id);
+    }
+    for(i=0; i < array.length; i++) {
+      if( (data.indexOf(parseInt(array[i])) == -1) || (data1.indexOf(parseInt(array1[i])) == -1) ){
+        break;
+      } else {
+        count++;
+      }
+    }
+    if(count == (array.length)) {
+      $(this.form).submit();
+    } else {
+      $('#error_submit').html(error_notexist);
+    }
+    });
 });
