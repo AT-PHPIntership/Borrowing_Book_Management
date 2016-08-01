@@ -26,10 +26,10 @@
                     <div class="col-lg-offset-2 col-lg-8" id="maincontent">
                         {{-- <h2 class="text-left">{!!trans('book_manage_lang.book_list' )!!}</h2> --}}
                         {{-- <div class="row">  --}}
-                        <h3>Enter username</h3>
+                        <h3>{!!trans('borrow.enter_user' )!!}</h3>
                         <form id="frmTasks" name="frmTasks" class="form-horizontal" novalidate="">   
                             <input type="text" name="username" id="username" >
-                            <p class="btn btn-md btn-primary" id="check">Check</p>
+                            <p class="btn btn-md btn-primary" id="check">{!!trans('borrow.check' )!!}</p>
                         </form>
                         {{-- </div> --}}
                         <div class="alert" id="user_notice" style="display:none">
@@ -37,7 +37,7 @@
                             <div class="" id="message">
                             </div>
                             <div id="quantity">
-                                <label>Quantity : </label>
+                                <label>{!!trans('borrow.quantity' )!!} : </label>
                                 <span id="quantitybook" ></span>
                             </div>
 
@@ -55,10 +55,10 @@
 
                             </div> --}}
                             <div class="" id="enterBook" style="display:none">
-                                <h3>Enter book ID</h3>
+                                <h3>{!!trans('borrow.enter_book' )!!}</h3>
                                 <form id="addbook" name="addbook" class="form-horizontal col-lg-12" novalidate="">   
                                 <input type="text" name="bookID" id="bookid" >
-                                <button type="submit" class="btn btn-md btn-primary" id="add">Add</button>
+                                <button type="submit" class="btn btn-md btn-primary" id="add">{!!trans('borrow.add' )!!}</button>
                                 <p id="error" class="alert"></p>
                                 
                                 </form>
@@ -70,14 +70,14 @@
                                 
                                 <div class="col-lg-12" id="">
                                     
-                                {{-- <form id="ok" method="POST" action="http://homestead.app/admin/testajax/save">
+                                {{-- <form id="ok" method="POST" action="http://homestead.app/admin/addborrow/">
                                 <input type="hidden" name="_token" value="<php echo csrf_token(); ?>">     --}}
                                 <table id="list_books_add" class="display text-center table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th class="text-center">{!!trans('book_manage_lang.name' )!!}</th>
                                             <th class="text-center">{!!trans('book_manage_lang.book_item_id' )!!}</th>
-                                            <th class="text-center">Action</th>
+                                            <th class="text-center">{!!trans('borrow.action' )!!}</th>
                                         </tr>
                                     </thead>
                                     {{-- <form method="POST" action="http://homestead.app/admin/testajax/delete/0">
@@ -87,16 +87,16 @@
                                         <tr id="rowZero">
                                             <td></td>
                                             <td></td>
-                                            <td><button class="btn btn-danger btn-xs btn-delete delete-task" value="">Delete</button></td>
+                                            <td><button class="btn btn-danger btn-xs btn-delete delete-task" value="">{!!trans('borrow.delete' )!!}</button></td>
                                             <input type="hidden" name="lists_book_item[]" value="">
                                         </tr>
                                     </tbody>
                                     
                                 </table>
                                 <div class="row">
-                                    <button type="submit" id="savelist">Submit</button>
+                                    <button type="submit" id="savelist">{!!trans('borrow.submit' )!!}</button>
                                 </div>
-                                <div class="" id="notice"></div>
+                                <div class="alert" id="notice"></div>
                                 {{-- </form> --}}
                                 
                                 </div>
@@ -118,5 +118,6 @@
     var path_check_user={!! json_encode(config('path.path_check_user'))!!};
     var path_add_book={!!json_encode(config('path.path_add_book'))!!};
     var path_save_borrow={!!json_encode(config('path.path_save_borrow'))!!};
+    var max_book='{!!trans('borrow.max_book' )!!}';
 </script>
 @endsection

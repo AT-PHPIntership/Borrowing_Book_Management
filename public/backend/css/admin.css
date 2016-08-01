@@ -340,3 +340,10 @@ ul.alert-dropdown {
     border-radius: 5px;
     padding: 10px;
 }
+#notice{
+    font-size: 16px;
+    margin: 10px 0px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}

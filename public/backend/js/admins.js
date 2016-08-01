@@ -80,21 +80,16 @@ $(document).ready(function () {
                 $('#message').html(data.mes);
                 $('#quantity').show();
                 $('#quantitybook').html(data.quantity);
-                // $('#inbook').show();
                 $('#enterBook').show();
             } else if(data.allow=='false'){
                 $('#user_notice').attr('class','alert-warning');
                 $('#message').html(data.mes);
                 $('#quantitybook').html("0");
-                // $('#inbook').show();
                 $('#enterBook').hide();
             } else{
-                // $('#inbook').show();
                 $('#user_notice').attr('class','alert-danger');
                 $('#enterBook').hide();
                 $('#message').html(data.mes);
-                // $('label').hide();
-                // $('#quantitybook').hide();
                 $('#quantity').hide();
             }
         }
@@ -111,7 +106,6 @@ $(document).ready(function () {
             }
         });
         var data1=$('form #bookid').val();
-        // console.log(data1);
         console.log($('form #bookid').val());
         var list=$('#list-add tr');
         var error="";
@@ -156,31 +150,23 @@ $(document).ready(function () {
             });
           }
         } else{
-            var notice="Max book ";
             $('#error').attr('class','alert-danger');
-            $('#error').html(notice);
+            $('#error').html(max_book);
         }          
     });
     // delete bookitem in list add
     $(document).on('click','.btn-delete', function(){
         var id_book = $(this).val();
-       
-        // alert(id_book);
         $("#"+id_book).remove();
-        // count--;
         
     });
     //save to database
     $('#savelist').on('click',function(e){
-        // var data=$(this).find('input[name="lists_book_item[]"]').val();
         var list=[];
         var listdata=$('#list_books_add input');
         listdata.each(function(){
             list.push($(this).attr('value'));
         });
-        // list['0']=$('#id_user').val();
-        // list.push({userID: $('#id_user').val()});
-        // console.log(list['userID']);
         console.log(list);
         e.preventDefault();
         $.ajaxSetup({
@@ -196,18 +182,16 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                if(data.mes!="false"){
+                $('#notice').show();
+                if(data.mes=="Succesful"){
                     $('#notice').html(data.mes);
+                    $('#notice').attr('class', 'alert-success');
                     $('#add').attr('disabled',true);
                     $('#bookid').attr('disabled',true);
                     $('#savelist').attr('disabled',true);
                 } else {
-                    if ($('#rowZero').next().length > 0) {
-                        $('.clone').each(function(index){
-                            $(this).remove();
-                        });
-                    }
-                    $('#notice').html("Something wrong ! Please check and add again.");
+                    $('#notice').html(data.mes);
+                    $('#notice').attr('class', 'alert-success');
                 }
             },
             error: function (data) {
