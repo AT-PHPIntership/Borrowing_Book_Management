@@ -24,12 +24,12 @@ class BookEditRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:100',
+            'name' => 'required|regex:/^[A-Za-z \t]*$/i|max:100',
             'category_id' => 'required',
-            'author' => 'required',
-            'image' => 'max:100',
-            'publish_year' => 'required|max:10',
-            'number_of_page' => 'required',
+            'author' => 'required|regex:/^[A-Za-z \t]*$/i|min:3',
+            'image' => 'mimes:jpeg,jpg,png|max:100',
+            'publish_year' => 'required|max:10|min:3',
+            'number_of_page' => 'required|numeric|min:1',
         ];
     }
 }

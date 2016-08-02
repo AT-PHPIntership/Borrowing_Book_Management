@@ -24,10 +24,10 @@
 
 <div class="row">
     <div class="col col-lg-8 col-lg-offset-2">
-        {!! Form::open(array('route' => 'admin.user.store', 'id' => 'user-form', 'enctype' => 'multipart/form-data')) !!}
+        {{ Form::open(array('route' => 'admin.user.store', 'id' => 'user-form', 'enctype' => 'multipart/form-data')) }}
             <div class="form-group">
-                {!! Form::label('username', trans('user.username')) !!}
-                {!! Form::text('username', null, array('class' => 'form-control', 'placeholder' => trans('user.username'))) !!}
+                {{ Form::label('username', trans('user.username')) }}
+                {{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => trans('user.username'))) }}
                 @if ($errors->has('username'))
                     <span class="errors">
                         {{ $errors->first('username') }}
@@ -35,17 +35,17 @@
                 @endif
             </div>
             <div class="form-group">
-                {!! Form::label('fullname', trans('user.full_name')) !!}
-                {!! Form::text('fullname', null, array('class' => 'form-control', 'placeholder' => trans('user.full_name'))) !!}
+                {{ Form::label('fullname', trans('user.full_name')) }}
+                {{ Form::text('fullname', null, array('class' => 'form-control', 'placeholder' => trans('user.full_name'))) }}
             </div>
             <div class="form-group">
-                {!! Form::label('gender', trans('user.gender')) !!}
-                {!! Form::radio('gender', trans('user.male')) !!} {!! trans('user.male') !!}
-                {!! Form::radio('gender', trans('user.female')) !!} {!! trans('user.female') !!}
+                {{ Form::label('gender', trans('user.gender')) }}
+                {{ Form::radio('gender', trans('user.male')) }} {{ trans('user.male') }}
+                {{ Form::radio('gender', trans('user.female')) }} {{ trans('user.female') }}
             </div>
             <div class="form-group">
-                {!! Form::label('birthday', trans('user.birthday')) !!}
-                {!! Form::date('birthday', null, array('class' => 'form-control')) !!}
+                {{ Form::label('birthday', trans('user.birthday')) }}
+                {{ Form::date('birthday', null, array('class' => 'form-control')) }}
                 @if ($errors->has('birthday'))
                     <span class="errors">
                         {{ $errors->first('birthday') }}
@@ -53,8 +53,8 @@
                 @endif
             </div>
             <div class="form-group">
-                {!! Form::label('phone', trans('user.phone')) !!}
-                {!! Form::number('phone', null, array('class' => 'form-control', 'placeholder' => trans('user.phone'))) !!}
+                {{ Form::label('phone', trans('user.phone')) }}
+                {{ Form::number('phone', null, array('class' => 'form-control', 'placeholder' => trans('user.phone'))) }}
                  @if ($errors->has('phone'))
                     <span class="errors">
                         {{ $errors->first('phone') }}
@@ -62,12 +62,12 @@
                 @endif
             </div>
             <div class="form-group">
-                {!! Form::label('address', trans('user.address')) !!}
-                {!! Form::text('address', null, array('class' => 'form-control', 'placeholder' => trans('user.address'))) !!}
+                {{ Form::label('address', trans('user.address')) }}
+                {{ Form::text('address', null, array('class' => 'form-control', 'placeholder' => trans('user.address'))) }}
             </div>
             <div class="form-group">
-                {!! Form::label('expiretime', trans('user.expiretime')) !!}
-                {!! Form::date('expiretime', null, array('class' => 'form-control')) !!}
+                {{ Form::label('expiretime', trans('user.expiretime')) }}
+                {{ Form::date('expiretime', null, array('class' => 'form-control')) }}
                 @if ($errors->has('expiretime'))
                     <span class="errors">
                         {{ $errors->first('expiretime') }}
@@ -75,8 +75,8 @@
                 @endif
             </div>
             <div class="form-group">
-                {!! Form::label('password', trans('user.password')) !!}
-                {!! Form::password('password', array('class' => 'form-control', 'placeholder' => trans('user.password'))) !!}
+                {{ Form::label('password', trans('user.password')) }}
+                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => trans('user.password'))) }}
                 @if ($errors->has('password'))
                     <span class="errors">
                         {{ $errors->first('password') }}
@@ -84,13 +84,14 @@
                 @endif
             </div>
             <div class="form-group">
-                {!! Form::label('image', trans('user.image')) !!}
-                {!! Form::file('image',['class' => 'control','id' => 'image', 'name' => 'image']) !!}<br>
-                {!! Form::image('#', null, ['class' => 'setpicture img-thumbnail img_upload','id' => 'image_no']) !!}<br>
+                {{ Form::label('image', trans('user.image')) }}
+                {{ Form::file('image',['class' => 'control','id' => 'image', 'name' => 'image']) }}<br>
+                <img src="#" class = "setpicture img-thumbnail img_upload" id ="image_no"></img><br>
+                {{-- {!! Form::image('#', null, ['class' => 'setpicture img-thumbnail img_upload','id' => 'image_no']) !!}<br> --}}
 
             </div>
-            {!! Form::submit(trans('user.submit'), array('class' => 'btn btn-primary')) !!}
-        {!! Form::close() !!}
+            {{ Form::submit(trans('user.submit'), array('class' => 'btn btn-primary')) }}
+        {{ Form::close() }}
     </div>
 </div>
 @endsection

@@ -15,6 +15,7 @@ return [
     'formatdate' => 'Y-m-d',
     'images' => 'backend/images/',
     'img_default' => 'images/',
+    'pathjsongiveback' => 'data/borrows',
     'formatdate_index' => 'M j, Y',
     'pathjsonsearch' => '/search/book',
     'path_check_user' => 'addborrow/',

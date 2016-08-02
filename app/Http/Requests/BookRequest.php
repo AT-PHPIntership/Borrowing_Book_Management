@@ -24,13 +24,13 @@ class BookRequest extends Request
     public function rules()
     {
         return [
-            'name'     => 'required|unique:books,name',
+            'name'     => 'required|unique:books,name|regex:/^[A-Za-z \t]*$/i|max:100',
             'category_id' => 'required',
-            'author'   => 'required',
-            'publish_year' => 'required',
-            'number_of_page'  => 'required',
-            'quantity' => 'required',
-            'image'    => 'required|mimes:jpeg,jpg,png'
+            'author'   => 'required|regex:/^[A-Za-z \t]*$/i|min:3',
+            'publish_year' => 'required|date|min:3|max:10',
+            'number_of_page'  => 'required|numeric|min:1',
+            'quantity' => 'required|min:1',
+            'image'    => 'required|mimes:jpeg,jpg,png|max:100'
         ];
     }
 
