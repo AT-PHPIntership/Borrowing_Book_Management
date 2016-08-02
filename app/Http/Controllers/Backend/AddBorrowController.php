@@ -68,14 +68,11 @@ class AddBorrowController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        
         $borrow=Borrow::create(['user_id'=>$data['listBook']['0'],
                                 'admin_user_id' => Auth::guard('admin')->user()->id,
                                 'quantity' => count($data['listBook'])-1
                                ]);
-        
         $borrowDetail = array();
-       
         for ($i=1; $i < count($data['listBook']); $i++) {
             $current = Carbon::now();
             $expireTime = $current->addDays(config('define.limit_day'));
@@ -99,14 +96,15 @@ class AddBorrowController extends Controller
     /**
      * Check and show info user.
      *
-     * @param int $id id_user
+     * @param string $username username
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($username)
     {
-        try {
-            $user=User::findOrfail($id);
+        
+        $user=User::where('username', $username)->first();
+        if (!empty($user)) {
             $borrow=Borrow::where('user_id', $user['id'])->get();
             $total=0;
             foreach ($borrow as $item) {
@@ -115,14 +113,15 @@ class AddBorrowController extends Controller
             if ($total< config('define.max_borrow')) {
                 return response()->json(['mes' => trans('borrow.user_allow'),
                                          'allow' => trans('borrow.true'),
-                                         'quantity' => (config('define.max_borrow')-$total)
+                                         'quantity' => (config('define.max_borrow')-$total),
+                                         'user_id' => $user['id']
                                     ]);
             } else {
                 return response()->json(['mes'=> trans('borrow.max_borrow'),
                                          'allow'=> trans('borrow.false')
                     ]);
             }
-        } catch (ModelNotFoundException $ex) {
+        } else {
             return response()->json(['mes'=> trans('borrow.no_user')]);
         }
     }

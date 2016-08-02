@@ -70,7 +70,8 @@ $(document).ready(function () {
       $('#bookid').attr('disabled',false);
       $('#savelist').attr('disabled',false);
       $('#user_name').attr('value',$('form #username').val());
-      $('#rowZero input').attr('value',$('form #username').val());
+      $('#notice').hide();
+      
       $.ajax({
         type: 'GET',
         url: path_check_user+$('form #username').val(),
@@ -81,6 +82,7 @@ $(document).ready(function () {
 
             if(data.allow=='true'){
                 $('#user_notice').attr('class','alert-info');
+                $('#rowZero input').attr('value',data.user_id);
                 $('#message').html(data.mes);
                 $('#quantity').show();
                 $('#quantitybook').html(data.quantity);
@@ -109,21 +111,22 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
-        var data1=$('form #bookid').val();
-        var list=$('#list-add tr');
+        var book_id=$('form #bookid').val();
+        var list_tr=$('#list-add tr');
         var error="";
         var maxBook=$('#quantitybook').text();
-        var numBook=list.length;
+        var numBook=list_tr.length;
         //check maximum book to add
         if(numBook<=maxBook){
-          list.each(function(){
-              if ($(this).attr('id')==data1){
-                  error="Book has exist";
+          list_tr.each(function(){
+              if ($(this).attr('id')==book_id){
+                  error=book_exist;
                   $('#error').attr('class','alert-danger');
                   $('#error').html(error);
+              } else {
+                  $('#error').html("");
               }
           });
-          $('#error').html(error);
           if(error==""){
             $.ajax({
                 type: 'GET',
@@ -139,6 +142,7 @@ $(document).ready(function () {
                         newRow.find('button').attr('value',data.id);
                         newRow.find('input').attr('value', data.id);
                         newRow.find('input').attr('name',"lists_book_item[]");
+                        $('#notice').hide();
                     } else{
                         $('#error').attr('class','alert-danger');
                         $('#error').html(data.mes);
@@ -190,7 +194,7 @@ $(document).ready(function () {
                     $('#savelist').attr('disabled',true);
                 } else {
                     $('#notice').html(data.mes);
-                    $('#notice').attr('class', 'alert-success');
+                    $('#notice').attr('class', 'alert-danger');
                 }
             },
             error: function (data) {

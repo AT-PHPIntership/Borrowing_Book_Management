@@ -91,5 +91,6 @@
     var path_add_book={!!json_encode(config('path.path_add_book'))!!};
     var path_save_borrow={!!json_encode(config('path.path_save_borrow'))!!};
     var max_book='{!!trans('borrow.max_book' )!!}';
+    var book_exist= '{!! trans('borrow.book_exist')!!}';
 </script>
 @endsection
