@@ -56,12 +56,20 @@ class HomeController extends Controller
                 $date=$result[$i]['created'];
                 $years=substr($date, 0, 4);
                 if ($years==$data['year']) {
-                    $list[]=['userid'=>  $result[$i]['userid'],
-                              'created'=> substr($result[$i]['created'], 5, 2)
-                            ];
+                    $listmonth[]=$result[$i];
                 }
             }
-            return response()->json($list, 200);
+            for ($h=0; $h<count($listmonth); $h++) {
+                $listmonthname[]=substr($listmonth[$h]['created'], 5, 2);
+            }
+            $result1=array_count_values($listmonthname);
+            $key=array_keys($result1);
+            for ($t=0; $t<count($key); $t++) {
+                $datareturn[]=['userid'=>  $result1[$key[$t]],
+                              'created'=> $key[$t]
+                            ];
+            }
+            return response()->json($datareturn, 200);
         }
     }
 }
