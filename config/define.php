@@ -17,5 +17,6 @@ return [
 	'mail' => 'vddongbk@gmail.com',
 	'limit_day' => 30,
 	'not_give_back' => '0',
-	'max_borrow' => 5
+	'max_borrow' => 5,
+	'str_max_book_name' => 20,
 ];
