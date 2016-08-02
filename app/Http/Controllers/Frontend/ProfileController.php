@@ -69,6 +69,7 @@ class ProfileController extends Controller
             $data['image'] = $img;
             $request->file('image') -> move(config('path.upload_user'), $img);
         }
+        $data['birthday'] = date(config('path.formatdate'), strtotime($request->birthday));
         try {
             $users = User::findOrFail($id);
             $users -> update($data);
