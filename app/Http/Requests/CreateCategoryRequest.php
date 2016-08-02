@@ -24,7 +24,7 @@ class CreateCategoryRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:100|unique:categories,name'
+            'name' => 'required|regex:/^[A-Za-z \t]*$/i|max:100|unique:categories,name'
         ];
     }
 }

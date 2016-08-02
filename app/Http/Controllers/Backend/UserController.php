@@ -121,6 +121,8 @@ class UserController extends Controller
             $data[trans('user.img')] = $imgname;
             $img->move(public_path(config('path.upload_user')), $imgname);
         }
+        $data['birthday'] = date(config('path.formatdate'), strtotime($request->birthday));
+        $data['expiretime'] = date(config('path.formatdate'), strtotime($request->expiretime));
         try {
             $users = User::findOrFail($id);
             $users -> update($data);

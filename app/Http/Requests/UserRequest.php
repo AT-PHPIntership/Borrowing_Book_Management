@@ -24,11 +24,12 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|unique:users|max:50',
-            'password' => 'required|min:6',
+            'username' => 'required|unique:users|regex:/^[A-Za-z \t]*$/i|max:100|min:3',
+            'password' => 'required|min:6|max:100',
             'birthday' => 'required|date',
+            'address' => 'required|min:6|max:100',
             'expiretime' => 'required|date',
-            'phone' => 'required|min:11'
+            'phone' => 'required|regex:/^[0-9]*$/i|max: 14|min:10',
         ];
     }
 }
