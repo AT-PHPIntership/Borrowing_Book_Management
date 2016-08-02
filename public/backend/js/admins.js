@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
   //datatables
   $('#list_users').DataTable();
   $('#list_books').DataTable();
@@ -197,5 +197,5 @@ $(document).ready(function () {
                 alert('Error:',data);
             }
         });
-    });
+    });  
 });
