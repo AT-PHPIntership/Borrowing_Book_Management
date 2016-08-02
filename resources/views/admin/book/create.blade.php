@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('publishyear',trans('book_manage_lang.publish_year')) !!}
-                    {!! Form::text('publish_year',null, array('class' => 'form-control', 'id' => 'publishyear')) !!}
+                    {!! Form::number('publish_year',null, array('class' => 'form-control', 'id' => 'publishyear')) !!}
                     @if ($errors->has('publish_year'))
                     <span class="errors">
                         <strong>{{ $errors->first('publish_year') }}</strong>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('numberpage',trans('book_manage_lang.number_of_page')) !!}
-                    {!! Form::text('number_of_page',null, array('class' => 'form-control', 'id' => 'numberpage')) !!}
+                    {!! Form::number('number_of_page',null, array('class' => 'form-control', 'id' => 'numberpage')) !!}
                     @if ($errors->has('number_of_page'))
                     <span class="errors">
                         <strong>{{ $errors->first('number_of_page') }}</strong>
@@ -86,7 +86,7 @@
                 <div class="form-group">
                     {!! Form::label('image',trans('book_manage_lang.choose_image')) !!}
                     {{ Form::file('image',null, array('class' => 'form-control', 'id' => 'image','onchange' => 'handleFileSelect')) }}
-                    {!! Form::image(config('path.images').'noimage.png',null,['class' => 'setpicture img-thumbnail','id' => 'image_no']) !!}
+                    <img src="{{url(config('path.images').'noimage.png')}}" class = "setpicture img-thumbnail" id ="image_no"></img><br>
                     @if ($errors->has('image'))
                     <span class="errors">
                         <strong>{{ $errors->first('image') }}</strong>
