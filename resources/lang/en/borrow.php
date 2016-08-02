@@ -50,6 +50,7 @@ return [
     'enter_book' => 'Enter book ID',
     'delete' => 'Delete',
     'submit' => 'Submit',
-    'borrow_id' => 'BorrowID'
+    'borrow_id' => 'BorrowID',
+    'book_exist' => 'Book has exist'
 
 ];
