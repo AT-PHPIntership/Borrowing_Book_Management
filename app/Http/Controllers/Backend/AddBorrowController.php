@@ -104,7 +104,7 @@ class AddBorrowController extends Controller
     {
         
         $user=User::where('username', $username)->first();
-        if (!empty($user)){
+        if (!empty($user)) {
             $borrow=Borrow::where('user_id', $user['id'])->get();
             $total=0;
             foreach ($borrow as $item) {
