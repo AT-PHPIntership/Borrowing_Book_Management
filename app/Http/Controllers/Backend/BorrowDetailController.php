@@ -120,7 +120,7 @@ class BorrowDetailController extends Controller
                         ->join('book_items', 'borrow_details.book_item_id', '=', 'book_items.id')
                         ->join('books', 'book_items.book_id', '=', 'books.id')
                         ->select('borrow_details.id', 'borrow_details.borrow_id', 'borrow_details.book_item_id', 'borrows.user_id', 'users.fullname', 'books.name')
-                        ->where('borrow_details.status', '=', '0')
+                        ->where('borrow_details.status', '=', config('define.not_give_back'))
                         ->get();
         return Response::json($data);
     }

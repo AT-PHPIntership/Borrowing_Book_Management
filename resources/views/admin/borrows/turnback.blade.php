@@ -72,10 +72,11 @@
 @endsection
 
 @section('script')
+<script type="text/javascript" src="{{ url('backend/js/giveback.js') }}"></script>
 <script type="text/javascript">
         var error_null = {!! json_encode(config('define.error_null')) !!};
         var error_exist = {!! json_encode(config('define.error_exist')) !!};
         var error_notexist = {!! json_encode(config('define.error_notexist')) !!};
         var pathjsongiveback = {!! json_encode(config('path.pathjsongiveback')) !!};
-    </script>
+</script>
 @endsection

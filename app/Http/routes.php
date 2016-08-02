@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::resource('addbook', 'AddBookController');
         Route::resource('borrowdetail', 'BorrowDetailController');
         Route::post('/back', ['as' => 'admin.back','uses' =>'BorrowDetailController@giveBack']);
-        Route::get('data/borrows', 'BorrowDetailController@getBorrow');
+        Route::get('/data/borrows', ['uses' => 'BorrowDetailController@getBorrow']);
         //add new borrow
         Route::resource('addborrow', 'AddBorrowController');
     });
