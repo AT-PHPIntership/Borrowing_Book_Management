@@ -25,18 +25,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         //book
         Route::resource('book', 'BookController');
         //category
-        Route::resource('category', 'CategoryController');
+        Route::resource('category', 'CategoryController', ['except' => ['show']]);
         //bookItem
-        Route::resource('bookItem', 'BookItemController');
+        Route::resource('bookItem', 'BookItemController', ['only' => ['destroy']]);
         //borrow
-        Route::resource('borrow', 'BorrowController');
+        Route::resource('borrow', 'BorrowController', ['only' => ['index', 'show']]);
         // additional Book
-        Route::resource('addbook', 'AddBookController');
-        Route::resource('borrowdetail', 'BorrowDetailController');
+        Route::resource('addbook', 'AddBookController', ['only' => ['edit', 'update']]);
+        Route::resource('borrowdetail', 'BorrowDetailController', ['only' => ['index']]);
         Route::post('/back', ['as' => 'admin.back','uses' =>'BorrowDetailController@giveBack']);
         Route::get('/data/borrows', ['uses' => 'BorrowDetailController@getBorrow']);
         //add new borrow
-        Route::resource('addborrow', 'AddBorrowController');
+        Route::resource('addborrow', 'AddBorrowController', ['except' => ['edit', 'update', 'destroy']]);
     });
 });
 
@@ -62,7 +62,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     
     Route::group(['middleware' => ['auth']], function () {
         //list borrow
-        Route::resource('borrow', 'BorrowDetailController');
+        Route::resource('borrow', 'BorrowDetailController', ['only' => ['index']]);
         //profile
         Route::resource('profile', 'ProfileController', ['except' => ['index', 'create', 'store', 'destroy']]);
         //Change password
