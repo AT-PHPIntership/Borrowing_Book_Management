@@ -27,7 +27,7 @@
         {{ Form::open(array('route' => 'admin.user.store', 'id' => 'user-form', 'enctype' => 'multipart/form-data')) }}
             <div class="form-group">
                 {{ Form::label('username', trans('user.username')) }}
-                {{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => trans('user.username'))) }}
+                {{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => trans('user.username'), 'pattern'=>trans('user.username_pattern'),'title'=>trans('user.username_notice'),'required')) }}
                 @if ($errors->has('username'))
                     <span class="errors">
                         {{ $errors->first('username') }}
@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 {{ Form::label('fullname', trans('user.full_name')) }}
-                {{ Form::text('fullname', null, array('class' => 'form-control', 'placeholder' => trans('user.full_name'))) }}
+                {{ Form::text('fullname', null, array('class' => 'form-control', 'placeholder' => trans('user.full_name'), 'pattern'=>trans('user.fullname_pattern'),  'title'=>trans('user.fullname_notice'),'required')) }}
             </div>
             <div class="form-group">
                 {{ Form::label('gender', trans('user.gender')) }}
@@ -45,7 +45,8 @@
             </div>
             <div class="form-group">
                 {{ Form::label('birthday', trans('user.birthday')) }}
-                {{ Form::date('birthday', null, array('class' => 'form-control')) }}
+                {{ Form::date('birthday', null, array('class' => 'form-control','pattern'=>trans('user.birthday_pattern'),
+                'title'=>trans('user.birthday_notice'),'required')) }}
                 @if ($errors->has('birthday'))
                     <span class="errors">
                         {{ $errors->first('birthday') }}
@@ -54,8 +55,9 @@
             </div>
             <div class="form-group">
                 {{ Form::label('phone', trans('user.phone')) }}
-                {{ Form::number('phone', null, array('class' => 'form-control', 'placeholder' => trans('user.phone'))) }}
-                 @if ($errors->has('phone'))
+                {{ Form::text('phone', null, array('class' => 'form-control', 'placeholder' => trans('user.phone'),
+                'pattern'=> trans('user.phone_pattern'),'title'=>trans('user.phone_notice'),'required')) }}
+                @if ($errors->has('phone'))
                     <span class="errors">
                         {{ $errors->first('phone') }}
                     </span>
@@ -63,11 +65,18 @@
             </div>
             <div class="form-group">
                 {{ Form::label('address', trans('user.address')) }}
-                {{ Form::text('address', null, array('class' => 'form-control', 'placeholder' => trans('user.address'))) }}
+                {{ Form::text('address', null, array('class' => 'form-control', 'placeholder' => trans('user.address'),
+                'pattern'=>trans('user.address_pattern'),'title'=>trans('user.address_notice'),'required')) }}
+                @if ($errors->has('address'))
+                    <span class="errors">
+                        {{ $errors->first('address') }}
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 {{ Form::label('expiretime', trans('user.expiretime')) }}
-                {{ Form::date('expiretime', null, array('class' => 'form-control')) }}
+                {{ Form::date('expiretime', null, array('class' => 'form-control' ,'pattern'=>trans('user.expiretime_pattern'),
+                'title'=>trans('user.expiretime_notice'),'required')) }}
                 @if ($errors->has('expiretime'))
                     <span class="errors">
                         {{ $errors->first('expiretime') }}
@@ -76,7 +85,8 @@
             </div>
             <div class="form-group">
                 {{ Form::label('password', trans('user.password')) }}
-                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => trans('user.password'))) }}
+                {{ Form::password('password', array('class' => 'form-control', 'placeholder' => trans('user.password'),
+                'pattern'=>trans('user.password_pattern'),'title'=>trans('user.password_notice'),'required')) }}
                 @if ($errors->has('password'))
                     <span class="errors">
                         {{ $errors->first('password') }}
