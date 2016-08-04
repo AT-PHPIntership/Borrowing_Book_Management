@@ -24,8 +24,9 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required|unique:users|regex:/^[A-Za-z \t]*$/i|max:100|min:3',
+            'username' => 'required|unique:users|regex:/^[A-Za-z0-9 \t]*$/i|max:100|min:3',
             'password' => 'required|min:6|max:100',
+            'fullname'  => 'required|min:3|max:100|regex:/^[A-Za-z \t]*$/i'
             'birthday' => 'required|date',
             'address' => 'required|regex:/^[.,\-\/A-Za-z0-9 \t]*$/i|min:6|max:100',
             'expiretime' => 'required|date',
