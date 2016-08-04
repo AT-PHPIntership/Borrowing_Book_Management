@@ -28,7 +28,9 @@
                 {!! Form::open(['route' => 'admin.category.store']) !!}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {{ Form::label('name', trans('category_manage_lang.name')) }}
-                {{ Form::text('name', null, ['class' => 'form-control input-lg'])}}
+                {{ Form::text('name', null, ['class' => 'form-control input-lg',
+                'pattern' =>trans('category_manage_lang.category_pattern'),
+                'title'=>trans('category_manage_lang.category_notice'),'required'])}}
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
