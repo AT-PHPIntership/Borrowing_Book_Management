@@ -55,7 +55,7 @@
                     <img id="img-book" src="{{ url(config('path.upload_book').$book->image) }}" alt="{{ $book->name }}">
                     <div class="caption">
                         <h4 class="pull-right">{{ $book->quantity }}</h4>
-                        <h4><a href="{{route('show.book', $book->id)}}">{{$book->name}}</a></h4>
+                        <h4><a href="{{route('show.book', $book->id)}}">{{ substr($book->name, 0, config('define.str_max_book_name')) }}{{ strlen($book->name)>config('define.str_max_book_name') ? "..." : ""}}</a></h4>
                         <p><label>{{trans('front_end.author')}}</label> {{$book->author}}</p>
                         <p><label>{{trans('front_end.category')}}</label> {{$book->category->name}}</p>
                         <p><label>{{trans('front_end.publish_year')}}</label> {{ date(config('path.formatdate_index'), strtotime($book->publish_year)) }}</p>

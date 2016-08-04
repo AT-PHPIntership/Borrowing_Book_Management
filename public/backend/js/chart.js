@@ -1,39 +1,72 @@
-$(document).ready(function(){
-        $.getJSON(path_chart_borrow, function(result) {
-            data = result;
-
-            Morris.Bar({
-                element: 'chart',
-                data: data,
-                xkey: 'datecreate',
-                ykeys: ['total','quantitys'],
-                labels: ['Borrow','Quantity'],
-                hideHover: 'auto',
-                resize: true
-            });
-        });
-    });
-    $(document).on('click','#show',function(){
-        $.ajax({
-               type: 'GET',
-                url: path_chart_user,
-                data: {year : $('#year').val()},
-                dataType: "json",
-                success: function (data) {
-                        $('#user').html("");
-                        Morris.Bar({
-                            element: 'user',
-                            data: data,
-                            xkey: 'created',
-                            ykeys: ['userid'],
-                            labels: ['Quantity User crearte'],
-                            hideHover: 'auto',
-                            resize: true
-                        });
-                    
-                },
-                error: function (data) {
-                    console.log('Error:',data);
-                }
-      });
-    });
+$(document).on('click','#show',function(){
+    $.ajax({
+           type: 'GET',
+            url: path_chart_user,
+            data: {year : $('#year').val()},
+            dataType: "json",
+            success: function (data) {
+                    $('#user').html("");
+                    Morris.Bar({
+                        element: 'user',
+                        data: data,
+                        xkey: 'created',
+                        ykeys: ['userid'],
+                        labels: ['Quantity User crearte'],
+                        hideHover: 'auto',
+                        resize: true
+                    });
+                
+            },
+            error: function (data) {
+                console.log('Error:',data);
+            }
+  });
+});
+$(document).on('ready',function(){
+    $.ajax({
+           type: 'GET',
+            url: path_chart_borrow,
+            data: {yearborrow : year,monthborrow: month},
+            dataType: "json",
+            success: function (data) {
+                    $('#chart').html("");
+                    Morris.Bar({
+                        element: 'chart',
+                        data: data,
+                        xkey: 'datecreate',
+                        ykeys: ['quantitys','total'],
+                        labels: ['Borrow','Quantity Book'],
+                        hideHover: 'auto',
+                        resize: true
+                    });
+                
+            },
+            error: function (data) {
+                console.log('Error:',data);
+            }
+  });
+});
+$(document).on('click','#showborrow',function(){
+    $.ajax({
+           type: 'GET',
+            url: path_chart_borrow,
+            data: {yearborrow : $('#yearborrow').val(),monthborrow: $('#monthborrow').val()},
+            dataType: "json",
+            success: function (data) {
+                    $('#chart').html("");
+                    Morris.Bar({
+                        element: 'chart',
+                        data: data,
+                        xkey: 'datecreate',
+                        ykeys: ['quantitys','total'],
+                        labels: ['Borrow','Quantity Book'],
+                        hideHover: 'auto',
+                        resize: true
+                    });
+                
+            },
+            error: function (data) {
+                console.log('Error:',data);
+            }
+  });
+});

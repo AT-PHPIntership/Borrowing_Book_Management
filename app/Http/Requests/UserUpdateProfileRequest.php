@@ -24,9 +24,9 @@ class UserUpdateProfileRequest extends Request
     public function rules()
     {
         return [
-            'fullname'  => 'required|max:100',
-            'phone'     => 'required|min:10|max: 11',
-            'address'   => 'required|max: 100',
+            'fullname'  => 'required|regex:/^[A-Za-z \t]*$/i|max:100',
+            'phone'     => 'required|regex:/^[0-9]*$/i|max: 14|min:10',
+            'address'   => 'required|regex:/^[.,\-\/A-Za-z0-9 \t]*$/i|max: 100|min:10',
             'birthday'  => 'required|date',
             'image'     => 'mimes:jpeg,jpg,png|max:100'
         ];
