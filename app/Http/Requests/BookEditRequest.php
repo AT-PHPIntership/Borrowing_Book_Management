@@ -24,11 +24,11 @@ class BookEditRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|regex:/^[A-Za-z \t]*$/i|max:100',
+            'name' => 'required|regex:/^[A-Za-z0-9 \t]*$/i|max:100|min:2',
             'category_id' => 'required',
-            'author' => 'required|regex:/^[A-Za-z \t]*$/i|min:3',
-            'image' => 'mimes:jpeg,jpg,png|max:100',
-            'publish_year' => 'required|max:10|min:3',
+            'author' => 'required|regex:/^[.,\-A-Za-z0-9 \t]*$/i|min:3',
+            'image' => 'mimes:jpeg,jpg,png',
+            'publish_year' => 'required|regex:/^[0-9]*$/i|max:4',
             'number_of_page' => 'required|numeric|min:1',
         ];
     }
