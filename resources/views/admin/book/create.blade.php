@@ -30,7 +30,9 @@
                 {!! Form::open(array('route' => 'admin.book.store','files' => true)) !!}
                 <div class="form-group">
                     {!! Form::label('name',trans('book_manage_lang.name')) !!}
-                    {!! Form::text('name',null, array('class' => 'form-control', 'id' => 'name')) !!}
+                    {!! Form::text('name',null, array('class' => 'form-control', 'id' => 'name',
+                    'pattern' => trans('book_manage_lang.name_pattern'),
+                     'title'=>trans('book_manage_lang.name_notice'),'required')) !!}
                     @if ($errors->has('name'))
                     <span class="errors">
                         <strong>{{ $errors->first('name') }}</strong>
@@ -49,7 +51,9 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('author',trans('book_manage_lang.author')) !!}
-                    {!! Form::text('author',null, array('class' => 'form-control', 'id' => 'author')) !!}
+                    {!! Form::text('author',null, array('class' => 'form-control', 'id' => 'author',
+                    'pattern' => trans('book_manage_lang.author_pattern'),
+                    'title' =>trans('book_manage_lang.author_notice') ,'required')) !!}
                     @if ($errors->has('author'))
                     <span class="errors">
                         <strong>{{ $errors->first('author') }}</strong>
@@ -58,7 +62,9 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('publishyear',trans('book_manage_lang.publish_year')) !!}
-                    {!! Form::number('publish_year',null, array('class' => 'form-control', 'id' => 'publishyear')) !!}
+                    {!! Form::text('publish_year',null, array('class' => 'form-control', 'id' => 'publishyear',
+                    'pattern' =>trans('book_manage_lang.publish_year_pattern') ,
+                    'title' =>trans('book_manage_lang.publish_year_notice') ,'required')) !!}
                     @if ($errors->has('publish_year'))
                     <span class="errors">
                         <strong>{{ $errors->first('publish_year') }}</strong>
@@ -67,7 +73,9 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('numberpage',trans('book_manage_lang.number_of_page')) !!}
-                    {!! Form::number('number_of_page',null, array('class' => 'form-control', 'id' => 'numberpage')) !!}
+                    {!! Form::number('number_of_page',null, array('class' => 'form-control', 'id' => 'numberpage',
+                    'pattern' => trans('book_manage_lang.number_of_page_pattern'),
+                    'title' => trans('book_manage_lang.number_of_page_notice'),'min'=>config('define.min_number'),'required')) !!}
                     @if ($errors->has('number_of_page'))
                     <span class="errors">
                         <strong>{{ $errors->first('number_of_page') }}</strong>
@@ -76,7 +84,8 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('quantity',trans('book_manage_lang.quantity')) !!}
-                    {!! Form::text('quantity',null, array('class' => 'form-control', 'id' => 'quantity')) !!}
+                    {!! Form::number('quantity',null, array('class' => 'form-control', 'id' => 'quantity',
+                    'pattern' => trans('book_manage_lang.quantity_pattern'),'title' => trans('book_manage_lang.quantity_notice'),'min' => config('define.min_number'),'required')) !!}
                     @if ($errors->has('quantity'))
                     <span class="errors">
                         <strong>{{ $errors->first('quantity') }}</strong>
