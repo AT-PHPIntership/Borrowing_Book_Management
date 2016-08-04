@@ -27,7 +27,7 @@ class UserRequest extends Request
             'username' => 'required|unique:users|regex:/^[A-Za-z \t]*$/i|max:100|min:3',
             'password' => 'required|min:6|max:100',
             'birthday' => 'required|date',
-            'address' => 'required|regex:/^[.,\-\/A-Za-z0-9 \t]*$/i/imin:6|max:100',
+            'address' => 'required|regex:/^[.,\-\/A-Za-z0-9 \t]*$/i|min:6|max:100',
             'expiretime' => 'required|date',
             'phone' => 'required|regex:/^[0-9]*$/i|max: 14|min:10',
         ];
