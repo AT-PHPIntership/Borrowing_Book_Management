@@ -20,7 +20,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.chart');
+        $yearsborrow = BorrowDetail::selectRaw('year(created_at) as year')->groupBy('year')->orderBy('created_at', 'ASC')->get();
+        $items = [];
+        foreach ($yearsborrow as $year)
+        {
+            $items[$year->year] = $year->year;
+        }
+        $years = User::selectRaw('year(created_at) as year')->groupBy('year')->orderBy('created_at', 'ASC')->get();
+        $itemuser = [];
+        foreach ($years as $year)
+        {
+            $itemuser[$year->year] = $year->year;
+        }
+        return view('admin.chart', compact('items',$items,'itemuser',$itemuser));   
     }
     /**
      * Get API for chart.
@@ -39,28 +51,33 @@ class HomeController extends Controller
             if (!$result) {
                 Session::flash('danger', trans('labels.danger'));
             }
+            $listmonth=[];
             for ($i=0; $i<count($result); $i++) {
                 $date=$result[$i]['datecreate'];
-                $years=substr($date, 0, 4);
+                $years=substr($date, config('define.begin_cut_year'), config('define.cut_year'));
                 if ($years==$data['yearborrow']) {
                     $listmonth[]=$result[$i];
                 }
             }
+            $listday=[];
             for ($j=0; $j<count($listmonth); $j++) {
                 $date1=$listmonth[$j]['datecreate'];
-                $months=substr($date1, 5, 2);
+                $months=substr($date1, config('define.begin_cut_month'), config('define.cut_month'));
                 if ($months==$data['monthborrow']) {
                     $listday[]=$listmonth[$j];
                 }
-            }
+            }           
             for ($t=0; $t<count($listday); $t++) {
                 $datareturn[$t]=['total'=>  $listday[$t]['total'],
                               'datecreate'=> $listday[$t]['datecreate'],
                               'quantitys' => $listday[$t]['quantitys']
                             ];
             }
-
-            return response()->json($datareturn, 200);
+            if(!empty($datareturn)){
+              return response()->json($datareturn, config('define.success'));
+            } else {
+                return response()->json(['mes'=>'No data for this time']);
+            }
         }
     }
     /**
@@ -80,15 +97,17 @@ class HomeController extends Controller
             if (!$result) {
                 Session::flash('danger', trans('labels.danger'));
             }
+            $listmonth=[];
             for ($i=0; $i<count($result); $i++) {
                 $date=$result[$i]['created'];
-                $years=substr($date, 0, 4);
+                $years=substr($date, config('define.begin_cut_year'), config('define.cut_year'));
                 if ($years==$data['year']) {
                     $listmonth[]=$result[$i];
                 }
             }
+            $listmonthname=[];
             for ($h=0; $h<count($listmonth); $h++) {
-                $listmonthname[]=substr($listmonth[$h]['created'], 5, 2);
+                $listmonthname[]=substr($listmonth[$h]['created'], config('define.begin_cut_month'), config('define.cut_month'));
             }
             $result1=array_count_values($listmonthname);
             $key=array_keys($result1);
@@ -97,7 +116,11 @@ class HomeController extends Controller
                               'created'=> $key[$t]
                             ];
             }
-            return response()->json($datareturn, 200);
+            if(!empty($datareturn)){
+              return response()->json($datareturn, config('define.success'));
+            } else {
+                return response()->json(['mes'=>'No data for this time']);
+            }
         }
     }
 }

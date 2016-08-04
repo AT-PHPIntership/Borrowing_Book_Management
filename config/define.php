@@ -21,4 +21,9 @@ return [
 	'str_max_book_name' => 20,
 	'year' => 2016,
 	'month' => 8,
+	'begin_cut_year' => 0,
+	'cut_year' => 4,
+	'begin_cut_month' => 5,
+	'cut_month' => 2,
+	'success' => 200,
 ];

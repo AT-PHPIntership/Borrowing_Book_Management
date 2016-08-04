@@ -5,20 +5,25 @@ $(document).on('click','#show',function(){
             data: {year : $('#year').val()},
             dataType: "json",
             success: function (data) {
-                    $('#user').html("");
-                    Morris.Bar({
-                        element: 'user',
-                        data: data,
-                        xkey: 'created',
-                        ykeys: ['userid'],
-                        labels: ['Quantity User crearte'],
-                        hideHover: 'auto',
-                        resize: true
+                    if(data.mes==null){
+                        $('#user').html("");
+                        Morris.Bar({
+                            element: 'user',
+                            data: data,
+                            xkey: 'created',
+                            ykeys: ['userid'],
+                            labels: ['Quantity User crearte'],
+                            hideHover: 'auto',
+                            resize: true
                     });
+                    } else {
+                        $('#user').html("");                    
+                        $('#user').html(data.mes);
+                    }
                 
             },
             error: function (data) {
-                console.log('Error:',data);
+                alert('Error:',data);
             }
   });
 });
@@ -42,7 +47,7 @@ $(document).on('ready',function(){
                 
             },
             error: function (data) {
-                console.log('Error:',data);
+                alert('Error:',data);
             }
   });
 });
@@ -53,6 +58,7 @@ $(document).on('click','#showborrow',function(){
             data: {yearborrow : $('#yearborrow').val(),monthborrow: $('#monthborrow').val()},
             dataType: "json",
             success: function (data) {
+                if(data.mes==null){
                     $('#chart').html("");
                     Morris.Bar({
                         element: 'chart',
@@ -63,10 +69,14 @@ $(document).on('click','#showborrow',function(){
                         hideHover: 'auto',
                         resize: true
                     });
+                } else {
+                    $('#chart').html("");                    
+                    $('#chart').html(data.mes);
+                }
                 
             },
             error: function (data) {
-                console.log('Error:',data);
+                alert('Error:',data);
             }
   });
 });
