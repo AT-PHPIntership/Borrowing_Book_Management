@@ -69,7 +69,7 @@ return [
     'address_notice' => 'Address must 6-100 characters,no special characters,except .,-/',
     'expiretime_pattern' => '\d{4}-\d{1,2}-\d{1,2}',
     'expiretime_notice' => 'YYYY-mm-dd',
-    'password_pattern' => '[.\-A-Za-z0-9 \t]{6,100}',
-    'password_notice' => 'Password must 6-100 characters,no special characters,except .-'
+    'password_pattern' => '.{6,100}',
+    'password_notice' => 'Password must 6-100 characters'
 
 ];
