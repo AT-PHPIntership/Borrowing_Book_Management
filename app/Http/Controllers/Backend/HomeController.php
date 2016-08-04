@@ -22,17 +22,15 @@ class HomeController extends Controller
     {
         $yearsborrow = BorrowDetail::selectRaw('year(created_at) as year')->groupBy('year')->orderBy('created_at', 'ASC')->get();
         $items = [];
-        foreach ($yearsborrow as $year)
-        {
+        foreach ($yearsborrow as $year) {
             $items[$year->year] = $year->year;
         }
         $years = User::selectRaw('year(created_at) as year')->groupBy('year')->orderBy('created_at', 'ASC')->get();
         $itemuser = [];
-        foreach ($years as $year)
-        {
+        foreach ($years as $year) {
             $itemuser[$year->year] = $year->year;
         }
-        return view('admin.chart', compact('items',$items,'itemuser',$itemuser));   
+        return view('admin.chart', compact('items', $items, 'itemuser', $itemuser));
     }
     /**
      * Get API for chart.
@@ -66,15 +64,15 @@ class HomeController extends Controller
                 if ($months==$data['monthborrow']) {
                     $listday[]=$listmonth[$j];
                 }
-            }           
+            }
             for ($t=0; $t<count($listday); $t++) {
                 $datareturn[$t]=['total'=>  $listday[$t]['total'],
                               'datecreate'=> $listday[$t]['datecreate'],
                               'quantitys' => $listday[$t]['quantitys']
                             ];
             }
-            if(!empty($datareturn)){
-              return response()->json($datareturn, config('define.success'));
+            if (!empty($datareturn)) {
+                return response()->json($datareturn, config('define.success'));
             } else {
                 return response()->json(['mes'=>'No data for this time']);
             }
@@ -116,8 +114,8 @@ class HomeController extends Controller
                               'created'=> $key[$t]
                             ];
             }
-            if(!empty($datareturn)){
-              return response()->json($datareturn, config('define.success'));
+            if (!empty($datareturn)) {
+                return response()->json($datareturn, config('define.success'));
             } else {
                 return response()->json(['mes'=>'No data for this time']);
             }
