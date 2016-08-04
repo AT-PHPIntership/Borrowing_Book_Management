@@ -20,7 +20,7 @@
                             </li>
                         </ul>
                     </li> 
-                    <li>
+                    <li class="{{ Request::is('admin/borrow') ? "active" : "" }}">
                         <a href="{!! route('admin.borrow.index') !!}"><i class="fa fa-file-text-o"></i> {!! trans('labels.history_borrow') !!}</a>
                     </li>
                     <li>
