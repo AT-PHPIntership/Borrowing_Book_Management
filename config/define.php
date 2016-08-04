@@ -9,8 +9,6 @@ return [
 	'number_images_slide' => 3,
 	'give_back' => 1,
 	'quantity_decrement' => -1,
-	'year_begin' => '1990',
-	'year_end' => '2020',
 	'number_pages' => 9,
 	'number_image_default' => 1,
 	'number_images_slide' => 3,
