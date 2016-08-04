@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\BorrowDetail;
 use App\User;
-use DB;
 use Session;
 
 class HomeController extends Controller
@@ -74,7 +73,7 @@ class HomeController extends Controller
             if (!empty($datareturn)) {
                 return response()->json($datareturn, config('define.success'));
             } else {
-                return response()->json(['mes'=>'No data for this time']);
+                return response()->json([trans('labels.mes')=>trans('labels.infomation')]);
             }
         }
     }
@@ -117,7 +116,7 @@ class HomeController extends Controller
             if (!empty($datareturn)) {
                 return response()->json($datareturn, config('define.success'));
             } else {
-                return response()->json(['mes'=>'No data for this time']);
+                return response()->json([trans('labels.mes')=>trans('labels.infomation')]);
             }
         }
     }

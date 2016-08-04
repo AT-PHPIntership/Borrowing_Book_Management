@@ -20,12 +20,14 @@
     </div>
 @endsection
 @section('script')
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="{{ url('backend/js/chart.js')}}"></script>
     <script type="text/javascript">
         var path_chart_user = {!! json_encode(config('path.path_chart_user')) !!};
         var path_chart_borrow = {!! json_encode(config('path.path_chart_borrow')) !!};
         var year = {!! json_encode(config('define.year')) !!};
         var month = {!! json_encode(config('define.month')) !!};
+        var borrow = '{{ trans('labels.borrow') }}';
+        var quantity = '{{ trans('labels.quantity') }}';
+        var quantity_user = '{{ trans('labels.quantity_user') }}';
     </script> 
 @endsection

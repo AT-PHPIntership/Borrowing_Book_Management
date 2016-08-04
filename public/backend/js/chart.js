@@ -12,7 +12,7 @@ $(document).on('click','#show',function(){
                             data: data,
                             xkey: 'created',
                             ykeys: ['userid'],
-                            labels: ['Quantity User crearte'],
+                            labels: [quantity_user],
                             hideHover: 'auto',
                             resize: true
                     });
@@ -40,7 +40,7 @@ $(document).on('ready',function(){
                         data: data,
                         xkey: 'datecreate',
                         ykeys: ['quantitys','total'],
-                        labels: ['Borrow','Quantity Book'],
+                        labels: [borrow,quantity],
                         hideHover: 'auto',
                         resize: true
                     });
@@ -65,7 +65,7 @@ $(document).on('click','#showborrow',function(){
                         data: data,
                         xkey: 'datecreate',
                         ykeys: ['quantitys','total'],
-                        labels: ['Borrow','Quantity Book'],
+                        labels: [borrow,quantity],
                         hideHover: 'auto',
                         resize: true
                     });
