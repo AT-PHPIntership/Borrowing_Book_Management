@@ -106,13 +106,13 @@ class BorrowDetailController extends Controller
             }
             $sql .= "END WHERE id IN ($ids);";
             $result = DB::update($sql);
-            if($result == count($update_array)){
-            BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
-            Session::flash('success', trans('borrow.successfully'));
-            return redirect()->route('admin.borrowdetail.index');
+            if ($result == count($update_array)) {
+                BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
+                Session::flash('success', trans('borrow.successfully'));
+                return redirect()->route('admin.borrowdetail.index');
             } else {
-            Session::flash('danger', trans('borrow.error'));
-            return redirect()->route('admin.borrowdetail.index');
+                Session::flash('danger', trans('borrow.error'));
+                return redirect()->route('admin.borrowdetail.index');
             }
         } catch (ModelNotFoundException $ex) {
             Session::flash(trans('borrow.danger'), trans('borrow.error'));
