@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
 use App\Http\Requests;
 use App\Http\Requests\UserUpdateProfileRequest;
 use App\Http\Requests\PasswordRequest;
@@ -34,7 +32,6 @@ class ProfileController extends Controller
             return redirect()->route('/');
         }
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -52,7 +49,6 @@ class ProfileController extends Controller
             return redirect() -> route('profile.show', $id);
         }
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -80,7 +76,6 @@ class ProfileController extends Controller
             return redirect()->route('profile.show', $id);
         }
     }
-
     /**
      * View the form for user update password.
      *
@@ -90,7 +85,6 @@ class ProfileController extends Controller
     {
         return view('frontend.auth.password.change');
     }
-
     /**
      * Update password for user.
      *
