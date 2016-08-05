@@ -41,14 +41,6 @@ class BorrowDetailController extends Controller
             $borrowId = $request->borrowid;
             $updateArray = array_count_values($borrowId);
             $result = Borrow::updateBorrow($borrowId);
-            // $updateArray = array_count_values($borrowId);
-            // $ids = implode(',', array_keys($updateArray));
-            // $sql = "UPDATE borrows SET quantity = CASE id";
-            // foreach ($updateArray as $keys => $value) {
-            //     $sql .= sprintf(" WHEN %d THEN quantity-%d ", $keys, $value);
-            // }
-            // $sql .= "END WHERE id IN ($ids);";
-            // $result = DB::update($sql);
             if ($result == count($updateArray)) {
                 BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
                 Session::flash('success', trans('borrow.successfully'));
