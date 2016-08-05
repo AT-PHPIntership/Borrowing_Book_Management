@@ -8,7 +8,8 @@
 @endsection
 
 @section('content')
-  @foreach($book as $item)
+    @if($book->count())
+    @foreach($book as $item)
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
                     <img id="img-book" src="{{ url(config('path.upload_book').$item->image) }}" alt="{{ $item->name }}">
@@ -23,4 +24,9 @@
                 </div>
             </div>
     @endforeach
+    @else
+        <div class="col-lg-12" align="center" >
+            <div id="messageerror">{{trans('front_end.search_no_result')}} <strong>{{$_GET[config('define.value_search')]}}</strong></div>
+        </div>
+    @endif
 @endsection
