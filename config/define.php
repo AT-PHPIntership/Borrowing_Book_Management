@@ -24,5 +24,8 @@ return [
 	'cut_year' => 4,
 	'begin_cut_month' => 5,
 	'cut_month' => 2,
-	'success' => 200
+	'success' => 200,
+	'incomplete' => 0,
+	'complete' => 1,
+	'value_search' => 'valuesearch',
 ];

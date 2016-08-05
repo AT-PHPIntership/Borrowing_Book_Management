@@ -28,9 +28,9 @@
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->expiretime }}</td>
                 <td>
-                    @if ($item->status == 0)
+                    @if ($item->status == config('define.incomplete'))
                         {!! trans('borrow.incomplete') !!}
-                    @elseif ($item->status == 1)
+                    @elseif ($item->status == config('define.complete'))
                         <span class="danger">{!! trans('borrow.complete') !!}</span>
                     @endif
                 </td>
