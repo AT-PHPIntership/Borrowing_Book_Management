@@ -18,7 +18,7 @@ return [
     'male' => 'Male',
     'female' => 'Female',
     'unisex' => 'Unisex',
-    'cancle' => 'Cancle',
+    'cancle' => 'Cancel',
     'success'=> 'success',
     'danger' => 'danger',
     'editfail' => 'Fail edit user!',
