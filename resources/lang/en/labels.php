@@ -47,4 +47,9 @@ return [
     'chart_user' => 'Statistics table Users',
     'btnchart' =>'Show statistic',
     'danger' => 'No result',
+    'infomation' => 'No data for this time',
+    'mes' => 'mes',
+    'borrow' => 'Borrow',
+    'quantity' => 'Quantity Book',
+    'quantity_user' => 'Quantity User crearte',
 ];
