@@ -19,7 +19,9 @@
                             {!! Form::label('fullname', trans('user.full_name'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('fullname', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('fullname', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.fullname_pattern'),
+                                'title'=>trans('user.fullname_notice'),'required']) !!}
                             @if($errors->has('fullname'))
                             <span class="help-block">{{ $errors->first('fullname') }}</span>
                             @endif
@@ -56,7 +58,9 @@
                             {!! Form::label('birthday', trans('user.birthday'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::date('birthday', null, ['class' =>'form-control']) !!}
+                            {!! Form::date('birthday', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.birthday_pattern'),
+                                'title'=>trans('user.birthday_notice'),'required']) !!}
                             @if($errors->has('birthday'))
                             <span class="help-block">{{ $errors->first('birthday') }}</span>
                             @endif
@@ -67,7 +71,9 @@
                             {!! Form::label('phone', trans('user.phone'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('phone', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('phone', null, ['class' =>'form-control',
+                                'pattern'=> trans('user.phone_pattern'),
+                                'title'=>trans('user.phone_notice'),'required']) !!}
                             @if($errors->has('phone'))
                             <span class="help-block">{{ $errors->first('phone') }}</span>
                             @endif
@@ -78,7 +84,9 @@
                             {!! Form::label('address', trans('user.address'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('address', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('address', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.address_pattern'),
+                                'title'=>trans('user.address_notice'),'required']) !!}
                             @if($errors->has('address'))
                             <span class="help-block">{{ $errors->first('address') }}</span>
                             @endif

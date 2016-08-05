@@ -16,7 +16,7 @@ return [
 	'limit_day' => 30,
 	'not_give_back' => '0',
 	'max_borrow' => 5,
-	'min_number' => 1
+	'min_number' => 1,
 	'str_max_book_name' => 20,
 	'year' => 2016,
 	'month' => 8,

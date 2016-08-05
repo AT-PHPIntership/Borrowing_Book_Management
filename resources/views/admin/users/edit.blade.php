@@ -33,7 +33,9 @@
                {!! Form::model($users,['route' => ['admin.user.update',$users -> id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
             <div class ="form-group {!!$errors->has('fullname') ? ' has-error' : '' !!}"> 
             {!! Form::label('fullname', trans('user.full_name'), ['class' =>'control-label'])!!} <br>
-            {!! Form::text('fullname', null, ['class' =>'form-control', 'pattern'=>trans('user.fullname_pattern'),  'title'=>trans('user.fullname_notice'),'required']) !!}<br>
+            {!! Form::text('fullname', null, ['class' =>'form-control',
+                'pattern'=>trans('user.fullname_pattern'),
+                'title'=>trans('user.fullname_notice'),'required']) !!}<br>
             @if($errors->has('fullname'))
             <span class="help-block">{{ $errors->first('fullname') }}</span>
             @endif
