@@ -11,11 +11,11 @@
                     <a href="{!! route('borrow.index') !!}" title="{!! trans('user.borrow_list') !!}" >{!! trans('user.borrow_list') !!}</a>
                 </li>
                 <li>
-                    <a href="#" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
+                    <a href="{{ route('profile.show',Auth::guard('web')->user()->id) }}" title="{!! trans('user.profile') !!}">{!! trans('user.profile') !!}</a>
                 </li>
                 @endif
                 <li>
-                    <a href="#" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
+                    <a href="{{route('contact')}}" title="{!! trans('labels.contact') !!}" title="{!! trans('labels.contact') !!}">{!! trans('labels.contact') !!}</a>
                 </li>
             </ul>
 

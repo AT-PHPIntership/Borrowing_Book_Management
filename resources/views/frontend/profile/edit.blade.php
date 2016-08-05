@@ -31,9 +31,9 @@
                         </div>
                         <div class="col col-lg-3">
                             @if($users->image == null) 
-                                {!! Form::image(config('path.img_default').'profile_default.png', null,['class' => 'avatar','id' => 'image_no']) !!}
+                                <img src="{{url(config('path.img_default').'profile_default.png')}}" class = "setpicture img-thumbnail avatar" id ="image_no"></img><br>
                             @else
-                                {!! Form::image(config('path.upload_user').$users->image, null,['class' => 'avatar','id' => 'image_no']) !!}
+                                <img src="{{url(config('path.upload_user').$users->image)}}" class = "setpicture img-thumbnail avatar" id ="image_no"></img><br>
                             @endif
                             @if($errors->has('image'))
                             <span class="help-block">{{ $errors->first('image') }}</span>
@@ -48,7 +48,7 @@
                             {!! Form::label('gender', trans('user.gender'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::select('gender', ['male' => trans('user.male'), 'female' => trans('user.female'), 'unisex' => trans('user.unisex')], null, ['class' =>'form-control']) !!}
+                            {!! Form::select('gender', ['male' => trans('user.male'), 'female' => trans('user.female')], null, ['class' =>'form-control']) !!}
                         </div>
                     </div>
                     <div class = "col col-lg-12 form-group {!!$errors->has('birthday') ? ' has-error' : '' !!}">
