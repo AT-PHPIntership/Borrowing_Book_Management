@@ -56,6 +56,20 @@ return [
     'error_password_incorrect' => 'Your password is incorrect, please try again!',
     'current_password' => 'Current Password',
     'new_password' => 'New Password',
-    'confirm_new_password' => 'Confirm New Password'
+    'confirm_new_password' => 'Confirm New Password',
+    'username_pattern' => '[A-Za-z0-9 \t]{3,20}',
+    'username_notice' => 'must contain 3->20 character,no special characters',
+    'fullname_pattern' => '[A-Za-z \t]{3,100}',
+    'fullname_notice' => 'firstname lastname. Ex: Quang Tran. And 3->100 characters',
+    'birthday_pattern' => '\d{4}-\d{1,2}-\d{1,2}',
+    'birthday_notice' => 'YYYY-mm-dd',
+    'phone_pattern' => '\d{10,14}',
+    'phone_notice' => 'Must contain 10->14 number',
+    'address_pattern' => '[.,\-\/A-Za-z0-9 \t]{6,100}',
+    'address_notice' => 'Address must 6-100 characters,no special characters,except .,-/',
+    'expiretime_pattern' => '\d{4}-\d{1,2}-\d{1,2}',
+    'expiretime_notice' => 'YYYY-mm-dd',
+    'password_pattern' => '.{6,100}',
+    'password_notice' => 'Password must 6-100 characters'
 
 ];

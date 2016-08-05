@@ -24,6 +24,7 @@ class EditCategoryRequest extends Request
     public function rules()
     {
         return [
+
             'name' => 'required|regex:/^[A-Za-z \t]*$/i|max:100|min:3|unique:categories,name'
         ];
     }
