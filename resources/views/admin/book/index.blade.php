@@ -54,7 +54,7 @@
                                         <td>{{ $item->category->name }}</td>
                                         <td>{{ $item->author }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <th>{{ date(config('path.formatdate'), strtotime($item->publish_year)) }}</th>
+                                        <th>{{ $item->publish_year }}</th>
                                         <td>{{ $item->number_of_page }}</td>
                                         <td>
                                             <a href="{{ route('admin.book.edit',$item->id) }}"><button class="btn btn-info">{!!trans('book_manage_lang.edit' )!!}</button></a>

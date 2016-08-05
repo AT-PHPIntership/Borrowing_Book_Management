@@ -19,7 +19,9 @@
                             {!! Form::label('fullname', trans('user.full_name'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('fullname', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('fullname', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.fullname_pattern'),
+                                'title'=>trans('user.fullname_notice'),'required']) !!}
                             @if($errors->has('fullname'))
                             <span class="help-block">{{ $errors->first('fullname') }}</span>
                             @endif
@@ -31,9 +33,9 @@
                         </div>
                         <div class="col col-lg-3">
                             @if($users->image == null) 
-                                {!! Form::image(config('path.img_default').'profile_default.png', null,['class' => 'avatar','id' => 'image_no']) !!}
+                                <img src="{{url(config('path.img_default').'profile_default.png')}}" class = "setpicture img-thumbnail avatar" id ="image_no"></img><br>
                             @else
-                                {!! Form::image(config('path.upload_user').$users->image, null,['class' => 'avatar','id' => 'image_no']) !!}
+                                <img src="{{url(config('path.upload_user').$users->image)}}" class = "setpicture img-thumbnail avatar" id ="image_no"></img><br>
                             @endif
                             @if($errors->has('image'))
                             <span class="help-block">{{ $errors->first('image') }}</span>
@@ -48,7 +50,7 @@
                             {!! Form::label('gender', trans('user.gender'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::select('gender', ['male' => trans('user.male'), 'female' => trans('user.female'), 'unisex' => trans('user.unisex')], null, ['class' =>'form-control']) !!}
+                            {!! Form::select('gender', ['male' => trans('user.male'), 'female' => trans('user.female')], null, ['class' =>'form-control']) !!}
                         </div>
                     </div>
                     <div class = "col col-lg-12 form-group {!!$errors->has('birthday') ? ' has-error' : '' !!}">
@@ -56,7 +58,9 @@
                             {!! Form::label('birthday', trans('user.birthday'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::date('birthday', null, ['class' =>'form-control']) !!}
+                            {!! Form::date('birthday', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.birthday_pattern'),
+                                'title'=>trans('user.birthday_notice'),'required']) !!}
                             @if($errors->has('birthday'))
                             <span class="help-block">{{ $errors->first('birthday') }}</span>
                             @endif
@@ -67,7 +71,9 @@
                             {!! Form::label('phone', trans('user.phone'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('phone', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('phone', null, ['class' =>'form-control',
+                                'pattern'=> trans('user.phone_pattern'),
+                                'title'=>trans('user.phone_notice'),'required']) !!}
                             @if($errors->has('phone'))
                             <span class="help-block">{{ $errors->first('phone') }}</span>
                             @endif
@@ -78,7 +84,9 @@
                             {!! Form::label('address', trans('user.address'), ['class' =>'control-label']) !!}
                         </div>
                         <div class="col col-lg-9">
-                            {!! Form::text('address', null, ['class' =>'form-control']) !!}
+                            {!! Form::text('address', null, ['class' =>'form-control',
+                                'pattern'=>trans('user.address_pattern'),
+                                'title'=>trans('user.address_notice'),'required']) !!}
                             @if($errors->has('address'))
                             <span class="help-block">{{ $errors->first('address') }}</span>
                             @endif

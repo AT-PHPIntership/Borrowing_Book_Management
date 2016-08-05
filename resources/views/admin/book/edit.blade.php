@@ -33,7 +33,9 @@
                 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         {!! Form::label('name',trans('book_manage_lang.name'),['class' =>'control-label']) !!}
-                        {!! Form::text('name',null,['class' =>'form-control']) !!}<br>
+                        {!! Form::text('name',null,['class' =>'form-control',
+                            'pattern' => trans('book_manage_lang.name_pattern'),
+                            'title'=>trans('book_manage_lang.name_notice'),'required']) !!}<br>
                         @if($errors->has('name'))
                             <span class="help-block">{{ $errors->first('name') }}</span>
                         @endif
@@ -57,7 +59,9 @@
 
                     <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
                         {!! Form::label('author',trans('book_manage_lang.author'),['class' =>'control-label']) !!}
-                        {!! Form::text('author',null,['class' =>'form-control']) !!}<br>
+                        {!! Form::text('author',null,['class' =>'form-control',
+                            'pattern' => trans('book_manage_lang.author_pattern'),
+                            'title' =>trans('book_manage_lang.author_notice') ,'required']) !!}<br>
                         @if($errors->has('author'))
                             <span class="help-block">{{ $errors->first('author') }}</span>
                         @endif
@@ -74,7 +78,9 @@
 
                     <div class="form-group{{ $errors->has('publish_year') ? ' has-error' : '' }}">
                         {!! Form::label('publish_year',trans('book_manage_lang.publish_year'),['class' =>'control-label']) !!}
-                        {!! Form::date('publish_year',null,['class' =>'form-control']) !!}<br>
+                        {!! Form::date('publish_year',null,['class' =>'form-control',
+                            'pattern' =>trans('book_manage_lang.publish_year_pattern') ,
+                            'title' =>trans('book_manage_lang.publish_year_notice') ,'required']) !!}<br>
                         @if($errors->has('publish_year'))
                             <span class="help-block">{{ $errors->first('publish_year') }}</span>
                         @endif
@@ -82,7 +88,9 @@
 
                     <div class="form-group{{ $errors->has('number_of_page') ? ' has-error' : '' }}">
                         {!! Form::label('number_of_page',trans('book_manage_lang.number_of_page'),['class' =>'control-label']) !!}
-                        {!! Form::number('number_of_page',null,['class' =>'form-control']) !!}<br>
+                        {!! Form::number('number_of_page',null,['class' =>'form-control',
+                            'pattern' => trans('book_manage_lang.number_of_page_pattern'),
+                            'title' => trans('book_manage_lang.number_of_page_notice'),'min'=>config('define.min_number'),'required']) !!}<br>
                         @if($errors->has('number_of_page'))
                             <span class="help-block">{{ $errors->first('number_of_page') }}</span>
                         @endif

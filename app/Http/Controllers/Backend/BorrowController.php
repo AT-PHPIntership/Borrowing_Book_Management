@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Borrow;
 use App\BorrowDetail;
+use DB;
 
 class BorrowController extends Controller
 {
@@ -19,28 +20,8 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        $borrows = Borrow::all();
+        $borrows = Borrow::join('borrow_details', 'borrows.id', '=', 'borrow_details.borrow_id')->select('borrows.*', 'borrow_details.borrow_id', DB::raw('count(borrow_details.borrow_id) as total'))->groupBy('borrow_details.borrow_id')->orderBy('borrows.created_at', 'desc')->get();
         return view('admin.borrows.index', compact('borrows'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store()
-    {
-        //
     }
 
     /**
@@ -59,35 +40,5 @@ class BorrowController extends Controller
             Session::flash('danger', trans('labels.not_found'));
             return redirect()->route('admin.borrow.index');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
-    {
-        //
     }
 }

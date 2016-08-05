@@ -64,5 +64,16 @@ return [
     'title_add_book' => '- Additional Book',
     'title_edit_book' => '- Edit Book',
     'title_create_book' => '- Create Book',
-    'title_view_bookItem' => '- View BookItem'
+    'title_view_bookItem' => '- View BookItem',
+    'name_pattern' => '[A-Za-z0-9 \t]{2,100}',
+    'name_notice' => 'No special characters, 2->100 characters',
+    'author_pattern' => '[.,\-A-Za-z0-9 \t]{3,}',
+    'author_notice' => 'No special characters, more than 3 characters',
+    'publish_year_pattern' => '\d{1,4}',
+    'publish_year_notice' => 'Must be number . max 4 characters',
+    'number_of_page_pattern' => '\d{1,}',
+    'number_of_page_notice' => 'Must be number ',
+    'quantity_pattern' => '\d{1,}',
+    'quantity_notice' => 'Must be number, min = 1',
+    
 ];

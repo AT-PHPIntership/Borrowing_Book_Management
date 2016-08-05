@@ -25,8 +25,8 @@ class PasswordRequest extends Request
     {
         return [
             'current_password' => 'required',
-            'password' => 'required|min:6|different:current_password',
-            'password_confirm' => 'required|same:password'
+            'password' => 'required|min:6|max:100|different:current_password',
+            'password_confirm' => 'required|max:100|same:password'
         ];
     }
 }

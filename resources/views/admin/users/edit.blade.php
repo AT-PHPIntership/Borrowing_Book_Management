@@ -33,7 +33,9 @@
                {!! Form::model($users,['route' => ['admin.user.update',$users -> id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
             <div class ="form-group {!!$errors->has('fullname') ? ' has-error' : '' !!}"> 
             {!! Form::label('fullname', trans('user.full_name'), ['class' =>'control-label'])!!} <br>
-            {!! Form::text('fullname', null, ['class' =>'form-control']) !!}<br>
+            {!! Form::text('fullname', null, ['class' =>'form-control',
+                'pattern'=>trans('user.fullname_pattern'),
+                'title'=>trans('user.fullname_notice'),'required']) !!}<br>
             @if($errors->has('fullname'))
             <span class="help-block">{{ $errors->first('fullname') }}</span>
             @endif
@@ -52,28 +54,32 @@
             </div>
             <div class = "form-group {!!$errors->has('birthday') ? ' has-error' : '' !!}">
             {!! Form::label('birthday', trans('user.birthday'), ['class' =>'control-label']) !!} <br>
-            {!! Form::date('birthday', null, ['class' =>'form-control']) !!}<br>
+            {!! Form::date('birthday', null, ['class' =>'form-control','pattern'=>trans('user.birthday_pattern'),
+                'title'=>trans('user.birthday_notice'),'required']) !!}<br>
             @if($errors->has('birthday'))
             <span class="help-block">{{ $errors->first('birthday') }}</span>
             @endif
             </div>
             <div class = "form-group {!!$errors->has('phone') ? ' has-error' : '' !!}">
             {!! Form::label('phone', trans('user.phone'), ['class' =>'control-label']) !!} <br>
-            {!! Form::text('phone', null, ['class' =>'form-control']) !!}<br>
+            {!! Form::text('phone', null, ['class' =>'form-control',
+                'pattern'=> trans('user.phone_pattern'),'title'=>trans('user.phone_notice'),'required']) !!}<br>
             @if($errors->has('phone'))
             <span class="help-block">{{ $errors->first('phone') }}</span>
             @endif
             </div>
             <div class = "form-group {!!$errors->has('address') ? ' has-error' : '' !!}">
             {!! Form::label('address', trans('user.address'), ['class' =>'control-label']) !!} <br>
-            {!! Form::text('address', null, ['class' =>'form-control']) !!}<br>
+            {!! Form::text('address', null, ['class' =>'form-control',
+                'pattern'=>trans('user.address_pattern'),'title'=>trans('user.address_notice'),'required']) !!}<br>
             @if($errors->has('address'))
             <span class="help-block">{{ $errors->first('address') }}</span>
             @endif
             </div>
             <div class = "form-group {!!$errors->has('expiretime') ? ' has-error' : '' !!}">
             {!! Form::label('expiretime', trans('user.expiretime'), ['class' =>'control-label']) !!} <br>
-            {!! Form::date('expiretime', null, ['class' =>'form-control']) !!} <br />
+            {!! Form::date('expiretime', null, ['class' =>'form-control',
+                'title'=>trans('user.expiretime_notice'),'required']) !!} <br />
             @if($errors->has('expiretime'))
             <span class="help-block">{{ $errors->first('expiretime') }}</span>
             @endif
