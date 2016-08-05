@@ -39,9 +39,14 @@ class BorrowDetailController extends Controller
         try {
             $id = $request->item;
             $borrowId = $request->borrowid;
-            BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
-            Borrow::whereIn('id', $borrowId)->increment('quantity', config('define.quantity_decrement'));
-            Session::flash('success', trans('borrow.successfully'));
+            $updateArray = array_count_values($borrowId);
+            $result = Borrow::updateBorrow($borrowId);
+            if ($result == count($updateArray)) {
+                BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
+                Session::flash('success', trans('borrow.successfully'));
+            } else {
+                Session::flash('danger', trans('borrow.error'));
+            }
             return redirect()->route('admin.borrowdetail.index');
         } catch (ModelNotFoundException $ex) {
             Session::flash(trans('borrow.danger'), trans('borrow.error'));
