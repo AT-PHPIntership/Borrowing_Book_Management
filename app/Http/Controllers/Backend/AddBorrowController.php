@@ -125,32 +125,4 @@ class AddBorrowController extends Controller
             return response()->json(['mes'=> trans('borrow.no_user')]);
         }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
-    {
-        //
-    }
 }

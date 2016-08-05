@@ -43,7 +43,7 @@
                         <td>{{ $index++ }}</td>
                         <td><a href="{{ route('admin.borrow.show',$item->id) }}">{{ $item->id }}</a></td>
                         <td>{{ $item->user->username }}</td>
-                        <td>{{ $item->quantity }}</td>
+                        <td>{{ $item->total }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
                             <a href="{{ route('admin.borrow.show',$item->id) }}"><button class="btn btn-info">{!!trans('borrow.view' )!!}</button></a>

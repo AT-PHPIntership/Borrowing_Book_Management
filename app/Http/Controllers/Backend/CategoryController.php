@@ -59,16 +59,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param int $id id
