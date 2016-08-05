@@ -17,7 +17,7 @@
                         <h2>{{$book->name}}</h2><br>
                         <p><label>{{trans('front_end.author')}}</label> {{$book->author}}</p>
                         <p><label>{{trans('front_end.category')}}</label> {{$book->category->name}}</p>
-                        <p><label>{{trans('front_end.publish_year')}}</label> {{ date(config('path.formatdate_index'), strtotime($book->publish_year)) }}</p>
+                        <p><label>{{trans('front_end.publish_year')}}</label> {{ $book->publish_year }}</p>
                         <p><label>{{trans('front_end.number_of_page')}}</label> {{$book->number_of_page}}</p>
                         <p><label>{{trans('front_end.descripbe')}}</label></p>
                   

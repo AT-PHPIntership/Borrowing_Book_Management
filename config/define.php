@@ -12,7 +12,7 @@ return [
 	'number_pages' => 9,
 	'number_image_default' => 1,
 	'number_images_slide' => 3,
-	'mail' => 'vddongbk@gmail.com',
+	'mail' => 'borrowingbook@gmail.com',
 	'limit_day' => 30,
 	'not_give_back' => '0',
 	'max_borrow' => 5,
@@ -24,5 +24,8 @@ return [
 	'cut_year' => 4,
 	'begin_cut_month' => 5,
 	'cut_month' => 2,
-	'success' => 200
+	'success' => 200,
+	'incomplete' => 0,
+	'complete' => 1,
+	'value_search' => 'valuesearch',
 ];

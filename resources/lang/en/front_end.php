@@ -54,5 +54,5 @@ return [
    'company_send' => 'Company: ',
    'send_success' => 'Your Email was Sent!',
    'send_unsuccess' => 'Cannot Sent!',
-
+   'search_no_result' => 'No Results for',
 ];
