@@ -106,10 +106,11 @@ class ProfileController extends Controller
                 $user->password= bcrypt($request->password);
                 $user->save();
                 Session::flash(trans('user.success'), trans('user.successful_message'));
-                return redirect()->route('logout');
+                return redirect()->route('/');
+            } else {
+                Session::flash(trans('user.danger'), trans('user.error_password_incorrect'));
+                return redirect()->back();
             }
-            Session::flash(trans('user.danger'), trans('user.error_password_incorrect'));
-            return redirect()->back();
         } catch (Exception $saveException) {
             Session::flash(trans('user.danger'), trans('user.error_message'));
             return redirect()->back();
