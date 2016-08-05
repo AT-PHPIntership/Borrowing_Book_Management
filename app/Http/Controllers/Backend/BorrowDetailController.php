@@ -39,22 +39,21 @@ class BorrowDetailController extends Controller
         try {
             $id = $request->item;
             $borrowId = $request->borrowid;
-            $update_array = array_count_values($borrowId);
-            $ids = implode(',', array_keys($update_array));
+            $updateArray = array_count_values($borrowId);
+            $ids = implode(',', array_keys($updateArray));
             $sql = "UPDATE borrows SET quantity = CASE id";
-            foreach ($update_array as $keys => $value) {
+            foreach ($updateArray as $keys => $value) {
                 $sql .= sprintf(" WHEN %d THEN quantity-%d ", $keys, $value);
             }
             $sql .= "END WHERE id IN ($ids);";
             $result = DB::update($sql);
-            if ($result == count($update_array)) {
+            if ($result == count($updateArray)) {
                 BorrowDetail::whereIn('id', $id)->update(array('status' => config('define.give_back')));
                 Session::flash('success', trans('borrow.successfully'));
-                return redirect()->route('admin.borrowdetail.index');
             } else {
                 Session::flash('danger', trans('borrow.error'));
-                return redirect()->route('admin.borrowdetail.index');
             }
+            return redirect()->route('admin.borrowdetail.index');
         } catch (ModelNotFoundException $ex) {
             Session::flash(trans('borrow.danger'), trans('borrow.error'));
             return redirect()->route('admin.borrowdetail.index');
