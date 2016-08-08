@@ -24,9 +24,9 @@ class BookEditRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|regex:/^[A-Za-z0-9 \t]*$/i|max:100|min:2',
+            'name' => 'required|unique:books,name|regex:/^[A-Za-z0-9 \t]*\p{L}+/i|max:100|min:2|max:100',
             'category_id' => 'required',
-            'author' => 'required|regex:/^[.,\-A-Za-z0-9 \t]*$/i|min:3',
+            'author' => 'required|regex:/^[.,\-A-Za-z0-9 \t]*\p{L}+/i|min:3|max:100',
             'image' => 'mimes:jpeg,jpg,png',
             'publish_year' => 'required|regex:/^[0-9]*$/i|max:4',
             'number_of_page' => 'required|numeric|min:1',
