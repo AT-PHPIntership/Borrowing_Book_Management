@@ -58,7 +58,7 @@
                         <h4><a href="{{route('show.book', $book->id)}}">{{ substr($book->name, 0, config('define.str_max_book_name')) }}{{ strlen($book->name)>config('define.str_max_book_name') ? "..." : ""}}</a></h4>
                         <p><label>{{trans('front_end.author')}}</label> {{$book->author}}</p>
                         <p><label>{{trans('front_end.category')}}</label> {{$book->category->name}}</p>
-                        <p><label>{{trans('front_end.publish_year')}}</label> {{ date(config('path.formatdate_index'), strtotime($book->publish_year)) }}</p>
+                        <p><label>{{trans('front_end.publish_year')}}</label> {{ $book->publish_year }}</p>
                         <p><label>{{trans('front_end.number_of_page')}}</label> {{$book->number_of_page}}</p>
                     </div>     
                 </div>

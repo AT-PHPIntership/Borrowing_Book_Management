@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Borrow extends Model
 {
@@ -43,5 +44,24 @@ class Borrow extends Model
     public function borrowDetails()
     {
         return $this->hasMany('App\BorrowDetail');
+    }
+
+    /**
+     * Update batch borrow.
+     *
+     * @param int $data input
+     *
+     * @return \Illuminate\Database\Eloquent\Collections
+     */
+    public static function updateBorrow($data)
+    {
+        $updateArray = array_count_values($data);
+        $ids = implode(',', array_keys($updateArray));
+        $sql = "UPDATE borrows SET quantity = CASE id";
+        foreach ($updateArray as $keys => $value) {
+            $sql .= sprintf(" WHEN %d THEN quantity-%d ", $keys, $value);
+        }
+        $sql .= "END WHERE id IN ($ids);";
+        return DB::update($sql);
     }
 }
