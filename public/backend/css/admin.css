@@ -23,40 +23,13 @@ body {
 }
 
 .styletext{
-    font-size: 16px;
-}
-
-@-webkit-keyframes my {
-    0% { color: rgba(230, 126, 34,1.0); } 
-    50% { color: #fff;  } 
-    100% { color: rgba(230, 126, 34,1.0);  } 
-}
-
-@-moz-keyframes my { 
-    0% { color: rgba(230, 126, 34,1.0);  } 
-    50% { color: #fff;  }
-    100% { color: rgba(230, 126, 34,1.0);  } 
-}
-
-@-o-keyframes my { 
-    0% { color: rgba(230, 126, 34,1.0); } 
-    50% { color: #fff; } 
-    100% { color: rgba(230, 126, 34,1.0);  } 
-}
-
-@keyframes my { 
-    0% { color: rgba(230, 126, 34,1.0);  } 
-    50% { color: #fff;  }
-    100% { color: rgba(230, 126, 34,1.0);  } 
+    font-size: 15px;
 }
 
 .test {
-         font-size:40px;
-         font-weight:bold;
-     -webkit-animation: my 7000ms infinite;
-     -moz-animation: my 7000ms infinite; 
-     -o-animation: my 7000ms infinite; 
-     animation: my 7000ms infinite;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(230, 126, 34,1.0);
 }
 
 #styleshowbook{
@@ -358,4 +331,7 @@ span.danger {
 }
 .panel-default > .panel-heading{
     background-color:#3498db;
+}
+.btn {
+    padding: 4px 8px;
 }
