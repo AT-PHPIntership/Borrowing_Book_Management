@@ -25,35 +25,21 @@
     </div>
 	<div class="col-lg-12 " id="styleshowbook">
 		<div class="col-lg-6">
-			<div class="col-lg-4">
-				<div class="col-lg-12">
-					{!! Form::image(config('path.upload_book').$list->image,null,['class' => ' img-thumbnail ','id' => 'image_no', 'alt' =>trans('book_manage_lang.notfound')])!!}
-				</div>
+			<div class="col-lg-5">
+				{!! Form::image(config('path.upload_book').$list->image,null,['class' => ' img-thumbnail ','id' => 'image_no', 'alt' =>trans('book_manage_lang.notfound')])!!}
 			</div>
-			<div class="col-lg-8 styletext">
-				<div class="col-lg-12 ">
-					{!! Form::label(null,$list->name,['class' =>'control-label test']) !!}
-				</div>
-				
-				<div class="col-lg-12">
-					{{trans('book_manage_lang.author')}}  {!! Form::label(null,$list->author,['class' =>'control-label']) !!}
-				</div>
-
-				<div class="col-lg-12">
-					{{trans('book_manage_lang.publish_year')}}  {!! Form::label(null,date(config('path.formatdate'), strtotime($list->publish_year)),['class' =>'control-label']) !!}
-				</div>
-
-				<div class="col-lg-12">
-					{{trans('book_manage_lang.number_of_page')}}  {!! Form::label(null,$list->number_of_page,['class' =>'control-label']) !!}
-				</div>
-
-				<div class="col-lg-12">
-					{{trans('book_manage_lang.category')}}  {!! Form::label(null,$list->category->name,['class' =>'control-label']) !!}
-				</div>
-
-				<div class="col-lg-12">
-					{{trans('book_manage_lang.quantity')}}  {!! Form::label(null,$list->quantity,['class' =>'control-label']) !!}
-				</div>
+			<div class="col-lg-7 styletext">
+				{!! Form::label(null,$list->name,['class' =>'control-label test']) !!}
+				<br>
+				{{trans('book_manage_lang.author')}}:  {!! Form::label(null,$list->author,['class' =>'control-label']) !!}
+				<br>
+				{{trans('book_manage_lang.publish_year')}}:  {!! Form::label(null,$list->publish_year,['class' =>'control-label']) !!}
+				<br>
+				{{trans('book_manage_lang.number_of_page')}}:  {!! Form::label(null,$list->number_of_page,['class' =>'control-label']) !!}
+				<br>
+				{{trans('book_manage_lang.category')}}:  {!! Form::label(null,$list->category->name,['class' =>'control-label']) !!}
+				<br>
+				{{trans('book_manage_lang.quantity')}}:  {!! Form::label(null,$list->quantity,['class' =>'control-label']) !!}
 			</div>
 		</div>
 		<div class="col-lg-6 ">

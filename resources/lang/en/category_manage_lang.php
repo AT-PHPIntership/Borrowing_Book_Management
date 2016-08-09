@@ -40,6 +40,6 @@ return [
     'title_create_category' => '- Create Category',
     'title_edit_category' => '- Edit Category',
     'category' => 'Manage Category',
-    'category_pattern' => '[A-Za-z \t]{3,100}',
+    'category_pattern' => '[A-Za-z \t]{3,100}*\p{L}+',
     'category_notice' => 'No number,special characters, 3->100 characters'
 ];
